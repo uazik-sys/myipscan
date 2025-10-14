@@ -1,64 +1,113 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free &amp; Private</title>
-<meta content="Free IP lookup: see IP type, geolocation, ISP/ASN and browser UA. No cookies, no logs." name="description"/>
-<link href="https://myipscan.net/what-is-my-ip.html" rel="canonical"/>
-<meta content="website" property="og:type"/>
-<meta content="https://myipscan.net/what-is-my-ip.html" property="og:url"/>
-<meta content="IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free &amp; Private" property="og:title"/>
-<meta content="Free IP lookup: see IP type, geolocation, ISP/ASN and browser UA. No cookies, no logs." property="og:description"/>
-<meta content="https://myipscan.net/icon-512.png" property="og:image"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free &amp; Private" name="twitter:title"/>
-<meta content="Free IP lookup: see IP type, geolocation, ISP/ASN and browser UA. No cookies, no logs." name="twitter:description"/>
-<meta content="https://myipscan.net/icon-512.png" name="twitter:image"/>
-<link href="/favicon.ico" rel="icon"/>
-<link href="/manifest.json" rel="manifest"/>
-<link href="/styles.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "MyIPScan", "url": "https://myipscan.net/", "logo": "https://myipscan.net/icon-512.png", "description": "Privacy-first IP checker with IPv4/IPv6, geolocation, ASN, and simple tools.", "sameAs": []}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "MyIPScan", "url": "https://myipscan.net/", "potentialAction": {"@type": "SearchAction", "target": "https://myipscan.net/?q={search_term_string}", "query-input": "required name=search_term_string"}}</script></head><body>
+<title>What Is My IP? Public IPv4/IPv6, Location & ASN — Fast & Private</title>
+<meta name="description" content="Learn what an IP is, the difference between public vs local IP, and how to see your IPv4/IPv6, location, and ASN in seconds. Privacy-first, no logs."/>
+<link rel="canonical" href="https://myipscan.net/faq/what-is-my-ip.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://myipscan.net/faq/what-is-my-ip.html"/>
+<meta property="og:title" content="What Is My IP? Public IPv4/IPv6, Location & ASN — Fast & Private"/>
+<meta property="og:description" content="See your public IP instantly and understand IPv4/IPv6, location accuracy, and ASN. Lightweight guide with commands for Windows, macOS, Linux, iOS, Android."/>
+<meta property="og:image" content="https://myipscan.net/icon-512.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="What Is My IP? Public IPv4/IPv6, Location & ASN — Fast & Private"/>
+<meta name="twitter:description" content="Check your IP in one click. Learn about IPv4/IPv6, location, and ASN. No tracking."/>
+<meta name="twitter:image" content="https://myipscan.net/icon-512.png"/>
+<link rel="alternate" href="https://myipscan.net/faq/what-is-my-ip.html" hreflang="x-default"/>
+<link rel="alternate" href="https://myipscan.net/faq/what-is-my-ip.html" hreflang="en"/>
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
+</head>
+<body>
 <header class="wrap nav">
-<div class="logo"></div>
-<nav>
-<a href="/">Home</a>
-<a href="/what-is-my-ip.html">What is my IP</a>
-<a href="/faq/index.html">FAQ</a>
-<a href="/privacy.html">Privacy</a>
-<a href="/terms.html">Terms</a>
-<span class="tools"><button aria-expanded="false" aria-haspopup="true" id="toolsButton">Tools</button><div aria-labelledby="toolsButton" class="tools-menu" role="menu"><a href="/tools/password-generator.html" role="menuitem">Password Generator</a><a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a><a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a><a href="/tools/user-agent.html" role="menuitem">User‑Agent Info</a></div></span></nav>
+  <div class="logo"></div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/what-is-my-ip.html">What is my IP</a>
+    <a href="/faq/">FAQ</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </nav>
 </header>
+
 <main class="wrap">
-<div class="breadcrumbs"><a href="/">Home</a> / What is my IP</div>
-<section class="hero"><h1>IP Lookup (Private &amp; Fast)</h1>
-<p class="light">See your IP, IPv4/IPv6, location and ISP/ASN. No tracking, no logs.</p></section>
-<section class="card">
-<h2>Your IP &amp; Location</h2>
-<p>Your IP identifies your connection on the internet. Geolocation is approximate (city/country) and depends on your network.</p>
-<h2>ISP/ASN Basics</h2>
-<p>An <strong>Autonomous System Number</strong> (ASN) marks a provider’s network, e.g., AS12345. It’s used for routing and security.</p>
-<h2>User-Agent Explained</h2>
-<p>Browsers send a <em>User-Agent</em> string so sites can adapt layout/features. It does not personally identify you.</p>
-<p>Try the tool now: <a href="/">Check IP</a>.</p>
-</section>
+  <article class="article">
+    <div class="breadcrumbs"><a href="/faq/">FAQ</a> / What is my IP</div>
+    <h1>What Is My IP?</h1>
+    <p><strong>Quick answer:</strong> your <em>public IP</em> is the address the internet sees for your device/network. You can check it instantly on our <a href="/">homepage</a> — we’ll also show your IPv4/IPv6, city/country, ISP and ASN with no logs.</p>
+
+    <h2>Public vs local IP (and why both matter)</h2>
+    <ul>
+      <li><strong>Public IP</strong> — visible on the internet, assigned by your ISP/CGNAT or VPN. This is what websites see.</li>
+      <li><strong>Local IP</strong> — private address on your home/office Wi-Fi (e.g., 192.168.1.23). Not routable on the internet.</li>
+    </ul>
+
+    <h2>How to see my IP right now</h2>
+    <p>Open the <a href="/">Check IP</a> page. You’ll see:</p>
+    <ul class="inline">
+      <li><strong>IPv4/IPv6</strong> (both if available)</li>
+      <li><strong>Location</strong> (city/country)</li>
+      <li><strong>Provider / ASN</strong> (your ISP or VPN network)</li>
+      <li><strong>User-Agent</strong> (browser & OS)</li>
+    </ul>
+
+    <h2>How to find your local IP on each OS</h2>
+    <h3>Windows</h3>
+    <pre><code>cmd → ipconfig
+Ethernet adapter Wi-Fi:
+   IPv4 Address. . . . . . . . . . . : 192.168.1.23
+</code></pre>
+    <h3>macOS / Linux</h3>
+    <pre><code># macOS
+ifconfig | grep "inet " 
+# Linux
+ip addr show | grep "inet "
+</code></pre>
+    <h3>iOS / Android</h3>
+    <p><strong>iOS:</strong> Settings → Wi-Fi → (i) → IPv4 Address. <br/><strong>Android:</strong> Settings → Network & Internet → Wi-Fi → the connected network.</p>
+
+    <h2>Why your IP location can look “wrong”</h2>
+    <p>IP location relies on databases and the network path. With VPNs, mobile networks, or CG-NAT, the city can differ. See <a href="/faq/why-is-ip-location-wrong.html">Why does my IP show the wrong location?</a></p>
+
+    <h2>FAQ</h2>
+    <p><strong>Is my IP personal data?</strong> In many jurisdictions it can be, depending on context. We don’t store IPs or set tracking cookies.</p>
+    <p><strong>Do I have both IPv4 and IPv6?</strong> Many networks provide dual-stack; our homepage shows both if available.</p>
+    <p><strong>Can websites identify me by IP?</strong> IP alone identifies your network, not you. Combining IP with other signals can increase fingerprinting accuracy.</p>
+
+    <hr/>
+    <p><a href="/" class="cta">Check your IP now →</a></p>
+
+    <nav class="faq-internal">
+      <h2>More IP Guides</h2>
+      <ul>
+        <li><a href="/faq/how-to-find-my-ip.html">How to find my IP address</a></li>
+        <li><a href="/faq/reverse-dns.html">What is reverse DNS (rDNS)?</a></li>
+        <li><a href="/faq/how-to-hide-ip.html">How to hide my IP address</a></li>
+        <li><a href="/faq/why-is-ip-location-wrong.html">Why does my IP show the wrong location?</a></li>
+        <li><a href="/faq/">All FAQ →</a></li>
+      </ul>
+    </nav>
+  </article>
 </main>
+
 <footer class="wrap">
-<nav>
-<a href="/privacy.html">Privacy</a> ·
-    <a href="/terms.html">Terms</a> ·
-    <a href="/faq/index.html">FAQ</a> ·
-    <a href="/">Check IP</a>
-</nav>
-<div class="light">Contact:  • Privacy-first • No logs</div>
+  <nav>
+    <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/faq/">FAQ</a> · <a href="/">Check IP</a>
+  </nav>
+  <div class="light">Contact: myipscan@gmail.com • Privacy-first • No logs</div>
 </footer>
-<script>
-document.addEventListener('click', function(e){
-  const t = document.querySelector('.tools');
-  if(!t) return;
-  if(t.contains(e.target) && e.target.id === 'toolsButton'){
-    t.classList.toggle('open');
-  } else if(!t.contains(e.target)) {
-    t.classList.remove('open');
-  }
-});
-</script></body></html>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What is a public vs local IP?","acceptedAnswer":{"@type":"Answer","text":"Public IP is visible on the internet and assigned by your ISP or VPN; local IP is your private address on the LAN (e.g., 192.168.x.x) and is not routable."}},
+    {"@type":"Question","name":"How do I see my IP quickly?","acceptedAnswer":{"@type":"Answer","text":"Open the homepage on myipscan.net to instantly see your IPv4/IPv6, location and ASN. We process the data in memory at the edge and do not log it."}},
+    {"@type":"Question","name":"Why is my IP location inaccurate?","acceptedAnswer":{"@type":"Answer","text":"IP location depends on databases and routing. Mobile networks, VPNs, CG-NAT, and proxies can shift the visible city. Accuracy usually improves at the country level."}}
+  ]
+}
+</script>
+</body>
+</html>
