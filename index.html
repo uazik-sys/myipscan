@@ -130,6 +130,34 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.08);margin:24px 0}
 <li>Seeing both is normal — some networks prefer one over the other.</li>
 </ul>
 </section>
+  <!-- Edge info block -->
+<section class="card" style="margin-top:24px;">
+  <h2>Edge & Connection Info</h2>
+  <div id="edge-info" style="font-family:system-ui,Arial,sans-serif;font-size:15px;color:#ddd;padding:10px 14px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:var(--card,#12151c);">
+    Detecting your connection info...
+  </div>
+</section>
+
+<script>
+async function loadEdgeInfo() {
+  const el = document.getElementById('edge-info');
+  try {
+    const res = await fetch('/cdn-cgi/trace');
+    const text = await res.text();
+    const data = Object.fromEntries(text.trim().split('\n').map(l => l.split('=')));
+    const info = `
+      🌍 <b>Edge:</b> ${data.colo || '—'} (${data.loc || ''})<br>
+      🏢 <b>ASN:</b> ${data.asn || '—'}<br>
+      ⚡ <b>IP:</b> ${data.ip || '—'}
+    `;
+    el.innerHTML = info;
+  } catch(e) {
+    el.textContent = 'Unable to detect edge data.';
+  }
+}
+loadEdgeInfo();
+</script>
+
 </main>
 <footer class="wrap">
 <nav>
