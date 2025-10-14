@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://myipscan.net/sitemap.xml
