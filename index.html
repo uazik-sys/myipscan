@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>What Is My IP? Fast IPv4/IPv6, Location &amp; ASN — No Logs</title>
+<meta content="Instantly see your public IP, IPv4/IPv6, city/country, ISP/ASN and User-Agent. Privacy-first, no logs, ultra-fast edge." name="description"/>
+<link href="https://myipscan.net/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://myipscan.net/" property="og:url"/>
+<meta content="What Is My IP? Fast IPv4/IPv6, Location &amp; ASN — No Logs" property="og:title"/>
+<meta content="Instantly see your public IP, IPv4/IPv6, city/country, ISP/ASN and User-Agent. Privacy-first, no logs, ultra-fast edge." property="og:description"/>
+<meta content="https://myipscan.net/icon-512.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="What Is My IP? Fast IPv4/IPv6, Location &amp; ASN — No Logs" name="twitter:title"/>
+<meta content="Instantly see your public IP, IPv4/IPv6, city/country, ISP/ASN and User-Agent. Privacy-first, no logs, ultra-fast edge." name="twitter:description"/>
+<meta content="https://myipscan.net/icon-512.png" name="twitter:image"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/manifest.json" rel="manifest"/>
+<style>
+:root{--bg:#0f1115;--card:#12151c;--fg:#f5f7fa;--mut:#a3a9b6;--acc:#4ade80}
+*{box-sizing:border-box}
+html{color-scheme:dark light}
+body{margin:0;background:#0f1115;color:var(--fg);font:16px/1.55 system-ui,Segoe UI,Roboto,Arial}
+a{color:inherit}
+.wrap{max-width:960px;margin:auto;padding:16px}
+header.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.logo{font-weight:800;letter-spacing:.3px}
+nav a{margin-left:14px;opacity:.9;text-decoration:none}
+nav a:hover{opacity:1;text-decoration:underline}
+.hero h1{font-size:clamp(28px,5vw,44px);margin:8px 0 6px}
+.hero p{color:var(--mut);margin:0 0 14px}
+.card{background:var(--card);border-radius:14px;padding:16px;box-shadow:0 4px 24px rgba(0,0,0,.25)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.label{color:var(--mut);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.value{font-size:18px}
+.value.mono{font-family:ui-monospace,Consolas,Menlo,monospace;word-break:break-all}
+.actions{margin-top:10px}
+button{background:var(--acc);border:0;border-radius:10px;padding:10px 14px;color:#052;cursor:pointer}
+button:active{transform:translateY(1px)}
+.note{color:var(--mut);font-size:14px;margin-top:8px}
+footer{opacity:.85;margin:32px auto}
+h2{margin:18px 0 10px}
+ul.inline{padding-left:18px}
+hr{border:0;border-top:1px solid rgba(255,255,255,.08);margin:24px 0}
+.light{color:var(--mut)}
+.article{line-height:1.7}
+.article h1{margin:10px 0}
+.article time{color:var(--mut);font-size:14px}
+.article .meta{margin:6px 0 16px}
+.breadcrumbs{font-size:14px;color:var(--mut);margin-bottom:10px}
+
+
+
+/* Tools dropdown */
+.tools { position: relative; display: inline-block; }
+.tools > button {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0 12px;
+  font: inherit;
+  cursor: pointer;
+  transition: opacity .2s ease;
+}
+.tools > button:hover { opacity: .7; }
+.tools-menu {
+  position: absolute; top: 120%; left: 0;
+  background: var(--card, #12151c);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+  padding: 8px;
+  display: none;
+  z-index: 50;
+}
+.tools-menu a {
+  display: block; padding: 8px 10px; text-decoration: none; border-radius: 6px;
+}
+.tools-menu a:hover { background: rgba(255,255,255,.08); }
+.tools:hover .tools-menu { display: block; }
+@media (hover: none) { .tools:hover .tools-menu { display: none; } .tools.open .tools-menu { display: block; } }
+@media (hover: none) { .tools:hover .tools-menu { display: none; } .tools.open .tools-menu { display: block; } }
+
+/* inlined to remove render-blocking */
+
+/* Reserve space to reduce CLS for dynamic IP block */
+#ip-info, .ip-card, .results {min-height: 180px;}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "MyIPScan", "url": "https://myipscan.net/", "logo": "https://myipscan.net/icon-512.png", "description": "Privacy-first IP checker with IPv4/IPv6, geolocation, ASN, and simple tools.", "sameAs": []}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "MyIPScan", "url": "https://myipscan.net/", "potentialAction": {"@type": "SearchAction", "target": "https://myipscan.net/?q={search_term_string}", "query-input": "required name=search_term_string"}}</script><link rel="preload" href="/api/ip" as="fetch" crossorigin>
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
+</head>
+<body>
+
+<header class="wrap nav">
+<div class="logo"></div>
+<nav>
+<a href="/">Home</a>
+<a href="/what-is-my-ip.html">What is my IP</a>
+<a href="/faq/index.html">FAQ</a>
+<a href="/privacy.html">Privacy</a>
+<a href="/terms.html">Terms</a>
+<span class="tools"><button aria-expanded="false" aria-haspopup="true" id="toolsButton">Tools</button><div aria-labelledby="toolsButton" class="tools-menu" role="menu"><a href="/tools/password-generator.html" role="menuitem">Password Generator</a><a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a><a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a><a href="/tools/user-agent.html" role="menuitem">User‑Agent Info</a></div></span></nav>
+</header>
+<main class="wrap">
+<section class="hero">
+<h1>What Is My IP Address?</h1>
+<p class="light">Your IP, IPv4/IPv6, city/country, ISP/ASN and User-Agent — in milliseconds, with no logs.</p>
+</section>
+<section class="card">
+<div class="grid">
+<div><div class="label">IPv4/IPv6</div><div class="value" id="ip">…</div></div>
+<div><div class="label">Location</div><div class="value" id="loc">…</div></div>
+<div><div class="label">Provider / ASN</div><div class="value" id="asn">…</div></div>
+<div><div class="label">User-Agent</div><div class="value mono" id="ua">…</div></div>
+</div>
+<div class="actions"><button id="copy">Copy IP</button> <span hidden="" id="copied">✓ Copied</span></div>
+<p class="note" id="sourceNote"></p>
+</section>
+<section>
+<h2>How We Detect Without Tracking</h2>
+<p>We run on Cloudflare edge. Your IP and geolocation are processed in memory and never stored. No tracking cookies. Primary source is our edge API; if it is unavailable, we fall back to Cloudflare <code>/cdn-cgi/trace</code>, then ipify as a last resort.</p>
+</section>
+<section>
+<h2>IPv4 vs IPv6 — Simple</h2>
+<ul class="inline">
+<li><strong>IPv4</strong>: 32-bit addresses (e.g., 203.0.113.7).</li>
+<li><strong>IPv6</strong>: 128-bit addresses (e.g., 2001:db8::1).</li>
+<li>Seeing both is normal — some networks prefer one over the other.</li>
+</ul>
+</section>
+</main>
+<footer class="wrap">
+<nav>
+<a href="/privacy.html">Privacy</a> ·
+    <a href="/terms.html">Terms</a> ·
+    <a href="/faq/index.html">FAQ</a> ·
+    <a href="/">Check IP</a>
+</nav>
+<div class="light">Contact:  • Privacy-first • No logs</div>
+</footer>
+<script>
+async function fetchApiIp(){ const r=await fetch("/api/ip",{cache:"no-store"}); if(!r.ok) throw 0; return r.json(); }
+async function fetchCfTrace(){ const r=await fetch("/cdn-cgi/trace",{cache:"no-store"}); if(!r.ok) throw 0; const t=await r.text(); const map={}; t.trim().split("\n").forEach(l=>{const i=l.indexOf("="); if(i>0) map[l.slice(0,i)]=l.slice(i+1);}); return {ip:map.ip||null,country:map.loc||null,city:null,region:null,asn:map.asn?Number(String(map.asn).replace(/^AS/i,'')):null,colo:map.colo||null,ua:navigator.userAgent,__src:"fallback-cf"}; }
+async function fetchIpify(){ const r=await fetch("https://api.ipify.org?format=json",{cache:"no-store"}); if(!r.ok) throw 0; const j=await r.json(); return {ip:j.ip||null,country:null,city:null,region:null,asn:null,ua:navigator.userAgent,__src:"fallback-ipify"}; }
+(async()=>{ let data=null, src=""; try{ data=await fetchApiIp(); src="api"; }catch(_){
+  try{ data=await fetchCfTrace(); src="fallback-cf"; }catch(__){
+    try{ data=await fetchIpify(); src="fallback-ipify"; }catch(___){ src="none"; }
+  }
+}
+ if(data){ ip.textContent=data.ip||"N/A"; loc.textContent=[data.city,data.region,data.country].filter(Boolean).join(", ")||"—"; asn.textContent=(data.asn?("AS"+data.asn):"")+(data.colo?` · ${data.colo}`:""); ua.textContent=data.ua||navigator.userAgent; copy.onclick=async()=>{ try{ await navigator.clipboard.writeText(data.ip||""); copied.hidden=false; setTimeout(()=>copied.hidden=true,900); }catch(_){} }; sourceNote.textContent = src==="api"?"Source: API (Cloudflare Edge)":(src==="fallback-cf"?"Source: Fallback (cdn-cgi/trace)":(src==="fallback-ipify"?"Source: Fallback (ipify)":"Source: none")); }
+ else { ip.textContent="N/A"; loc.textContent="—"; asn.textContent="—"; ua.textContent=navigator.userAgent; sourceNote.textContent="Source: none"; }
+})();</script>
+<script>
+document.addEventListener('click', function(e){
+  const t = document.querySelector('.tools');
+  if(!t) return;
+  if(t.contains(e.target) && e.target.id === 'toolsButton'){
+    t.classList.toggle('open');
+  } else if(!t.contains(e.target)) {
+    t.classList.remove('open');
+  }
+});
+</script></body>
+</html>
