@@ -1,0 +1,63 @@
+:root{--bg:#0f1115;--card:#12151c;--fg:#f5f7fa;--mut:#a3a9b6;--acc:#4ade80}
+*{box-sizing:border-box}
+html{color-scheme:dark light}
+body{margin:0;background:#0f1115;color:var(--fg);font:16px/1.55 system-ui,Segoe UI,Roboto,Arial}
+a{color:inherit}
+.wrap{max-width:960px;margin:auto;padding:16px}
+header.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.logo{font-weight:800;letter-spacing:.3px}
+nav a{margin-left:14px;opacity:.9;text-decoration:none}
+nav a:hover{opacity:1;text-decoration:underline}
+.hero h1{font-size:clamp(28px,5vw,44px);margin:8px 0 6px}
+.hero p{color:var(--mut);margin:0 0 14px}
+.card{background:var(--card);border-radius:14px;padding:16px;box-shadow:0 4px 24px rgba(0,0,0,.25)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.label{color:var(--mut);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.value{font-size:18px}
+.value.mono{font-family:ui-monospace,Consolas,Menlo,monospace;word-break:break-all}
+.actions{margin-top:10px}
+button{background:var(--acc);border:0;border-radius:10px;padding:10px 14px;color:#052;cursor:pointer}
+button:active{transform:translateY(1px)}
+.note{color:var(--mut);font-size:14px;margin-top:8px}
+footer{opacity:.85;margin:32px auto}
+h2{margin:18px 0 10px}
+ul.inline{padding-left:18px}
+hr{border:0;border-top:1px solid rgba(255,255,255,.08);margin:24px 0}
+.light{color:var(--mut)}
+.article{line-height:1.7}
+.article h1{margin:10px 0}
+.article time{color:var(--mut);font-size:14px}
+.article .meta{margin:6px 0 16px}
+.breadcrumbs{font-size:14px;color:var(--mut);margin-bottom:10px}
+
+
+
+/* Tools dropdown */
+.tools { position: relative; display: inline-block; }
+.tools > button {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0 12px;
+  font: inherit;
+  cursor: pointer;
+  transition: opacity .2s ease;
+}
+.tools > button:hover { opacity: .7; }
+.tools-menu {
+  position: absolute; top: 120%; left: 0;
+  background: var(--card, #12151c);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+  padding: 8px;
+  display: none;
+  z-index: 50;
+}
+.tools-menu a {
+  display: block; padding: 8px 10px; text-decoration: none; border-radius: 6px;
+}
+.tools-menu a:hover { background: rgba(255,255,255,.08); }
+.tools:hover .tools-menu { display: block; }
+@media (hover: none) { .tools:hover .tools-menu { display: none; } .tools.open .tools-menu { display: block; } }
+@media (hover: none) { .tools:hover .tools-menu { display: none; } .tools.open .tools-menu { display: block; } }

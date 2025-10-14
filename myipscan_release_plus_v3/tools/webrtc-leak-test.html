@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WebRTC Leak Test — MyIPScan</title>
+<meta name="description" content="Quickly check if your browser exposes IPs through WebRTC ICE candidates.">
+<link rel="canonical" href="https://myipscan.net/tools/webrtc-leak-test.html">
+<link rel="stylesheet" href="/styles.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="WebRTC Leak Test — MyIPScan">
+<meta property="og:description" content="Quickly check if your browser exposes IPs through WebRTC ICE candidates.">
+<meta property="og:image" content="https://myipscan.net/icon-512.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<div class="wrap">
+<header class="nav">
+  <div class="logo"><a href="/" style="text-decoration:none">MyIPScan</a></div>
+  <nav>
+    <a href="/">Home</a>
+    <span class="tools">
+      <button aria-haspopup="true" aria-expanded="false" id="toolsButton">Tools</button>
+      <div class="tools-menu" role="menu" aria-labelledby="toolsButton">
+        <a role="menuitem" href="/tools/password-generator.html">Password Generator</a>
+        <a role="menuitem" href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a>
+        <a role="menuitem" href="/tools/dns-lookup.html">DNS Lookup</a>
+        <a role="menuitem" href="/tools/user-agent.html">User‑Agent Info</a>
+      </div>
+    </span>
+  </nav>
+</header>
+
+<main>
+  <h1>WebRTC Leak Test</h1>
+  <section class="card">
+    <p class="note">This test collects ICE candidates via <code>RTCPeerConnection</code> to reveal any IPs your browser exposes. Modern browsers often mask local IPs.</p>
+    <div id="results" class="mono" style="white-space:pre-wrap"></div>
+    <div class="actions" style="margin-top:10px"><button id="run">Run Test</button></div>
+  </section>
+</main>
+<script>
+async function test(){
+  const out = document.getElementById('results');
+  out.textContent = "Collecting ICE candidates...";
+  const ips = new Set();
+  try {
+    const pc = new RTCPeerConnection({iceServers:[{urls:'stun:stun.l.google.com:19302'}]});
+    pc.createDataChannel('t');
+    pc.onicecandidate = (e)=>{
+      if(e.candidate && e.candidate.candidate){
+        const m = e.candidate.candidate.match(/candidate:.+ (\d+\.\d+\.\d+\.\d+|[a-fA-F0-9:]+) /);
+        if(m){ ips.add(m[1]); out.textContent = Array.from(ips).join("\n"); }
+      }
+    };
+    const offer = await pc.createOffer();
+    await pc.setLocalDescription(offer);
+    setTimeout(()=>pc.close(), 4000);
+  } catch(err){
+    out.textContent = "Error: " + err;
+  }
+}
+document.getElementById('run').addEventListener('click', test);
+</script>
+
+<footer style="opacity:.7;margin-top:32px;font-size:14px">
+  <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/faq/">FAQ</a>
+</footer>
+</div>
+<script>
+document.addEventListener('click', function(e){
+  const t = document.querySelector('.tools');
+  if(!t) return;
+  if(t.contains(e.target) && e.target.id === 'toolsButton'){
+    t.classList.toggle('open');
+  } else if(!t.contains(e.target)) {
+    t.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>
