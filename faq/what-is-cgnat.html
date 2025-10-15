@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>What Is CGNAT (Carrier-Grade NAT) and Why It Affects You</title>
+  <meta name="description" content="Understand what CGNAT is, why ISPs use it, how it breaks port forwarding and inbound access, how to check if you’re behind it, and practical workarounds.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://myipscan.net/faq/what-is-cgnat.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="What Is CGNAT (Carrier-Grade NAT) and Why It Affects You">
+  <meta property="og:description" content="CGNAT explained: shared public IPs, private WAN ranges, broken port forwarding, and fixes like public/static IP, VPN with port forwarding, or IPv6.">
+  <meta property="og:url" content="https://myipscan.net/faq/what-is-cgnat.html">
+  <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Is CGNAT (Carrier-Grade NAT) and Why It Affects You">
+  <meta name="twitter:description" content="Learn how CGNAT works and why it impacts gaming, servers, P2P, and remote access — plus detection steps and practical workarounds.">
+  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
+
+  <link rel="preload" as="style" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="wrap nav">
+    <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/what-is-my-ip.html">What is my IP</a>
+      <a href="/faq/index.html">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <span class="tools">
+        <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
+        <div class="tools-menu" role="menu" aria-label="Tools menu">
+          <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+          <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+          <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+          <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+          <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+        </div>
+      </span>
+    </nav>
+  </header>
+
+  <!-- Article -->
+  <main class="wrap article">
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › What Is CGNAT (Carrier-Grade NAT) and Why It Affects You</div>
+
+    <!-- Title & date -->
+    <h1>What Is CGNAT (Carrier-Grade NAT) and Why It Affects You</h1>
+    <time datetime="2025-10-15">Updated: October 15, 2025</time>
+
+    <!-- Lede -->
+    <p><strong>CGNAT (Carrier‑Grade NAT)</strong> is a large‑scale version of network address translation used by ISPs to put many customers behind a small set of public IPv4 addresses. It helps stretch limited IPv4 space, but it also breaks <em>inbound connections</em>, complicates gaming and P2P, and makes traditional <strong>port forwarding</strong> impossible. This guide explains how CGNAT works, how to detect it in minutes, and practical workarounds — including requesting a public IP, using a VPN with port forwarding, or adopting IPv6.</p>
+
+    <h2>How CGNAT works (and how it differs from home NAT)</h2>
+    <ul>
+      <li><strong>Home NAT:</strong> your router translates many <em>private LAN</em> devices to one public IP.</li>
+      <li><strong>CGNAT:</strong> your ISP translates many <em>customers</em> to one (or a small pool of) public IPs at the carrier network.</li>
+    </ul>
+    <p>Under CGNAT, your router’s WAN may have a <em>private</em> address (not publicly routable). Your traffic is then translated again by the ISP to a shared public IP. This “double NAT” prevents unsolicited inbound traffic from reaching your home network.</p>
+
+    <h2>Why ISPs use CGNAT</h2>
+    <ul>
+      <li><strong>IPv4 exhaustion:</strong> not enough public IPv4 addresses for every customer.</li>
+      <li><strong>Operational simplicity:</strong> fewer public IPs to manage; easier abuse handling.</li>
+      <li><strong>Cost control:</strong> buying public IPv4 space is expensive; CGNAT reduces demand.</li>
+    </ul>
+
+    <h2>How CGNAT affects you</h2>
+    <ul>
+      <li><strong>No port forwarding:</strong> you cannot expose a server, CCTV, or self‑hosted service from home in the usual way.</li>
+      <li><strong>Peer‑to‑peer limitations:</strong> some games, P2P apps, VoIP struggle with symmetric NAT and multiple translation layers.</li>
+      <li><strong>Remote access headaches:</strong> inbound VPNs and admin panels won’t be reachable from the public internet.</li>
+      <li><strong>Reputation side effects:</strong> you share a public IP with others; if one user misbehaves, sites may rate‑limit or block the shared IP.</li>
+    </ul>
+
+    <h2>How to detect CGNAT (2 minutes)</h2>
+    <ol>
+      <li>Open <a href="/tools/what-is-my-ip.html">What is My IP</a> and note your <strong>public IP</strong>.</li>
+      <li>Open your router’s <strong>WAN/Internet</strong> status and check the WAN IP.</li>
+      <li>If your router’s WAN IP is in a <em>private</em> range — e.g., <code>100.64.0.0/10</code> (CGNAT space), <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, or <code>192.168.0.0/16</code> — you are behind CGNAT. The WAN IP will differ from the public IP shown on MyIPScan.</li>
+      <li>Optional: run <a href="/tools/dns-lookup.html">DNS Lookup</a> and <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> to confirm the visible egress IPs.</li>
+    </ol>
+
+    <h2>CGNAT and NAT “types” (gaming)</h2>
+    <p>Multiple translation layers often result in <strong>Strict/Symmetric NAT</strong>, which limits peer discovery and direct connections. Even enabling UPnP or port forwarding on your home router won’t help — the ISP’s CGNAT layer still blocks inbound traffic.</p>
+
+    <h2>Workarounds and fixes</h2>
+    <table class="compare" summary="CGNAT workarounds">
+      <thead>
+        <tr><th>Option</th><th>What it does</th><th>Pros</th><th>Cons</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Request public/static IP from ISP</strong></td>
+          <td>Moves you out of CGNAT to a unique public IP</td>
+          <td>Best long‑term fix; enables port forwarding</td>
+          <td>May cost extra; not available everywhere</td>
+        </tr>
+        <tr>
+          <td><strong>Use a VPN with port forwarding</strong></td>
+          <td>Tunnels outbound to a server that gives you an open port</td>
+          <td>Works even under CGNAT; quick to deploy</td>
+          <td>Added latency; depends on provider support</td>
+        </tr>
+        <tr>
+          <td><strong>Reverse tunnel / remote access relay</strong></td>
+          <td>Initiate an outbound tunnel from home (e.g., to a VPS) and access services via that endpoint</td>
+          <td>Fine‑grained control; can secure with auth/MFA</td>
+          <td>More setup; requires hosting endpoint</td>
+        </tr>
+        <tr>
+          <td><strong>Adopt IPv6 for inbound</strong></td>
+          <td>Use globally routable IPv6 with firewall rules</td>
+          <td>No NAT; direct end‑to‑end connectivity</td>
+          <td>Apps/sites must support IPv6; configure firewalls carefully</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Security notes</h2>
+    <ul>
+      <li>CGNAT is <em>not</em> a security product; it only translates addresses. Keep firewalls and OS security enabled.</li>
+      <li>If you expose services (via VPN port‑forward or IPv6), use strong auth, TLS, and limit IP ranges where possible.</li>
+      <li>Monitor logs on routers and servers; rotate credentials and keys periodically.</li>
+    </ul>
+
+    <h2>Checklist: diagnose & fix</h2>
+    <ol>
+      <li>Confirm CGNAT: compare router WAN IP vs public IP on <a href="/tools/what-is-my-ip.html">What is My IP</a>; look for <code>100.64.0.0/10</code> or other private ranges on WAN.</li>
+      <li>Decide your goal: gaming NAT type, hosting a service, or remote access.</li>
+      <li>Pick a path: request public/static IP from ISP, or use a <strong>VPN with port forwarding</strong>, or set up a <strong>reverse tunnel</strong>, or use <strong>IPv6</strong>.</li>
+      <li>Test: validate reachability and leaks with <a href="/tools/webrtc-leak-test.html">WebRTC</a> and <a href="/tools/dns-lookup.html">DNS</a>.</li>
+    </ol>
+
+    <!-- Related articles -->
+    <aside class="wrap card" style="margin-top:24px">
+      <h3>Related articles</h3>
+      <ul>
+        <li><a href="/faq/how-ip-addresses-are-assigned.html">How IP Addresses Are Assigned (ISP, DHCP, and IANA)</a></li>
+        <li><a href="/faq/private-vs-public-ip-addresses.html">Private vs Public IP Addresses Explained</a></li>
+        <li><a href="/faq/static-vs-dynamic-ip.html">Static vs Dynamic IP: Which One Do You Have?</a></li>
+        <li><a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">What Is a VPN and How Does It Hide My IP?</a></li>
+      </ul>
+    </aside>
+
+    <!-- CTA -->
+    <hr>
+    <p><strong>Test now:</strong> See your public IP on <a href="/tools/what-is-my-ip.html">What is My IP</a>, then verify DNS and browser exposure using <a href="/tools/dns-lookup.html">DNS Lookup</a> and <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a>.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="wrap">
+    <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
+  </footer>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is CGNAT (Carrier-Grade NAT) and Why It Affects You",
+    "description": "CGNAT explained with detection steps, practical impacts on gaming/P2P/servers, and workarounds like public IP, VPN with port forwarding, reverse tunnels, or IPv6.",
+    "author": { "@type": "Person", "name": "Yaroslav Sabardak" },
+    "publisher": { "@type": "Organization", "name": "MyIPScan", "logo": { "@type": "ImageObject", "url": "https://myipscan.net/static/og-cover.png" } },
+    "datePublished": "2025-10-15",
+    "dateModified": "2025-10-15",
+    "mainEntityOfPage": "https://myipscan.net/faq/what-is-cgnat.html",
+    "image": "https://myipscan.net/static/og-cover.png"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://myipscan.net/" },
+      { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://myipscan.net/faq/" },
+      { "@type": "ListItem", "position": 3, "name": "What Is CGNAT (Carrier-Grade NAT) and Why It Affects You", "item": "https://myipscan.net/faq/what-is-cgnat.html" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I know if I’m behind CGNAT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Compare your router’s WAN IP with the public IP shown on an IP checker. If the WAN IP is private (e.g., 100.64.0.0/10, 10.0.0.0/8), you’re behind CGNAT."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use port forwarding under CGNAT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, not directly. The carrier’s NAT blocks inbound connections. Request a public/static IP from your ISP or use a VPN with port forwarding or a reverse tunnel."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does CGNAT improve security?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CGNAT is address translation, not a security control. You still need firewalls, updates, strong passwords, and careful exposure of services."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JS: Stable Tools menu -->
+  <script>
+  (function(){
+    var tools=document.querySelector('.tools');if(!tools)return;
+    var btn=document.getElementById('toolsButton');var menu=tools.querySelector('.tools-menu');if(!btn||!menu)return;
+    var hideTimer;
+    function open(){clearTimeout(hideTimer);tools.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    function closeNow(){tools.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+    function close(){hideTimer=setTimeout(closeNow,180);}
+    tools.addEventListener('pointerenter',function(){open();});
+    tools.addEventListener('pointerleave',function(e){if(menu.contains(e.relatedTarget)||btn.contains(e.relatedTarget))return;close();});
+    btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tools.classList.toggle('open');btn.setAttribute('aria-expanded',tools.classList.contains('open'));});
+    menu.addEventListener('pointerenter',function(){open();});
+    menu.addEventListener('pointerleave',function(e){if(tools.contains(e.relatedTarget))return;close();});
+    document.addEventListener('click',function(e){if(!tools.contains(e.target))closeNow();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNow();});
+  })();
+  </script>
+</body>
+</html>
