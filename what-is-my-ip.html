@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
@@ -49,16 +50,61 @@
     <a href="/faq/index.html">FAQ</a> ·
     <a href="/">Check IP</a>
 </nav>
-<div class="light">Contact: myipscan@gmail.com • Privacy-first • No logs</div>
+<div class="light">Contact:  • Privacy-first • No logs</div>
 </footer>
+
 <script>
-document.addEventListener('click', function(e){
-  const t = document.querySelector('.tools');
-  if(!t) return;
-  if(t.contains(e.target) && e.target.id === 'toolsButton'){
-    t.classList.toggle('open');
-  } else if(!t.contains(e.target)) {
-    t.classList.remove('open');
+(function(){
+  var tools = document.querySelector('.tools');
+  var btn = document.getElementById('toolsButton');
+  var menu = tools ? tools.querySelector('.tools-menu') : null;
+  if(!tools || !btn || !menu) return;
+  var hideTimer = null;
+
+  function openMenu(){
+    clearTimeout(hideTimer);
+    tools.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
   }
-});
-</script></body></html>
+  function closeMenuImmediate(){
+    tools.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }
+  function closeMenuDelayed(){
+    hideTimer = setTimeout(closeMenuImmediate, 180);
+  }
+
+  // Open on hover/pointer
+  tools.addEventListener('pointerenter', openMenu);
+  tools.addEventListener('pointerleave', function(e){
+    if (menu.contains(e.relatedTarget) || btn.contains(e.relatedTarget)) return;
+    closeMenuDelayed();
+  });
+
+  // Toggle on click (prevents instant close)
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    if (tools.classList.contains('open')) closeMenuImmediate();
+    else openMenu();
+  });
+
+  // Keep open while pointer inside menu
+  menu.addEventListener('pointerenter', openMenu);
+  menu.addEventListener('pointerleave', function(e){
+    if (tools.contains(e.relatedTarget)) return;
+    closeMenuDelayed();
+  });
+
+  // Close on outside click
+  document.addEventListener('click', function(e){
+    if (!tools.contains(e.target)) closeMenuImmediate();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeMenuImmediate();
+  });
+})();
+</script>
+</body></html>

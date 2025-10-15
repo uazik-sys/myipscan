@@ -88,11 +88,10 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.08);margin:24px 0}
 /* Reserve space to reduce CLS for dynamic IP block */
 #ip-info, .ip-card, .results {min-height: 180px;}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "MyIPScan", "url": "https://myipscan.net/", "logo": "https://myipscan.net/icon-512.png", "description": "Privacy-first IP checker with IPv4/IPv6, geolocation, ASN, and simple tools.", "sameAs": []}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "MyIPScan", "url": "https://myipscan.net/", "potentialAction": {"@type": "SearchAction", "target": "https://myipscan.net/?q={search_term_string}", "query-input": "required name=search_term_string"}}</script><link rel="preload" href="/api/ip" as="fetch" crossorigin>
-<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "MyIPScan", "url": "https://myipscan.net/", "logo": "https://myipscan.net/icon-512.png", "description": "Privacy-first IP checker with IPv4/IPv6, geolocation, ASN, and simple tools.", "sameAs": []}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "MyIPScan", "url": "https://myipscan.net/", "potentialAction": {"@type": "SearchAction", "target": "https://myipscan.net/?q={search_term_string}", "query-input": "required name=search_term_string"}}</script><link as="fetch" crossorigin="" href="/api/ip" rel="preload"/>
+<meta content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" name="robots"/>
 </head>
 <body>
-
 <header class="wrap nav">
 <div class="logo"></div>
 <nav>
@@ -130,7 +129,7 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.08);margin:24px 0}
 <li>Seeing both is normal — some networks prefer one over the other.</li>
 </ul>
 </section>
-</script>
+
 </main>
 <footer class="wrap">
 <nav>
@@ -153,15 +152,60 @@ async function fetchIpify(){ const r=await fetch("https://api.ipify.org?format=j
  if(data){ ip.textContent=data.ip||"N/A"; loc.textContent=[data.city,data.region,data.country].filter(Boolean).join(", ")||"—"; asn.textContent=(data.asn?("AS"+data.asn):"")+(data.colo?` · ${data.colo}`:""); ua.textContent=data.ua||navigator.userAgent; copy.onclick=async()=>{ try{ await navigator.clipboard.writeText(data.ip||""); copied.hidden=false; setTimeout(()=>copied.hidden=true,900); }catch(_){} }; sourceNote.textContent = src==="api"?"Source: API (Cloudflare Edge)":(src==="fallback-cf"?"Source: Fallback (cdn-cgi/trace)":(src==="fallback-ipify"?"Source: Fallback (ipify)":"Source: none")); }
  else { ip.textContent="N/A"; loc.textContent="—"; asn.textContent="—"; ua.textContent=navigator.userAgent; sourceNote.textContent="Source: none"; }
 })();</script>
+
 <script>
-document.addEventListener('click', function(e){
-  const t = document.querySelector('.tools');
-  if(!t) return;
-  if(t.contains(e.target) && e.target.id === 'toolsButton'){
-    t.classList.toggle('open');
-  } else if(!t.contains(e.target)) {
-    t.classList.remove('open');
+(function(){
+  var tools = document.querySelector('.tools');
+  var btn = document.getElementById('toolsButton');
+  var menu = tools ? tools.querySelector('.tools-menu') : null;
+  if(!tools || !btn || !menu) return;
+  var hideTimer = null;
+
+  function openMenu(){
+    clearTimeout(hideTimer);
+    tools.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
   }
-});
-</script></body>
+  function closeMenuImmediate(){
+    tools.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }
+  function closeMenuDelayed(){
+    hideTimer = setTimeout(closeMenuImmediate, 180);
+  }
+
+  // Open on hover/pointer
+  tools.addEventListener('pointerenter', openMenu);
+  tools.addEventListener('pointerleave', function(e){
+    if (menu.contains(e.relatedTarget) || btn.contains(e.relatedTarget)) return;
+    closeMenuDelayed();
+  });
+
+  // Toggle on click (prevents instant close)
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    if (tools.classList.contains('open')) closeMenuImmediate();
+    else openMenu();
+  });
+
+  // Keep open while pointer inside menu
+  menu.addEventListener('pointerenter', openMenu);
+  menu.addEventListener('pointerleave', function(e){
+    if (tools.contains(e.relatedTarget)) return;
+    closeMenuDelayed();
+  });
+
+  // Close on outside click
+  document.addEventListener('click', function(e){
+    if (!tools.contains(e.target)) closeMenuImmediate();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeMenuImmediate();
+  });
+})();
+</script>
+</body>
 </html>

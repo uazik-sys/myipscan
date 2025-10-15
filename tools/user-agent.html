@@ -1,45 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>User‑Agent Info — MyIPScan</title>
-<meta name="description" content="See your current browser User‑Agent string and copy it with one click.">
-<link rel="canonical" href="https://myipscan.net/tools/user-agent.html">
-<link rel="stylesheet" href="/styles.css">
-<meta property="og:type" content="website">
-<meta property="og:title" content="User‑Agent Info — MyIPScan">
-<meta property="og:description" content="See your current browser User‑Agent string and copy it with one click.">
-<meta property="og:image" content="https://myipscan.net/icon-512.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta content="See your current browser User‑Agent string and copy it with one click." name="description"/>
+<link href="https://myipscan.net/tools/user-agent.html" rel="canonical"/>
+<link href="/styles.css" rel="stylesheet"/>
+<meta content="website" property="og:type"/>
+<meta content="User‑Agent Info — MyIPScan" property="og:title"/>
+<meta content="See your current browser User‑Agent string and copy it with one click." property="og:description"/>
+<meta content="https://myipscan.net/icon-512.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
 </head>
 <body>
 <div class="wrap">
 <header class="nav">
-  <div class="logo"><a href="/" style="text-decoration:none">MyIPScan</a></div>
-  <nav>
-    <a href="/">Home</a>
-    <span class="tools">
-      <button aria-haspopup="true" aria-expanded="false" id="toolsButton">Tools</button>
-      <div class="tools-menu" role="menu" aria-labelledby="toolsButton">
-        <a role="menuitem" href="/tools/password-generator.html">Password Generator</a>
-        <a role="menuitem" href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a>
-        <a role="menuitem" href="/tools/dns-lookup.html">DNS Lookup</a>
-        <a role="menuitem" href="/tools/user-agent.html">User‑Agent Info</a>
-      </div>
-    </span>
-  </nav>
+<div class="logo"><a href="/" style="text-decoration:none">MyIPScan</a></div>
+<nav>
+<a href="/">Home</a>
+<span class="tools">
+<button aria-expanded="false" aria-haspopup="true" id="toolsButton">Tools</button>
+<div aria-labelledby="toolsButton" class="tools-menu" role="menu">
+<a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+<a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+<a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+<a href="/tools/user-agent.html" role="menuitem">User‑Agent Info</a>
+</div>
+</span>
+</nav>
 </header>
-
 <main>
-  <h1>User‑Agent Info</h1>
-  <section class="card">
-    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-      <textarea id="ua" class="mono" rows="3" style="flex:1;min-width:280px;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12)"></textarea>
-      <button id="copy">Copy</button>
-    </div>
-    <p class="note">Your UA string helps servers understand your browser/OS. We do not log it.</p>
-  </section>
+<h1>User‑Agent Info</h1>
+<section class="card">
+<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+<textarea class="mono" id="ua" rows="3" style="flex:1;min-width:280px;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12)"></textarea>
+<button id="copy">Copy</button>
+</div>
+<p class="note">Your UA string helps servers understand your browser/OS. We do not log it.</p>
+</section>
 </main>
 <script>
 document.getElementById('ua').value = navigator.userAgent;
@@ -48,21 +48,65 @@ document.getElementById('copy').addEventListener('click', ()=>{
   el.select(); document.execCommand('copy');
 });
 </script>
-
 <footer style="opacity:.7;margin-top:32px;font-size:14px">
-  <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/faq/">FAQ</a>
+<a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/faq/">FAQ</a>
 </footer>
 </div>
+
+
 <script>
-document.addEventListener('click', function(e){
-  const t = document.querySelector('.tools');
-  if(!t) return;
-  if(t.contains(e.target) && e.target.id === 'toolsButton'){
-    t.classList.toggle('open');
-  } else if(!t.contains(e.target)) {
-    t.classList.remove('open');
+(function(){
+  var tools = document.querySelector('.tools');
+  var btn = document.getElementById('toolsButton');
+  var menu = tools ? tools.querySelector('.tools-menu') : null;
+  if(!tools || !btn || !menu) return;
+  var hideTimer = null;
+
+  function openMenu(){
+    clearTimeout(hideTimer);
+    tools.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
   }
-});
+  function closeMenuImmediate(){
+    tools.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }
+  function closeMenuDelayed(){
+    hideTimer = setTimeout(closeMenuImmediate, 180);
+  }
+
+  // Open on hover/pointer
+  tools.addEventListener('pointerenter', openMenu);
+  tools.addEventListener('pointerleave', function(e){
+    if (menu.contains(e.relatedTarget) || btn.contains(e.relatedTarget)) return;
+    closeMenuDelayed();
+  });
+
+  // Toggle on click (prevents instant close)
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    if (tools.classList.contains('open')) closeMenuImmediate();
+    else openMenu();
+  });
+
+  // Keep open while pointer inside menu
+  menu.addEventListener('pointerenter', openMenu);
+  menu.addEventListener('pointerleave', function(e){
+    if (tools.contains(e.relatedTarget)) return;
+    closeMenuDelayed();
+  });
+
+  // Close on outside click
+  document.addEventListener('click', function(e){
+    if (!tools.contains(e.target)) closeMenuImmediate();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeMenuImmediate();
+  });
+})();
 </script>
 </body>
 </html>
