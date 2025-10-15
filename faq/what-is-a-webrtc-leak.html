@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>What Is a WebRTC Leak and Why It Matters</title>
+  <meta name="description" content="Learn what a WebRTC leak is, how it exposes your real IP even behind a VPN, and how to prevent it in browsers and devices for full privacy.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://myipscan.net/faq/what-is-a-webrtc-leak.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="What Is a WebRTC Leak and Why It Matters">
+  <meta property="og:description" content="Understand WebRTC leaks, how browsers reveal your true IP, and how to block them for complete VPN privacy.">
+  <meta property="og:url" content="https://myipscan.net/faq/what-is-a-webrtc-leak.html">
+  <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Is a WebRTC Leak and Why It Matters">
+  <meta name="twitter:description" content="Your browser can reveal your real IP through WebRTC. Learn what it is, how to detect it, and how to fix it step-by-step.">
+  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
+
+  <link rel="preload" as="style" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="wrap nav">
+  <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/what-is-my-ip.html">What is my IP</a>
+    <a href="/faq/index.html">FAQ</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <span class="tools">
+      <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
+      <div class="tools-menu" role="menu" aria-label="Tools menu">
+        <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+        <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+        <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+        <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+        <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+      </div>
+    </span>
+  </nav>
+</header>
+
+<main class="wrap article">
+  <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › What Is a WebRTC Leak and Why It Matters</div>
+
+  <h1>What Is a WebRTC Leak and Why It Matters</h1>
+  <time datetime="2025-10-15">Updated: October 15, 2025</time>
+
+  <p>A <strong>WebRTC leak</strong> occurs when your browser reveals your real IP address — including private or local network IPs — through WebRTC’s peer‑to‑peer connection system. Even when using a VPN, this can expose your identity and location to websites or scripts running in the browser. In this article, we’ll explain what WebRTC is, why leaks happen, how to test for them, and how to stop them permanently.</p>
+
+  <h2>What is WebRTC?</h2>
+  <p><strong>WebRTC (Web Real‑Time Communication)</strong> is a browser technology that allows direct peer‑to‑peer connections for video calls, file sharing, or data streaming. It’s built into Chrome, Firefox, Edge, Safari, and most mobile browsers. To make these connections, the browser needs to know your local and public IP addresses — which can unintentionally leak to any website that requests them.</p>
+
+  <h2>Why WebRTC leaks are dangerous</h2>
+  <ul>
+    <li><strong>Reveals your true IP</strong> — even if a VPN is active, your local or real public IP may still appear via WebRTC APIs.</li>
+    <li><strong>Bypasses proxy or VPN tunnels</strong> — WebRTC connections can use separate network routes not covered by VPN encryption.</li>
+    <li><strong>Exposes internal IPs</strong> — these can reveal your device model or network structure.</li>
+    <li><strong>Used in browser fingerprinting</strong> — combining IP, timezone, and system data increases tracking accuracy.</li>
+  </ul>
+
+  <h2>How to test for WebRTC leaks</h2>
+  <ol>
+    <li>Connect your VPN (or proxy) as usual.</li>
+    <li>Visit <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a>.</li>
+    <li>Compare the IPs shown there with your <a href="/tools/what-is-my-ip.html">public IP</a>.</li>
+    <li>If your real IP or local 192.168.x.x / 10.x.x.x addresses appear, you have a leak.</li>
+  </ol>
+
+  <h2>How to prevent WebRTC leaks</h2>
+  <h3>1. Browser-level fixes</h3>
+  <ul>
+    <li><strong>Firefox:</strong> go to <code>about:config</code> → set <code>media.peerconnection.enabled</code> to <code>false</code>.</li>
+    <li><strong>Chrome / Edge / Brave:</strong> install privacy extensions like <em>WebRTC Leak Prevent</em> or <em>uBlock Origin</em> with “Prevent WebRTC IP leak” enabled.</li>
+    <li><strong>Safari (macOS/iOS):</strong> WebRTC leaks are limited but still test periodically using MyIPScan tools.</li>
+  </ul>
+
+  <h3>2. VPN & network-level protections</h3>
+  <ul>
+    <li>Use a VPN with <strong>WebRTC leak protection</strong> or a firewall that blocks UDP traffic outside the tunnel.</li>
+    <li>Disable <strong>IPv6</strong> if your VPN doesn’t handle it, as WebRTC can use IPv6 paths.</li>
+    <li>For advanced users: block <code>STUN</code> requests via custom firewall or DNS filtering.</li>
+  </ul>
+
+  <h3>3. Test after changes</h3>
+  <p>After applying fixes, re‑check at <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> and confirm only your VPN IP is visible. You can also cross‑verify with <a href="/tools/dns-lookup.html">DNS Lookup</a> for consistency.</p>
+
+  <h2>WebRTC leak vs DNS leak</h2>
+  <p>While both can expose privacy, they differ fundamentally:</p>
+  <table class="compare">
+    <thead>
+      <tr><th>Aspect</th><th>WebRTC Leak</th><th>DNS Leak</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Layer</td><td>Browser / Application</td><td>Network / System</td></tr>
+      <tr><td>Leak content</td><td>Real & local IPs</td><td>Resolver info, domains</td></tr>
+      <tr><td>Fix level</td><td>Browser settings or VPN</td><td>VPN config or encrypted DNS</td></tr>
+      <tr><td>Detection tool</td><td><a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a></td><td><a href="/tools/dns-lookup.html">DNS Lookup</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Checklist: stay protected</h2>
+  <ol>
+    <li>Disable or limit WebRTC in browser settings.</li>
+    <li>Use a VPN with built‑in leak protection.</li>
+    <li>Block UDP leaks with a firewall if needed.</li>
+    <li>Test regularly on <a href="/tools/webrtc-leak-test.html">MyIPScan WebRTC Test</a>.</li>
+  </ol>
+
+  <aside class="wrap card" style="margin-top:24px">
+    <h3>Related articles</h3>
+    <ul>
+      <li><a href="/faq/what-is-a-dns-leak.html">What Is a DNS Leak and How to Prevent It</a></li>
+      <li><a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">What Is a VPN and How Does It Hide My IP?</a></li>
+      <li><a href="/faq/how-to-hide-your-ip-address.html">How to Hide Your IP Address (Free & Paid Methods)</a></li>
+      <li><a href="/faq/can-someone-track-me-by-my-ip-address.html">Can Someone Track Me by My IP Address?</a></li>
+    </ul>
+  </aside>
+
+  <hr>
+  <p><strong>Test now:</strong> Run the <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> and confirm only your VPN’s IP is visible. Then verify with <a href="/tools/dns-lookup.html">DNS Lookup</a> for full privacy coverage.</p>
+</main>
+
+<footer class="wrap">
+  <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
+</footer>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Is a WebRTC Leak and Why It Matters",
+  "description": "WebRTC leaks explained: how your browser can expose your real IP even with a VPN, and how to prevent it permanently.",
+  "author": { "@type": "Person", "name": "Yaroslav Sabardak" },
+  "publisher": { "@type": "Organization", "name": "MyIPScan", "logo": { "@type": "ImageObject", "url": "https://myipscan.net/static/og-cover.png" } },
+  "datePublished": "2025-10-15",
+  "dateModified": "2025-10-15",
+  "mainEntityOfPage": "https://myipscan.net/faq/what-is-a-webrtc-leak.html",
+  "image": "https://myipscan.net/static/og-cover.png"
+}
+</script>
+
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://myipscan.net/" },
+    { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://myipscan.net/faq/" },
+    { "@type": "ListItem", "position": 3, "name": "What Is a WebRTC Leak and Why It Matters", "item": "https://myipscan.net/faq/what-is-a-webrtc-leak.html" }
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a WebRTC leak?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A WebRTC leak happens when your browser exposes your real or local IP address through WebRTC APIs, even while connected to a VPN or proxy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I fix a WebRTC leak?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Disable WebRTC in browser settings, use privacy extensions, enable WebRTC leak protection in your VPN, and re‑test using MyIPScan’s WebRTC Leak Test."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does disabling WebRTC break anything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It may affect in‑browser video calls or file‑sharing apps like Google Meet or Discord, but it’s safe for normal browsing and increases privacy."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- JS: Stable Tools menu -->
+<script>
+(function(){
+  var tools=document.querySelector('.tools');if(!tools)return;
+  var btn=document.getElementById('toolsButton');var menu=tools.querySelector('.tools-menu');if(!btn||!menu)return;
+  var hideTimer;
+  function open(){clearTimeout(hideTimer);tools.classList.add('open');btn.setAttribute('aria-expanded','true');}
+  function closeNow(){tools.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  function close(){hideTimer=setTimeout(closeNow,180);}
+  tools.addEventListener('pointerenter',open);
+  tools.addEventListener('pointerleave',function(e){if(menu.contains(e.relatedTarget)||btn.contains(e.relatedTarget))return;close();});
+  btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tools.classList.toggle('open');btn.setAttribute('aria-expanded',tools.classList.contains('open'));});
+  menu.addEventListener('pointerenter',open);
+  menu.addEventListener('pointerleave',function(e){if(tools.contains(e.relatedTarget))return;close();});
+  document.addEventListener('click',function(e){if(!tools.contains(e.target))closeNow();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNow();});
+})();
+</script>
+</body>
+</html>
