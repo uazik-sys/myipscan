@@ -1,58 +1,225 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free &amp; Private</title>
-<meta content="Free IP lookup: see IP type, geolocation, ISP/ASN and browser UA. No cookies, no logs." name="description"/>
-<link href="https://myipscan.net/what-is-my-ip.html" rel="canonical"/>
-<meta content="website" property="og:type"/>
-<meta content="https://myipscan.net/what-is-my-ip.html" property="og:url"/>
-<meta content="IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free &amp; Private" property="og:title"/>
-<meta content="Free IP lookup: see IP type, geolocation, ISP/ASN and browser UA. No cookies, no logs." property="og:description"/>
-<meta content="https://myipscan.net/icon-512.png" property="og:image"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free &amp; Private" name="twitter:title"/>
-<meta content="Free IP lookup: see IP type, geolocation, ISP/ASN and browser UA. No cookies, no logs." name="twitter:description"/>
-<meta content="https://myipscan.net/icon-512.png" name="twitter:image"/>
-<link href="/favicon.ico" rel="icon"/>
-<link href="/manifest.json" rel="manifest"/>
-<link href="/styles.css" rel="stylesheet"/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "MyIPScan", "url": "https://myipscan.net/", "logo": "https://myipscan.net/icon-512.png", "description": "Privacy-first IP checker with IPv4/IPv6, geolocation, ASN, and simple tools.", "sameAs": []}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "MyIPScan", "url": "https://myipscan.net/", "potentialAction": {"@type": "SearchAction", "target": "https://myipscan.net/?q={search_term_string}", "query-input": "required name=search_term_string"}}</script></head><body>
+  <title>IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free & Private</title>
+  <meta name="description" content="Private IP lookup: see your public IPv4/IPv6, country/city signal, ISP/ASN and browser UA. No cookies, no logs — fast and accurate checks with clear explanations."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://myipscan.net/what-is-my-ip.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://myipscan.net/what-is-my-ip.html"/>
+  <meta property="og:title" content="IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free & Private"/>
+  <meta property="og:description" content="See your public IP, IPv4/IPv6 version, location signal and ISP/ASN. 100% private: no cookies, no logs."/>
+  <meta property="og:image" content="https://myipscan.net/static/og-cover.png"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free & Private"/>
+  <meta name="twitter:description" content="Check your IP privately. IPv4/IPv6, ISP/ASN, geolocation signal & UA — with simple tips and tools."/>
+  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png"/>
+
+  <link rel="icon" href="/favicon.ico"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <link rel="stylesheet" href="/styles.css"/>
+  <meta name="theme-color" content="#0f1115"/>
+
+  <!-- JSON-LD: Organization (kept) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"MyIPScan",
+    "url":"https://myipscan.net/",
+    "logo":"https://myipscan.net/static/og-cover.png",
+    "description":"Privacy-first IP checker with IPv4/IPv6, geolocation, ASN, and simple tools."
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite (kept) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"MyIPScan",
+    "url":"https://myipscan.net/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://myipscan.net/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: WebPage (new) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free & Private",
+    "headline":"IP Lookup (Private & Fast)",
+    "description":"Private IP lookup with IPv4/IPv6, ISP/ASN and location signal. No cookies, no logs.",
+    "url":"https://myipscan.net/what-is-my-ip.html",
+    "mainEntityOfPage":"https://myipscan.net/what-is-my-ip.html",
+    "author":{"@type":"Organization","name":"MyIPScan"},
+    "datePublished":"2025-10-11",
+    "dateModified":"2025-10-15",
+    "publisher":{"@type":"Organization","name":"MyIPScan","logo":{"@type":"ImageObject","url":"https://myipscan.net/static/og-cover.png"}}
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://myipscan.net/"},
+      {"@type":"ListItem","position":2,"name":"What is my IP","item":"https://myipscan.net/what-is-my-ip.html"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Why does the city look wrong?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"IP geolocation is approximate and often points to an ISP hub or regional gateway. Mobile carriers, CGNAT, VPNs and proxies can shift the apparent city."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can a website know my name from my IP?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"No. An IP typically reveals country/region and provider (ASN), not your personal name or exact street address."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"How can I check IPv4 vs IPv6 and potential leaks?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Open What is My IP to see your public address and version, then run WebRTC Leak Test and DNS Lookup on MyIPScan to verify browser and resolver signals."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
 <header class="wrap nav">
-<div class="logo"></div>
-<nav>
-<a href="/">Home</a>
-<a href="/what-is-my-ip.html">What is my IP</a>
-<a href="/faq/index.html">FAQ</a>
-<a href="/privacy.html">Privacy</a>
-<a href="/terms.html">Terms</a>
-<span class="tools"><button aria-expanded="false" aria-haspopup="true" id="toolsButton">Tools</button><div aria-labelledby="toolsButton" class="tools-menu" role="menu"><a href="/tools/password-generator.html" role="menuitem">Password Generator</a><a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a><a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a><a href="/tools/user-agent.html" role="menuitem">User‑Agent Info</a></div></span></nav>
+  <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/what-is-my-ip.html">What is my IP</a>
+    <a href="/faq/index.html">FAQ</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <span class="tools">
+      <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
+      <div class="tools-menu" role="menu" aria-label="Tools menu">
+        <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+        <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+        <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+        <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+        <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+      </div>
+    </span>
+  </nav>
 </header>
+
 <main class="wrap">
-<div class="breadcrumbs"><a href="/">Home</a> / What is my IP</div>
-<section class="hero"><h1>IP Lookup (Private &amp; Fast)</h1>
-<p class="light">See your IP, IPv4/IPv6, location and ISP/ASN. No tracking, no logs.</p></section>
-<section class="card">
-<h2>Your IP &amp; Location</h2>
-<p>Your IP identifies your connection on the internet. Geolocation is approximate (city/country) and depends on your network.</p>
-<h2>ISP/ASN Basics</h2>
-<p>An <strong>Autonomous System Number</strong> (ASN) marks a provider’s network, e.g., AS12345. It’s used for routing and security.</p>
-<h2>User-Agent Explained</h2>
-<p>Browsers send a <em>User-Agent</em> string so sites can adapt layout/features. It does not personally identify you.</p>
-<p>Try the tool now: <a href="/">Check IP</a>.</p>
-</section>
+  <div class="breadcrumbs"><a href="/">Home</a> / What is my IP</div>
+
+  <section class="hero">
+    <h1>IP Lookup (Private &amp; Fast)</h1>
+    <p class="light">
+      See your public IP, IPv4/IPv6 version, country/city signal and ISP/ASN. This page is privacy-first:
+      <strong>no cookies, no logs</strong>. Below we explain how it works, what you can (and can’t) learn from an IP,
+      and how to verify browser/DNS leaks in seconds.
+    </p>
+    <div class="light" style="margin-top:6px">Updated: October 15, 2025</div>
+  </section>
+
+  <section class="card">
+    <h2>Your IP &amp; why it matters</h2>
+    <p>
+      Your IP address identifies your connection on the internet. Websites and services use it to return responses and apply
+      security or localization rules. The <em>geolocation</em> attached to an IP is an estimate — usually country/region and a
+      nearest major city — and can differ across databases or networks (mobile, VPN, CGNAT).
+    </p>
+
+    <h2>How it works (quick)</h2>
+    <ol>
+      <li>Your provider assigns a <strong>public</strong> IP to your router or gateway (devices at home use private IPs).</li>
+      <li>Sites see the public IP and look it up in one or more geolocation databases for country/city and ISP/ASN.</li>
+      <li>Different networks (Wi-Fi vs mobile/VPN) can show different IPs and locations — that’s expected.</li>
+    </ol>
+
+    <h2>What you see here</h2>
+    <table class="compare" summary="Data shown on IP lookup and what it means" style="margin-top:10px">
+      <thead>
+        <tr><th>Data type</th><th>Example</th><th>Meaning</th><th>Visible to websites?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>IPv4</td><td><code>203.0.113.7</code></td><td>Common 32-bit address format</td><td>Yes</td></tr>
+        <tr><td>IPv6</td><td><code>2001:db8::1</code></td><td>Modern 128-bit format; may co-exist with IPv4</td><td>Yes</td></tr>
+        <tr><td>Location signal</td><td>Country → City (approx.)</td><td>Estimated from provider data</td><td>Yes</td></tr>
+        <tr><td>ISP / ASN</td><td>AS12345 (Example ISP)</td><td>Identifies provider network</td><td>Yes</td></tr>
+        <tr><td>User-Agent</td><td>Chrome on Windows</td><td>Browser string for compatibility</td><td>Yes</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Accuracy & privacy notes</h2>
+    <ul>
+      <li>IP geolocation is approximate. It can resolve to an ISP hub or gateway rather than your exact place.</li>
+      <li>VPN/proxy purposely shows the exit server location (by design); mobile/CGNAT can shift cities.</li>
+      <li>No personal name or street address can be derived from an IP alone.</li>
+    </ul>
+
+    <h2>Verify IPv4/IPv6 and common leaks</h2>
+    <ol>
+      <li>Open <a href="/tools/what-is-my-ip.html">What is My IP</a> to see your public address and version.</li>
+      <li>Run <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> to ensure the browser doesn’t expose local/public IPs unintentionally.</li>
+      <li>Run <a href="/tools/dns-lookup.html">DNS Lookup</a> to check which resolvers your device uses (ISP or third-party).</li>
+    </ol>
+
+    <hr>
+    <p><strong>Ready?</strong> Start with the edge-checked version here: <a href="/">Check IP</a>. Then explore the guides below.</p>
+  </section>
+
+  <section class="card" style="margin-top:16px">
+    <h2>Learn more</h2>
+    <ul class="inline">
+      <li><a href="/faq/what-is-an-ip-address.html">What is an IP address?</a> — simple intro with examples.</li>
+      <li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6</a> — differences, benefits and migration notes.</li>
+      <li><a href="/faq/ip-geolocation-accuracy.html">IP geolocation accuracy</a> — why city can be off and how to test.</li>
+    </ul>
+  </section>
 </main>
+
 <footer class="wrap">
-<nav>
-<a href="/privacy.html">Privacy</a> ·
+  <nav>
+    <a href="/privacy.html">Privacy</a> ·
     <a href="/terms.html">Terms</a> ·
     <a href="/faq/index.html">FAQ</a> ·
     <a href="/">Check IP</a>
-</nav>
-<div class="light">Contact:  • Privacy-first • No logs</div>
+  </nav>
+  <div class="light">Contact: <a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a> • Privacy-first • No logs</div>
 </footer>
 
+<!-- Stable Tools dropdown (first-try fix) -->
 <script>
 (function(){
   var tools = document.querySelector('.tools');
@@ -60,51 +227,17 @@
   var menu = tools ? tools.querySelector('.tools-menu') : null;
   if(!tools || !btn || !menu) return;
   var hideTimer = null;
-
-  function openMenu(){
-    clearTimeout(hideTimer);
-    tools.classList.add('open');
-    btn.setAttribute('aria-expanded','true');
-  }
-  function closeMenuImmediate(){
-    tools.classList.remove('open');
-    btn.setAttribute('aria-expanded','false');
-  }
-  function closeMenuDelayed(){
-    hideTimer = setTimeout(closeMenuImmediate, 180);
-  }
-
-  // Open on hover/pointer
-  tools.addEventListener('pointerenter', openMenu);
-  tools.addEventListener('pointerleave', function(e){
-    if (menu.contains(e.relatedTarget) || btn.contains(e.relatedTarget)) return;
-    closeMenuDelayed();
-  });
-
-  // Toggle on click (prevents instant close)
-  btn.addEventListener('click', function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    if (tools.classList.contains('open')) closeMenuImmediate();
-    else openMenu();
-  });
-
-  // Keep open while pointer inside menu
-  menu.addEventListener('pointerenter', openMenu);
-  menu.addEventListener('pointerleave', function(e){
-    if (tools.contains(e.relatedTarget)) return;
-    closeMenuDelayed();
-  });
-
-  // Close on outside click
-  document.addEventListener('click', function(e){
-    if (!tools.contains(e.target)) closeMenuImmediate();
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape') closeMenuImmediate();
-  });
+  function open(){ clearTimeout(hideTimer); tools.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+  function closeNow(){ tools.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+  function close(){ hideTimer = setTimeout(closeNow, 180); }
+  tools.addEventListener('pointerenter', open);
+  tools.addEventListener('pointerleave', function(e){ if (menu.contains(e.relatedTarget) || btn.contains(e.relatedTarget)) return; close(); });
+  btn.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); tools.classList.toggle('open'); btn.setAttribute('aria-expanded', tools.classList.contains('open')); });
+  menu.addEventListener('pointerenter', open);
+  menu.addEventListener('pointerleave', function(e){ if (tools.contains(e.relatedTarget)) return; close(); });
+  document.addEventListener('click', function(e){ if (!tools.contains(e.target)) closeNow(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeNow(); });
 })();
 </script>
-</body></html>
+</body>
+</html>
