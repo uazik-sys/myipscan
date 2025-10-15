@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Can Someone Track Me by My IP Address?</title>
+  <meta name="description" content="Can someone track you by your IP address? Learn what an IP reveals (and what it doesn’t), real risks, legal aspects, and 9 ways to protect your privacy.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://myipscan.net/faq/can-someone-track-me-by-my-ip-address.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Can Someone Track Me by My IP Address?">
+  <meta property="og:description" content="Understand what an IP reveals, common tracking methods, legal limits, and practical steps to stay private.">
+  <meta property="og:url" content="https://myipscan.net/faq/can-someone-track-me-by-my-ip-address.html">
+  <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Can Someone Track Me by My IP Address?">
+  <meta name="twitter:description" content="What your IP reveals, what it doesn’t, and 9 proven ways to protect it (VPN, DNS, WebRTC and more).">
+  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
+
+  <link rel="preload" as="style" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="wrap nav">
+    <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/what-is-my-ip.html">What is my IP</a>
+      <a href="/faq/index.html">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <span class="tools">
+        <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
+        <div class="tools-menu" role="menu" aria-label="Tools menu">
+          <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+          <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+          <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+          <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+          <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+        </div>
+      </span>
+    </nav>
+  </header>
+
+  <!-- Article -->
+  <main class="wrap article">
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › Can Someone Track Me by My IP Address?</div>
+
+    <!-- Title & date -->
+    <h1>Can Someone Track Me by My IP Address?</h1>
+    <time datetime="2025-10-15">Updated: October 15, 2025</time>
+
+    <!-- Lede -->
+    <p>Your IP address is the online identifier of your connection. <strong>Can someone track you by it?</strong> Partly. An IP can usually reveal your country/region, your internet provider (ASN), and sometimes the nearest city — but <em>not</em> your personal name or exact street address. Below we explain what an IP does and doesn’t reveal, the real tracking methods used in practice, and how to protect yourself.</p>
+
+    <h2>What your IP reveals (and what it doesn’t)</h2>
+    <table class="compare" summary="What an IP address can and cannot reveal about a user" style="margin-top:10px">
+      <thead>
+        <tr><th>Signal</th><th>Typically revealed</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Country / Region</td><td>Yes (95–99%)</td><td>Estimated via IP geolocation databases</td></tr>
+        <tr><td>Nearest city</td><td>Often</td><td>May resolve to ISP hub or gateway; accuracy varies</td></tr>
+        <tr><td>ISP / ASN</td><td>Yes</td><td>Identifies the provider network that owns the IP</td></tr>
+        <tr><td>Your name / address</td><td>No</td><td>Requires ISP cooperation and legal process (e.g., subpoena)</td></tr>
+        <tr><td>Exact device identity</td><td>No</td><td>Websites infer device/browser via User-Agent & fingerprinting</td></tr>
+      </tbody>
+    </table>
+
+    <h2>How people are actually tracked online</h2>
+    <ul>
+      <li><strong>Cookies & logins:</strong> Account sessions, analytics cookies, and SSO correlate activity across visits.</li>
+      <li><strong>Browser fingerprinting:</strong> Combining IP with User-Agent, fonts, screen size, timezone, etc.</li>
+      <li><strong>Network logs:</strong> Sites and services log source IPs; repeated visits from the same IP build history.</li>
+      <li><strong>Third-party scripts:</strong> Ad/analytics tags correlate users across many sites.</li>
+      <li><strong>ISP & platforms:</strong> Providers can see destinations you contact (not content over HTTPS) and keep billing logs.</li>
+    </ul>
+
+    <h2>Legal aspect: when can an IP identify a person?</h2>
+    <p>To match an IP with a real‑world subscriber, authorities typically need the ISP’s help and a lawful request. ISPs map which customer used a given IP at a specific time (especially for static IPs). Without ISP disclosure, an IP alone is not personally identifying.</p>
+
+    <h2>Common misconceptions</h2>
+    <ul>
+      <li><strong>“IP shows my exact address.”</strong> False. City‑level is the best typical case, and even that can be off.</li>
+      <li><strong>“Incognito hides my IP.”</strong> False. Private mode clears local history/cookies but keeps the same IP.</li>
+      <li><strong>“A VPN is always anonymous.”</strong> Partly. A VPN replaces your public IP, but leaks (WebRTC/DNS) or accounts can still tie activity to you.</li>
+    </ul>
+
+    <h2>9 ways to reduce IP‑based tracking</h2>
+    <ol>
+      <li><strong>Use a reputable VPN</strong> to replace your public IP with the VPN’s exit server.</li>
+      <li><strong>Run leak tests:</strong> <a href="/tools/webrtc-leak-test.html">WebRTC</a> and <a href="/tools/dns-lookup.html">DNS</a> to ensure your real IP isn’t exposed.</li>
+      <li><strong>Prefer HTTPS</strong> so intermediaries can’t read page content.</li>
+      <li><strong>Harden your browser</strong> (privacy settings, anti‑fingerprinting, limit third‑party cookies).</li>
+      <li><strong>Use different profiles</strong> for work/personal to avoid cross‑correlation.</li>
+      <li><strong>Log out</strong> of accounts when not needed; avoid reusing identifiers across services.</li>
+      <li><strong>Update router firmware</strong> and enable firewall/NAT defaults.</li>
+      <li><strong>Avoid public Wi‑Fi</strong> without a VPN; shared networks make correlation easier.</li>
+      <li><strong>Rotate IP</strong> (reboot router) if your ISP provides dynamic addresses.</li>
+    </ol>
+
+    <h2>When your city looks “wrong”</h2>
+    <p>City results often point to an ISP hub or to the data center hosting a VPN/proxy exit. Mobile carriers and CGNAT group many users behind the same public IP, which is typically mapped to a regional gateway. For details, see our guide on accuracy below.</p>
+
+    <!-- Related articles (перелинковка) -->
+    <aside class="wrap card" style="margin-top:24px">
+      <h3>Related articles</h3>
+      <ul>
+        <li><a href="/faq/what-is-a-public-ip-address.html">What is a Public IP Address and How to Protect It</a></li>
+        <li><a href="/faq/ip-geolocation-accuracy.html">How accurate is IP geolocation?</a></li>
+        <li><a href="/faq/vpn-ip-leak.html">VPN IP Leak: How to Check and Fix It</a></li>
+        <li><a href="/faq/what-is-an-ip-address.html">What is an IP address?</a></li>
+      </ul>
+    </aside>
+
+    <!-- CTA -->
+    <hr>
+    <p><strong>Test yourself:</strong> see your public IP on <a href="/tools/what-is-my-ip.html">What is My IP</a>, then check <a href="/tools/webrtc-leak-test.html">WebRTC</a> and <a href="/tools/dns-lookup.html">DNS</a> to verify that your real IP isn’t leaking.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="wrap">
+    <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
+  </footer>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Can Someone Track Me by My IP Address?",
+    "description": "What an IP reveals, real tracking methods in practice, legal limits, and nine ways to protect your privacy.",
+    "author": { "@type": "Person", "name": "Yaroslav Sabardak" },
+    "publisher": { "@type": "Organization", "name": "MyIPScan", "logo": { "@type": "ImageObject", "url": "https://myipscan.net/static/og-cover.png" } },
+    "datePublished": "2025-10-15",
+    "dateModified": "2025-10-15",
+    "mainEntityOfPage": "https://myipscan.net/faq/can-someone-track-me-by-my-ip-address.html",
+    "image": "https://myipscan.net/static/og-cover.png"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://myipscan.net/" },
+      { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://myipscan.net/faq/" },
+      { "@type": "ListItem", "position": 3, "name": "Can Someone Track Me by My IP Address?", "item": "https://myipscan.net/faq/can-someone-track-me-by-my-ip-address.html" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can someone find my exact address from an IP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. An IP typically reveals your country/region, ISP and sometimes the nearest city. To match an IP with a real person, providers need legal requests and billing data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Incognito mode hide my IP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Private browsing clears local history and cookies, but your public IP remains the same for websites and networks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will a VPN make me untraceable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A VPN replaces your public IP with its own exit server IP. However, accounts, cookies, fingerprinting or leaks (DNS/WebRTC) can still correlate activity unless you test and harden settings."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JS: Stable Tools menu -->
+  <script>
+  (function(){
+    var tools=document.querySelector('.tools');if(!tools)return;
+    var btn=document.getElementById('toolsButton');var menu=tools.querySelector('.tools-menu');if(!btn||!menu)return;
+    var hideTimer;
+    function open(){clearTimeout(hideTimer);tools.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    function closeNow(){tools.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+    function close(){hideTimer=setTimeout(closeNow,180);}
+    tools.addEventListener('pointerenter',open);
+    tools.addEventListener('pointerleave',function(e){if(menu.contains(e.relatedTarget)||btn.contains(e.relatedTarget))return;close();});
+    btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tools.classList.toggle('open');btn.setAttribute('aria-expanded',tools.classList.contains('open'));});
+    menu.addEventListener('pointerenter',open);
+    menu.addEventListener('pointerleave',function(e){if(tools.contains(e.relatedTarget))return;close();});
+    document.addEventListener('click',function(e){if(!tools.contains(e.target))closeNow();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNow();});
+  })();
+  </script>
+</body>
+</html>
