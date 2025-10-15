@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>How IP Addresses Are Assigned (ISP, DHCP, and IANA)</title>
+  <meta name="description" content="Learn how IP addresses are assigned from IANA to RIRs, ISPs and down to your device via DHCP/SLAAC. Understand CGNAT, static vs dynamic and how to check yours.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://myipscan.net/faq/how-ip-addresses-are-assigned.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How IP Addresses Are Assigned (ISP, DHCP, and IANA)">
+  <meta property="og:description" content="IANA → RIRs → ISPs → you. See how IP blocks flow through the system, how DHCP and SLAAC work, and what CGNAT and static IPs mean for you.">
+  <meta property="og:url" content="https://myipscan.net/faq/how-ip-addresses-are-assigned.html">
+  <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How IP Addresses Are Assigned (ISP, DHCP, and IANA)">
+  <meta name="twitter:description" content="Understand address allocation and assignment: IANA, RIRs, ISPs, DHCP, DHCPv6, SLAAC, CGNAT, and how to check your IP type.">
+  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
+
+  <link rel="preload" as="style" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="wrap nav">
+    <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/what-is-my-ip.html">What is my IP</a>
+      <a href="/faq/index.html">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <span class="tools">
+        <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
+        <div class="tools-menu" role="menu" aria-label="Tools menu">
+          <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+          <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+          <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+          <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+          <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+        </div>
+      </span>
+    </nav>
+  </header>
+
+  <!-- Article -->
+  <main class="wrap article">
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › How IP Addresses Are Assigned (ISP, DHCP, and IANA)</div>
+
+    <!-- Title & date -->
+    <h1>How IP Addresses Are Assigned (ISP, DHCP, and IANA)</h1>
+    <time datetime="2025-10-15">Updated: October 15, 2025</time>
+
+    <!-- Lede -->
+    <p>Ever wonder where your IP address comes from? Allocation flows top‑down: <strong>IANA</strong> delegates large blocks to <strong>Regional Internet Registries (RIRs)</strong>, RIRs assign space to <strong>ISPs</strong> and organizations, and your device finally receives an address via <strong>DHCP/DHCPv6</strong> or <strong>SLAAC</strong>. In this guide we unpack the layers, clarify <strong>CGNAT</strong>, and show how to tell whether your IP is static or dynamic — plus how to verify everything with MyIPScan tools.</p>
+
+    <h2>IANA → RIRs → ISPs: the allocation chain</h2>
+    <p><strong>IANA</strong> (Internet Assigned Numbers Authority) manages the global IP pool. It allocates large IPv4/IPv6 blocks to five <strong>RIRs</strong> (AFRINIC, APNIC, ARIN, LACNIC, RIPE NCC). RIRs then assign/allocate subnets to <strong>ISPs</strong>, cloud providers and enterprises, who finally route them to end users.</p>
+
+    <h2>How your device gets an IP: DHCP & DHCPv6/SLAAC</h2>
+    <ul>
+      <li><strong>DHCP (IPv4):</strong> your router or ISP’s CPE assigns a temporary address (lease) from a local pool.</li>
+      <li><strong>DHCPv6:</strong> similar for IPv6; the server hands out addresses and options (like DNS).</li>
+      <li><strong>SLAAC (Stateless Address Autoconfiguration):</strong> devices construct their own IPv6 addresses using router advertisements (RAs) and network prefixes.</li>
+    </ul>
+    <p>Many networks combine DHCPv6 for options with SLAAC for addressing.</p>
+
+    <h2>Static vs dynamic IP at the ISP level</h2>
+    <table class="compare" summary="Static vs dynamic IP from ISP" style="margin-top:10px">
+      <thead>
+        <tr><th>Property</th><th>Static IP</th><th>Dynamic IP</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Assignment</td><td>Fixed to your line/account</td><td>From ISP pool on connect/renew</td></tr>
+        <tr><td>Changes over time</td><td>No (unless requested)</td><td>Yes (reboot/lease expiry)</td></tr>
+        <tr><td>Use cases</td><td>Hosting, VPN endpoints, remote access</td><td>Everyday browsing, home users</td></tr>
+        <tr><td>Cost</td><td>Often extra</td><td>Usually included</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Where NAT fits: home NAT vs CGNAT</h2>
+    <ul>
+      <li><strong>Home NAT:</strong> your router translates many private IPs to one public IP for outbound traffic.</li>
+      <li><strong>CGNAT (Carrier‑Grade NAT):</strong> the ISP puts many customers behind shared public IPs. This can break inbound connections and some apps; port forwarding is usually unavailable.</li>
+    </ul>
+    <p>If you’re behind CGNAT, ask your ISP about a public/static IP or use a VPN with port forwarding when needed.</p>
+
+    <h2>IPv6 specifics: prefixes, privacy, and multiple addresses</h2>
+    <ul>
+      <li><strong>Delegated prefix:</strong> ISPs typically provide a /56–/60–/64 prefix to your router.</li>
+      <li><strong>Multiple IPv6 addresses:</strong> devices may hold stable and temporary (privacy) addresses simultaneously.</li>
+      <li><strong>No NAT needed:</strong> IPv6 is end‑to‑end routable; use firewalls instead of NAT for protection.</li>
+    </ul>
+
+    <h2>How to check what you have</h2>
+    <ol>
+      <li>Open <a href="/tools/what-is-my-ip.html">What is My IP</a> to see your <strong>public IPv4/IPv6</strong> and geolocation signal.</li>
+      <li>Power‑cycle the router and check again. If the address changes, you likely have a <strong>dynamic IP</strong>.</li>
+      <li>If inbound connections fail and your router’s WAN shows a private range (e.g., 100.64.0.0/10), you’re likely behind <strong>CGNAT</strong>.</li>
+      <li>For IPv6, look for a delegated prefix on the router (e.g., /56 or /64) and verify using <a href="/tools/dns-lookup.html">DNS Lookup</a> + <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a>.</li>
+    </ol>
+
+    <h2>Privacy & security considerations</h2>
+    <ul>
+      <li>Use a <a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">VPN</a> on untrusted networks to mask your public IP.</li>
+      <li>Keep router firmware updated; disable UPnP and unnecessary port forwards.</li>
+      <li>Prefer strong Wi‑Fi authentication and unique admin passwords.</li>
+      <li>With IPv6, rely on stateful firewalls; avoid exposing services unintentionally.</li>
+    </ul>
+
+    <!-- Related articles -->
+    <aside class="wrap card" style="margin-top:24px">
+      <h3>Related articles</h3>
+      <ul>
+        <li><a href="/faq/private-vs-public-ip-addresses.html">Private vs Public IP Addresses Explained</a></li>
+        <li><a href="/faq/static-vs-dynamic-ip.html">Static vs Dynamic IP: Which One Do You Have?</a></li>
+        <li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6</a></li>
+        <li><a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">What Is a VPN and How Does It Hide My IP?</a></li>
+      </ul>
+    </aside>
+
+    <!-- CTA -->
+    <hr>
+    <p><strong>Check now:</strong> View your current public IP and version on <a href="/tools/what-is-my-ip.html">What is My IP</a>, then verify resolvers via <a href="/tools/dns-lookup.html">DNS Lookup</a> and browser exposure with <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a>.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="wrap">
+    <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
+  </footer>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How IP Addresses Are Assigned (ISP, DHCP, and IANA)",
+    "description": "Explains top-down IP allocation (IANA, RIRs, ISPs) and device-level assignment via DHCP, DHCPv6, and SLAAC, plus CGNAT and IPv6 prefixes.",
+    "author": { "@type": "Person", "name": "Yaroslav Sabardak" },
+    "publisher": { "@type": "Organization", "name": "MyIPScan", "logo": { "@type": "ImageObject", "url": "https://myipscan.net/static/og-cover.png" } },
+    "datePublished": "2025-10-15",
+    "dateModified": "2025-10-15",
+    "mainEntityOfPage": "https://myipscan.net/faq/how-ip-addresses-are-assigned.html",
+    "image": "https://myipscan.net/static/og-cover.png"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://myipscan.net/" },
+      { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://myipscan.net/faq/" },
+      { "@type": "ListItem", "position": 3, "name": "How IP Addresses Are Assigned (ISP, DHCP, and IANA)", "item": "https://myipscan.net/faq/how-ip-addresses-are-assigned.html" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who decides who gets IP addresses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "IANA allocates large blocks to Regional Internet Registries (RIRs), which assign space to ISPs and organizations that then route addresses to end users."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is CGNAT and how does it affect me?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Carrier-Grade NAT shares a public IP among many customers. It can break inbound connections and port forwarding. Ask your ISP for a public/static IP or use a VPN with port forwarding."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does my device get an IP address?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typically via DHCP for IPv4, and via DHCPv6 or SLAAC for IPv6. Your router or ISP CPE distributes the address and DNS settings."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JS: Stable Tools menu -->
+  <script>
+  (function(){
+    var tools=document.querySelector('.tools');if(!tools)return;
+    var btn=document.getElementById('toolsButton');var menu=tools.querySelector('.tools-menu');if(!btn||!menu)return;
+    var hideTimer;
+    function open(){clearTimeout(hideTimer);tools.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    function closeNow(){tools.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+    function close(){hideTimer=setTimeout(closeNow,180);}
+    tools.addEventListener('pointerenter',function(){open();});
+    tools.addEventListener('pointerleave',function(e){if(menu.contains(e.relatedTarget)||btn.contains(e.relatedTarget))return;close();});
+    btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tools.classList.toggle('open');btn.setAttribute('aria-expanded',tools.classList.contains('open'));});
+    menu.addEventListener('pointerenter',function(){open();});
+    menu.addEventListener('pointerleave',function(e){if(tools.contains(e.relatedTarget))return;close();});
+    document.addEventListener('click',function(e){if(!tools.contains(e.target))closeNow();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNow();});
+  })();
+  </script>
+</body>
+</html>
