@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Static vs Dynamic IP: Which One Do You Have?</title>
+  <meta name="description" content="Learn the difference between static and dynamic IP addresses, how to check which one you have, and which type is safer and better for your needs.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://myipscan.net/faq/static-vs-dynamic-ip.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Static vs Dynamic IP: Which One Do You Have?">
+  <meta property="og:description" content="Understand static vs dynamic IPs, how they work, pros & cons, and how to check which one your device uses.">
+  <meta property="og:url" content="https://myipscan.net/faq/static-vs-dynamic-ip.html">
+  <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Static vs Dynamic IP: Which One Do You Have?">
+  <meta name="twitter:description" content="Compare static and dynamic IPs, learn their pros and cons, and discover how to check your own type with simple tools.">
+  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
+
+  <link rel="preload" as="style" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="wrap nav">
+    <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/what-is-my-ip.html">What is my IP</a>
+      <a href="/faq/index.html">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <span class="tools">
+        <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
+        <div class="tools-menu" role="menu" aria-label="Tools menu">
+          <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+          <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+          <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+          <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+          <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+        </div>
+      </span>
+    </nav>
+  </header>
+
+  <main class="wrap article">
+    <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › Static vs Dynamic IP: Which One Do You Have?</div>
+
+    <h1>Static vs Dynamic IP: Which One Do You Have?</h1>
+    <time datetime="2025-10-15">Updated: October 15, 2025</time>
+
+    <p>Every device connected to the internet has an IP address — a unique identifier that allows communication between networks. But not all IPs are the same. The two main types are <strong>static</strong> and <strong>dynamic</strong> IP addresses. Understanding which one you have helps with troubleshooting, privacy, and even setting up remote access securely.</p>
+
+    <h2>What is a static IP?</h2>
+    <p>A <strong>static IP</strong> address is a fixed number assigned to your device or network that never changes. ISPs or network administrators usually configure it manually. Static IPs are essential for hosting servers, websites, security cameras, or remote connections that require a consistent address.</p>
+
+    <ul>
+      <li><strong>Pros:</strong> Reliable remote access, easier DNS mapping, stable server connections.</li>
+      <li><strong>Cons:</strong> Easier to track, potentially higher cost, more visible attack surface if security is weak.</li>
+    </ul>
+
+    <h2>What is a dynamic IP?</h2>
+    <p>A <strong>dynamic IP</strong> address is automatically assigned by your Internet Service Provider (ISP) from a pool each time your device connects. The address can change periodically — for example, after rebooting your router or after a lease period expires.</p>
+
+    <ul>
+      <li><strong>Pros:</strong> More private, lower cost, automatic management.</li>
+      <li><strong>Cons:</strong> Unsuitable for permanent hosting or services that require constant access.</li>
+    </ul>
+
+    <h2>Static vs Dynamic IP comparison</h2>
+    <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%;margin:12px 0;">
+      <tr><th>Feature</th><th>Static IP</th><th>Dynamic IP</th></tr>
+      <tr><td>Assignment</td><td>Manual / fixed</td><td>Automatic via DHCP</td></tr>
+      <tr><td>IP changes</td><td>No (permanent)</td><td>Yes (periodically)</td></tr>
+      <tr><td>Best for</td><td>Servers, CCTV, business networks</td><td>Home users, general browsing</td></tr>
+      <tr><td>Security risk</td><td>Higher if unprotected</td><td>Lower — changes often</td></tr>
+      <tr><td>Cost</td><td>Usually extra</td><td>Included by default</td></tr>
+      <tr><td>Ease of setup</td><td>Manual configuration</td><td>Automatic (plug and play)</td></tr>
+    </table>
+
+    <h2>How to check if you have a static or dynamic IP</h2>
+    <ol>
+      <li>Go to <a href="/tools/what-is-my-ip.html">What is My IP</a> to view your public IP address.</li>
+      <li>Note it, then reboot your router or reconnect to your network.</li>
+      <li>Check your IP again on the same page. If it changed, you have a <strong>dynamic IP</strong>. If it remained identical, you likely have a <strong>static IP</strong>.</li>
+      <li>You can also confirm by checking your router settings under “WAN” or “Internet” configuration — look for options mentioning “Static” or “DHCP”.</li>
+    </ol>
+
+    <h2>Which type is better?</h2>
+    <p>For most users, a <strong>dynamic IP</strong> is sufficient and safer, as it offers automatic updates and more privacy. However, if you need stable remote access or run a self-hosted service, a <strong>static IP</strong> may be worth it — provided you implement proper firewall rules, VPN, and encryption.</p>
+
+    <h2>How to secure your IP connection</h2>
+    <ul>
+      <li>Use a <a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">VPN</a> to mask your real IP address.</li>
+      <li>Regularly test for <a href="/faq/what-is-a-dns-leak.html">DNS</a> or <a href="/faq/what-is-a-webrtc-leak.html">WebRTC</a> leaks.</li>
+      <li>Keep your router firmware and connected devices up to date.</li>
+      <li>Enable the firewall on your router and operating system.</li>
+    </ul>
+
+    <aside class="wrap card" style="margin-top:24px">
+      <h3>Related articles</h3>
+      <ul>
+        <li><a href="/faq/what-is-an-ip-address.html">What is an IP address?</a></li>
+        <li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6: What’s the difference?</a></li>
+        <li><a href="/faq/what-is-a-public-ip-address.html">What is a Public IP Address?</a></li>
+        <li><a href="/faq/how-to-hide-your-ip-address.html">How to Hide Your IP Address</a></li>
+      </ul>
+    </aside>
+
+    <hr>
+    <p><strong>Check now:</strong> See your current IP type with <a href="/tools/what-is-my-ip.html">What is My IP</a> — then test your privacy using <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> and <a href="/tools/dns-lookup.html">DNS Lookup</a>.</p>
+  </main>
+
+  <footer class="wrap">
+    <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
+  </footer>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Static vs Dynamic IP: Which One Do You Have?",
+    "description": "Explains the difference between static and dynamic IP addresses, their pros and cons, and how to check which type you have.",
+    "author": { "@type": "Person", "name": "Yaroslav Sabardak" },
+    "publisher": { "@type": "Organization", "name": "MyIPScan", "logo": { "@type": "ImageObject", "url": "https://myipscan.net/static/og-cover.png" } },
+    "datePublished": "2025-10-15",
+    "dateModified": "2025-10-15",
+    "mainEntityOfPage": "https://myipscan.net/faq/static-vs-dynamic-ip.html",
+    "image": "https://myipscan.net/static/og-cover.png"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://myipscan.net/" },
+      { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://myipscan.net/faq/" },
+      { "@type": "ListItem", "position": 3, "name": "Static vs Dynamic IP: Which One Do You Have?", "item": "https://myipscan.net/faq/static-vs-dynamic-ip.html" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is static IP better than dynamic?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Static IPs are better for servers and remote access because they never change, while dynamic IPs are safer and easier for everyday use."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I tell if I have a static or dynamic IP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Check your IP using a tool like What is My IP, then reconnect to your network and check again. If it changes, it's dynamic. If not, it's static."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I request a static IP from my ISP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, most ISPs offer static IPs for business or advanced users, though it often costs extra and requires manual configuration."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JS: Stable Tools menu -->
+  <script>
+  (function(){
+    var tools=document.querySelector('.tools');if(!tools)return;
+    var btn=document.getElementById('toolsButton');var menu=tools.querySelector('.tools-menu');if(!btn||!menu)return;
+    var hideTimer;
+    function open(){clearTimeout(hideTimer);tools.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    function closeNow(){tools.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+    function close(){hideTimer=setTimeout(closeNow,180);}
+    tools.addEventListener('pointerenter',function(){open();});
+    tools.addEventListener('pointerleave',function(e){if(menu.contains(e.relatedTarget)||btn.contains(e.relatedTarget))return;close();});
+    btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tools.classList.toggle('open');btn.setAttribute('aria-expanded',tools.classList.contains('open'));});
+    menu.addEventListener('pointerenter',function(){open();});
+    menu.addEventListener('pointerleave',function(e){if(tools.contains(e.relatedTarget))return;close();});
+    document.addEventListener('click',function(e){if(!tools.contains(e.target))closeNow();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNow();});
+  })();
+  </script>
+</body>
+</html>
