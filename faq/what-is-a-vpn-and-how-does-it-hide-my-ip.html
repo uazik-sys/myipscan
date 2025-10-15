@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>What Is a VPN and How Does It Hide My IP?</title>
+  <meta name="description" content="Understand what a VPN is, how tunneling and shared exit IPs hide your address, protocol choices (WireGuard/OpenVPN), leak prevention, and setup steps.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://myipscan.net/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="What Is a VPN and How Does It Hide My IP?">
+  <meta property="og:description" content="Learn how VPNs work, how they hide your IP using encrypted tunnels and shared exit servers, and how to test for DNS/WebRTC leaks.">
+  <meta property="og:url" content="https://myipscan.net/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">
+  <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Is a VPN and How Does It Hide My IP?">
+  <meta name="twitter:description" content="A practical guide to VPNs: tunneling, NAT, protocols (WireGuard/OpenVPN), kill switch, split tunneling, and leak tests.">
+  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
+
+  <link rel="preload" as="style" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="wrap nav">
+    <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/what-is-my-ip.html">What is my IP</a>
+      <a href="/faq/index.html">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <span class="tools">
+        <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
+        <div class="tools-menu" role="menu" aria-label="Tools menu">
+          <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+          <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+          <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+          <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+          <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+        </div>
+      </span>
+    </nav>
+  </header>
+
+  <!-- Article -->
+  <main class="wrap article">
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › What Is a VPN and How Does It Hide My IP?</div>
+
+    <!-- Title & date -->
+    <h1>What Is a VPN and How Does It Hide My IP?</h1>
+    <time datetime="2025-10-15">Updated: October 15, 2025</time>
+
+    <!-- Lede -->
+    <p>A <strong>VPN (Virtual Private Network)</strong> creates an encrypted tunnel between your device and a remote server. When connected, websites see the <em>VPN server’s public IP</em> instead of yours. This helps protect privacy on public Wi‑Fi, bypass regional limits, and reduce profiling. In this guide, you’ll learn how VPNs hide your IP, what encryption and protocols do, how to prevent DNS/WebRTC leaks, and how to set up and test your connection properly.</p>
+
+    <h2>How a VPN hides your IP</h2>
+    <p>After you connect to a VPN app, all traffic is routed through an encrypted tunnel to the VPN server (gateway). The server forwards your traffic to the internet using its own public IP. To the destination site, the apparent source is the VPN’s <strong>shared exit IP</strong>, not your ISP‑assigned address. Replies come back to the VPN, which returns them to you through the same tunnel.</p>
+    <ul>
+      <li><strong>Encryption:</strong> prevents intermediaries from reading traffic contents.</li>
+      <li><strong>NAT at the VPN server:</strong> many users share the same exit IP, adding crowding/obfuscation.</li>
+      <li><strong>Location shift:</strong> choosing a different server region changes the geolocation signal.</li>
+    </ul>
+
+    <h2>VPN vs Proxy vs Tor (quick view)</h2>
+    <table class="compare" summary="Comparison of VPN, Proxy and Tor for hiding IP" style="margin-top:10px">
+      <thead>
+        <tr><th>Method</th><th>Hides IP?</th><th>Encrypts traffic</th><th>Scope</th><th>Speed</th><th>Use cases</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>VPN</td><td>✅ Yes</td><td>✅ Full tunnel</td><td>System‑wide</td><td>Fast–Medium</td><td>Privacy, streaming, work</td></tr>
+        <tr><td>HTTPS/SOCKS Proxy</td><td>✅ Per app</td><td>⚠️ Partial/None</td><td>Single app</td><td>Fast</td><td>Bypass per‑app limits</td></tr>
+        <tr><td>Tor Browser</td><td>✅ Yes</td><td>✅ Multi‑hop</td><td>Browser only</td><td>Slow–Medium</td><td>High anonymity for web</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Protocols & features that matter</h2>
+    <table class="compare" summary="VPN protocols and key features">
+      <thead>
+        <tr><th>Protocol/Feature</th><th>What it is</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>WireGuard</strong></td><td>Modern UDP‑based protocol</td><td>Fast, simple, widely adopted</td></tr>
+        <tr><td><strong>OpenVPN</strong></td><td>TLS‑based over UDP/TCP</td><td>Battle‑tested, flexible, slightly heavier</td></tr>
+        <tr><td><strong>IKEv2/IPsec</strong></td><td>Secure, stable on mobile</td><td>Good for roaming devices</td></tr>
+        <tr><td><strong>Kill switch</strong></td><td>Blocks traffic if VPN drops</td><td>Prevents real IP exposure</td></tr>
+        <tr><td><strong>Split tunneling</strong></td><td>Choose apps to bypass VPN</td><td>Balance speed vs privacy</td></tr>
+        <tr><td><strong>Custom DNS</strong></td><td>Force DNS through VPN</td><td>Reduces resolver leaks</td></tr>
+        <tr><td><strong>Multi‑hop</strong></td><td>Route via 2+ servers</td><td>Extra obfuscation; slower</td></tr>
+        <tr><td><strong>No‑logs policy</strong></td><td>Provider minimizes data</td><td>Check audits and jurisdiction</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What a VPN does <em>not</em> do by itself</h2>
+    <ul>
+      <li>It doesn’t make you invisible if you’re logged into the same accounts (correlation).</li>
+      <li>It doesn’t fix <strong>WebRTC</strong> or <strong>DNS</strong> leaks unless configured correctly.</li>
+      <li>It doesn’t stop advanced <strong>fingerprinting</strong> (browser/device signals) by itself.</li>
+    </ul>
+
+    <h2>Set up & verify (5 quick steps)</h2>
+    <ol>
+      <li><strong>Install a reputable VPN</strong> (prefer WireGuard/OpenVPN; enable kill switch).</li>
+      <li><strong>Connect and choose region</strong> that suits your goal (privacy, streaming, work).</li>
+      <li><strong>Check your IP</strong> on <a href="/tools/what-is-my-ip.html">What is My IP</a> — confirm it shows the VPN’s server IP and region.</li>
+      <li><strong>Run leak tests</strong>: <a href="/tools/webrtc-leak-test.html">WebRTC</a> and <a href="/tools/dns-lookup.html">DNS Lookup</a> — ensure they align with the VPN.</li>
+      <li><strong>Harden the browser</strong>: limit third‑party cookies; use separate profiles to avoid account correlation.</li>
+    </ol>
+
+    <h2>Performance & legal notes</h2>
+    <p>VPNs add encryption and routing overhead; minor speed loss is normal (server choice matters). In most countries, using a VPN is legal for privacy and security. Do not use VPNs to violate laws or terms of service.</p>
+
+    <!-- Related articles -->
+    <aside class="wrap card" style="margin-top:24px">
+      <h3>Related articles</h3>
+      <ul>
+        <li><a href="/faq/what-is-a-public-ip-address.html">What is a Public IP Address and How to Protect It</a></li>
+        <li><a href="/faq/can-someone-track-me-by-my-ip-address.html">Can Someone Track Me by My IP Address?</a></li>
+        <li><a href="/faq/how-to-hide-your-ip-address.html">How to Hide Your IP Address (Free & Paid Methods)</a></li>
+      </ul>
+    </aside>
+
+    <!-- CTA -->
+    <hr>
+    <p><strong>Test now:</strong> see your public IP on <a href="/tools/what-is-my-ip.html">What is My IP</a>, then verify <a href="/tools/webrtc-leak-test.html">WebRTC</a> and <a href="/tools/dns-lookup.html">DNS</a> to ensure there are no leaks.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="wrap">
+    <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
+  </footer>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is a VPN and How Does It Hide My IP?",
+    "description": "How VPNs work to hide your IP: encrypted tunnels, shared exit servers, protocols, kill switch, split tunneling and leak tests.",
+    "author": { "@type": "Person", "name": "Yaroslav Sabardak" },
+    "publisher": { "@type": "Organization", "name": "MyIPScan", "logo": { "@type": "ImageObject", "url": "https://myipscan.net/static/og-cover.png" } },
+    "datePublished": "2025-10-15",
+    "dateModified": "2025-10-15",
+    "mainEntityOfPage": "https://myipscan.net/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html",
+    "image": "https://myipscan.net/static/og-cover.png"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://myipscan.net/" },
+      { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://myipscan.net/faq/" },
+      { "@type": "ListItem", "position": 3, "name": "What Is a VPN and How Does It Hide My IP?", "item": "https://myipscan.net/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does a VPN make me anonymous?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A VPN replaces your public IP with its own and encrypts traffic, improving privacy. True anonymity also requires preventing DNS/WebRTC leaks and avoiding account correlation or fingerprinting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which protocol should I choose: WireGuard or OpenVPN?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WireGuard is fast and modern; OpenVPN is mature and flexible. Both are secure when configured properly. Pick the one your provider supports best; test performance per location."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does my speed drop with a VPN?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Encryption and longer routes add overhead. Choose nearby servers, faster protocols (e.g., WireGuard), and stable networks for best results."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JS: Stable Tools menu -->
+  <script>
+  (function(){
+    var tools=document.querySelector('.tools');if(!tools)return;
+    var btn=document.getElementById('toolsButton');var menu=tools.querySelector('.tools-menu');if(!btn||!menu)return;
+    var hideTimer;
+    function open(){clearTimeout(hideTimer);tools.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    function closeNow(){tools.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+    function close(){hideTimer=setTimeout(closeNow,180);}
+    tools.addEventListener('pointerenter',function(){open();});
+    tools.addEventListener('pointerleave',function(e){if(menu.contains(e.relatedTarget)||btn.contains(e.relatedTarget))return;close();});
+    btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tools.classList.toggle('open');btn.setAttribute('aria-expanded',tools.classList.contains('open'));});
+    menu.addEventListener('pointerenter',function(){open();});
+    menu.addEventListener('pointerleave',function(e){if(tools.contains(e.relatedTarget))return;close();});
+    document.addEventListener('click',function(e){if(!tools.contains(e.target))closeNow();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNow();});
+  })();
+  </script>
+</body>
+</html>
