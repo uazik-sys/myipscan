@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>How to Check if Your IP Is Blacklisted</title>
+  <meta name="description" content="Learn how to check if your IP is blacklisted, what causes blacklisting, and how to get delisted from spam or security databases.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://myipscan.net/faq/how-to-check-if-your-ip-is-blacklisted.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Check if Your IP Is Blacklisted">
+  <meta property="og:description" content="Find out if your IP is blacklisted and learn how to remove it from spam and security databases. Step-by-step guide with free tools.">
+  <meta property="og:url" content="https://myipscan.net/faq/how-to-check-if-your-ip-is-blacklisted.html">
+  <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Check if Your IP Is Blacklisted">
+  <meta name="twitter:description" content="Step-by-step guide to check if your IP is blacklisted, understand the causes, and remove it safely from databases.">
+  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
+
+  <link rel="preload" as="style" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="wrap nav">
+  <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/what-is-my-ip.html">What is my IP</a>
+    <a href="/faq/index.html">FAQ</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <span class="tools">
+      <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
+      <div class="tools-menu" role="menu" aria-label="Tools menu">
+        <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+        <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+        <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+        <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+        <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+      </div>
+    </span>
+  </nav>
+</header>
+
+<main class="wrap article">
+  <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › How to Check if Your IP Is Blacklisted</div>
+
+  <h1>How to Check if Your IP Is Blacklisted</h1>
+  <time datetime="2025-10-15">Updated: October 15, 2025</time>
+
+  <p>Sometimes websites, email providers, or firewalls block access because your <strong>IP address is blacklisted</strong> — listed in spam or abuse databases due to suspicious activity. Even if you did nothing wrong, your IP may share a reputation with others (for example, dynamic IP pools or shared VPN servers). This guide explains how IP blacklists work, how to check if your IP is on one, and how to get delisted safely.</p>
+
+  <h2>What does “blacklisted IP” mean?</h2>
+  <p>An IP blacklist (or DNSBL/RBL) is a database used by ISPs, mail servers, and security systems to flag potentially malicious or spammy IPs. These systems help block spam, botnets, DDoS, or compromised hosts. Blacklisting doesn’t always mean your device is hacked — sometimes entire ISP ranges get flagged for past abuse.</p>
+
+  <h2>Common reasons for IP blacklisting</h2>
+  <ul>
+    <li>Sending large volumes of email (mass mailers or spam complaints)</li>
+    <li>Malware-infected or open proxy servers detected on your network</li>
+    <li>VPN or shared IPs abused by previous users</li>
+    <li>Misconfigured email servers (no SPF/DKIM/DMARC)</li>
+    <li>Port scanning or suspicious automated requests</li>
+    <li>Dynamic IP ranges flagged by third-party systems</li>
+  </ul>
+
+  <h2>How to check if your IP is blacklisted (free tools)</h2>
+  <ol>
+    <li>Visit <a href="/tools/what-is-my-ip.html">What is My IP</a> to see your current public IP address.</li>
+    <li>Copy the IP and use one or more blacklist-checking sites:
+      <ul>
+        <li><a href="https://mxtoolbox.com/blacklists.aspx" target="_blank" rel="noopener">MXToolbox Blacklist Check</a></li>
+        <li><a href="https://dnsbl.info/" target="_blank" rel="noopener">DNSBL.info</a></li>
+        <li><a href="https://multirbl.valli.org/" target="_blank" rel="noopener">MultiRBL Check</a></li>
+        <li><a href="https://projecthoneypot.org" target="_blank" rel="noopener">Project Honeypot</a></li>
+      </ul>
+    </li>
+    <li>Review which blacklists (if any) your IP appears on. Each service provides links to removal instructions.</li>
+    <li>Repeat the check occasionally, especially if you use VPNs or dynamic IPs.</li>
+  </ol>
+
+  <h2>How to get delisted</h2>
+  <ol>
+    <li>Identify the reason: read the blacklist details (spam, malware, open proxy, etc.).</li>
+    <li>Clean your system: run malware scans and remove suspicious software.</li>
+    <li>Check your router for open ports or DNS hijacking.</li>
+    <li>If you’re using a VPN, switch servers or contact the provider.</li>
+    <li>If it’s your email server, configure SPF, DKIM, and DMARC records.</li>
+    <li>Submit a <strong>delisting request</strong> (each blacklist has its own form, usually quick).</li>
+  </ol>
+
+  <h2>Prevention tips</h2>
+  <ul>
+    <li>Use a reliable VPN or ISP that rotates or manages clean IP ranges.</li>
+    <li>Keep systems updated to prevent compromise or open ports.</li>
+    <li>Avoid sending bulk or unsolicited emails.</li>
+    <li>Use proper email authentication (SPF/DKIM/DMARC).</li>
+    <li>Monitor your IP reputation periodically using the tools above.</li>
+  </ul>
+
+  <aside class="wrap card" style="margin-top:24px">
+    <h3>Related articles</h3>
+    <ul>
+      <li><a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">What Is a VPN and How Does It Hide My IP?</a></li>
+      <li><a href="/faq/how-to-hide-your-ip-address.html">How to Hide Your IP Address (Free & Paid Methods)</a></li>
+      <li><a href="/faq/what-is-a-dns-leak.html">What Is a DNS Leak and How to Prevent It</a></li>
+      <li><a href="/faq/can-someone-track-me-by-my-ip-address.html">Can Someone Track Me by My IP Address?</a></li>
+    </ul>
+  </aside>
+
+  <hr>
+  <p><strong>Check now:</strong> Find your IP with <a href="/tools/what-is-my-ip.html">What is My IP</a>, then verify it against <a href="https://mxtoolbox.com/blacklists.aspx" target="_blank" rel="noopener">MXToolbox</a> or <a href="https://dnsbl.info/" target="_blank" rel="noopener">DNSBL.info</a> to ensure your IP reputation is clean.</p>
+</main>
+
+<footer class="wrap">
+  <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
+</footer>
+
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Check if Your IP Is Blacklisted",
+  "description": "Step-by-step guide to check if your IP address is blacklisted, understand causes, and request delisting from spam and security databases.",
+  "author": { "@type": "Person", "name": "Yaroslav Sabardak" },
+  "publisher": { "@type": "Organization", "name": "MyIPScan", "logo": { "@type": "ImageObject", "url": "https://myipscan.net/static/og-cover.png" } },
+  "datePublished": "2025-10-15",
+  "dateModified": "2025-10-15",
+  "mainEntityOfPage": "https://myipscan.net/faq/how-to-check-if-your-ip-is-blacklisted.html",
+  "image": "https://myipscan.net/static/og-cover.png"
+}
+</script>
+
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://myipscan.net/" },
+    { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://myipscan.net/faq/" },
+    { "@type": "ListItem", "position": 3, "name": "How to Check if Your IP Is Blacklisted", "item": "https://myipscan.net/faq/how-to-check-if-your-ip-is-blacklisted.html" }
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is my IP blacklisted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your IP may appear on a blacklist due to spam complaints, malware activity, open proxies, or being part of a shared VPN or ISP range previously abused."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I remove my IP from a blacklist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Identify the listed database, fix the cause (malware, misconfigurations, or VPN IP), then submit a delisting request on that site. Most removals happen within 24–48 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can VPNs cause blacklisting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Shared VPN IPs often get flagged when users abuse services. Switching servers or providers usually resolves this instantly."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- JS: Stable Tools menu -->
+<script>
+(function(){
+  var tools=document.querySelector('.tools');if(!tools)return;
+  var btn=document.getElementById('toolsButton');var menu=tools.querySelector('.tools-menu');if(!btn||!menu)return;
+  var hideTimer;
+  function open(){clearTimeout(hideTimer);tools.classList.add('open');btn.setAttribute('aria-expanded','true');}
+  function closeNow(){tools.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  function close(){hideTimer=setTimeout(closeNow,180);}
+  tools.addEventListener('pointerenter',open);
+  tools.addEventListener('pointerleave',function(e){if(menu.contains(e.relatedTarget)||btn.contains(e.relatedTarget))return;close();});
+  btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tools.classList.toggle('open');btn.setAttribute('aria-expanded',tools.classList.contains('open'));});
+  menu.addEventListener('pointerenter',open);
+  menu.addEventListener('pointerleave',function(e){if(tools.contains(e.relatedTarget))return;close();});
+  document.addEventListener('click',function(e){if(!tools.contains(e.target))closeNow();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNow();});
+})();
+</script>
+</body>
+</html>
