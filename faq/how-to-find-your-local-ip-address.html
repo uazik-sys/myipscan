@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>How to Find Your Local IP Address on Any Device</title>
+  <meta name="description" content="Learn how to find your local IP address on Windows, macOS, Android, iPhone, Linux, and routers — with step-by-step instructions and privacy tips.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://myipscan.net/faq/how-to-find-your-local-ip-address.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Find Your Local IP Address on Any Device">
+  <meta property="og:description" content="Find your local IP address easily — step-by-step for Windows, macOS, Android, iPhone, and Linux. Understand local vs public IPs and how to stay private.">
+  <meta property="og:url" content="https://myipscan.net/faq/how-to-find-your-local-ip-address.html">
+  <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Find Your Local IP Address on Any Device">
+  <meta name="twitter:description" content="Step-by-step guide: find your local IP on Windows, macOS, Android, iPhone, and Linux — and learn the difference between local and public IP.">
+  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
+
+  <link rel="preload" as="style" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="wrap nav">
+    <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/what-is-my-ip.html">What is my IP</a>
+      <a href="/faq/index.html">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </nav>
+  </header>
+
+  <main class="wrap article">
+    <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › How to Find Your Local IP Address on Any Device</div>
+
+    <h1>How to Find Your Local IP Address on Any Device</h1>
+    <time datetime="2025-10-15">Updated: October 15, 2025</time>
+
+    <p>Your <strong>local IP address</strong> identifies your device inside your home or office network — it’s different from your <a href="/faq/what-is-a-public-ip-address.html">public IP</a> that the internet sees. Knowing your local IP helps you troubleshoot connections, set up printers or servers, or manage your router. Here’s how to find it on any device, plus a few security tips.</p>
+
+    <h2>Windows</h2>
+    <ol>
+      <li>Press <kbd>Win + R</kbd>, type <code>cmd</code>, and hit <kbd>Enter</kbd>.</li>
+      <li>In Command Prompt, type <code>ipconfig</code> and press <kbd>Enter</kbd>.</li>
+      <li>Look for “IPv4 Address” — that’s your local IP (e.g., 192.168.1.101).</li>
+    </ol>
+
+    <h2>macOS</h2>
+    <ol>
+      <li>Open <strong>System Settings › Network</strong>.</li>
+      <li>Select your active connection (Wi-Fi or Ethernet).</li>
+      <li>Your local IP appears under “Status” or “Details”.</li>
+      <li>Alternatively, open <strong>Terminal</strong> and type <code>ifconfig | grep inet</code>.</li>
+    </ol>
+
+    <h2>Android</h2>
+    <ol>
+      <li>Go to <strong>Settings › Network & Internet › Wi‑Fi</strong>.</li>
+      <li>Tap the connected Wi‑Fi network.</li>
+      <li>Scroll to “Advanced” or “IP address”.</li>
+    </ol>
+
+    <h2>iPhone / iPad (iOS)</h2>
+    <ol>
+      <li>Open <strong>Settings › Wi‑Fi</strong>.</li>
+      <li>Tap the “ⓘ” icon next to your network.</li>
+      <li>Find “IP Address” under the IPv4 section.</li>
+    </ol>
+
+    <h2>Linux</h2>
+    <ol>
+      <li>Open Terminal.</li>
+      <li>Type <code>ip addr show</code> or <code>ifconfig</code>.</li>
+      <li>Find your active interface (e.g., eth0, wlan0) and read the “inet” address line.</li>
+    </ol>
+
+    <h2>Router (to see all connected devices)</h2>
+    <ol>
+      <li>Type your router’s address (often <code>192.168.1.1</code> or <code>192.168.0.1</code>) in a browser.</li>
+      <li>Login with admin credentials.</li>
+      <li>Open “Connected devices” or “DHCP clients” — you’ll see local IPs for every device.</li>
+    </ol>
+
+    <h2>Local vs public IP: what’s the difference?</h2>
+    <p>Your <strong>local IP</strong> only works inside your network. It’s usually from one of these private ranges:</p>
+    <ul>
+      <li>192.168.0.0 – 192.168.255.255</li>
+      <li>10.0.0.0 – 10.255.255.255</li>
+      <li>172.16.0.0 – 172.31.255.255</li>
+    </ul>
+    <p>Your <strong>public IP</strong> is assigned by your ISP and seen by websites and online services. You can check it with <a href="/tools/what-is-my-ip.html">What is My IP</a>.</p>
+
+    <h2>Security and privacy tips</h2>
+    <ul>
+      <li>Local IPs aren’t exposed publicly, but devices on your LAN can still communicate — secure your Wi‑Fi with WPA2/3 and strong passwords.</li>
+      <li>Disable guest networks or restrict them to internet-only access.</li>
+      <li>Update router firmware regularly.</li>
+      <li>For external privacy, use a <a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">VPN</a> to hide your public IP.</li>
+    </ul>
+
+    <aside class="wrap card" style="margin-top:24px">
+      <h3>Related articles</h3>
+      <ul>
+        <li><a href="/faq/private-vs-public-ip-addresses.html">Private vs Public IP Addresses Explained</a></li>
+        <li><a href="/faq/static-vs-dynamic-ip.html">Static vs Dynamic IP: Which One Do You Have?</a></li>
+        <li><a href="/faq/what-is-a-public-ip-address.html">What is a Public IP Address?</a></li>
+        <li><a href="/faq/how-ip-addresses-are-assigned.html">How IP Addresses Are Assigned (ISP, DHCP, and IANA)</a></li>
+      </ul>
+    </aside>
+
+    <hr>
+    <p><strong>Next step:</strong> See your <a href="/tools/what-is-my-ip.html">public IP</a> and verify DNS with <a href="/tools/dns-lookup.html">DNS Lookup</a> or browser exposure using <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a>.</p>
+  </main>
+
+  <footer class="wrap">
+    <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
+  </footer>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Find Your Local IP Address on Any Device",
+    "description": "Step-by-step instructions to find your local IP address on Windows, macOS, Android, iPhone, Linux, and routers — plus privacy and security tips.",
+    "author": { "@type": "Person", "name": "Yaroslav Sabardak" },
+    "publisher": { "@type": "Organization", "name": "MyIPScan", "logo": { "@type": "ImageObject", "url": "https://myipscan.net/static/og-cover.png" } },
+    "datePublished": "2025-10-15",
+    "dateModified": "2025-10-15",
+    "mainEntityOfPage": "https://myipscan.net/faq/how-to-find-your-local-ip-address.html",
+    "image": "https://myipscan.net/static/og-cover.png"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://myipscan.net/" },
+      { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://myipscan.net/faq/" },
+      { "@type": "ListItem", "position": 3, "name": "How to Find Your Local IP Address on Any Device", "item": "https://myipscan.net/faq/how-to-find-your-local-ip-address.html" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my local IP address the same as my public IP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Your local IP identifies your device inside your private network, while your public IP is assigned by your ISP and visible on the internet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can other people see my local IP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, local IPs are private and not routed on the internet. Only devices on your local network can see them."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are examples of local IP ranges?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common ranges include 192.168.x.x, 10.x.x.x, and 172.16–172.31.x.x — reserved for private LAN use."
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
