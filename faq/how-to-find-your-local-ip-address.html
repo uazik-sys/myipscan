@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <!-- ✅ SEO -->
-  <title>Find Your Local IP: 30-Second Step-by-Step Guide ✓</title>
-  <meta name="description" content="Find your local IP in 30 seconds → Windows, Mac, Android, iPhone, Linux, and router. Copy-paste commands, tables, fixes, and privacy tips. Free & simple ✓">
+  <title>Find Your Local IP: Quick Guide for Any Device ✓ (2025)</title>
+  <meta name="description" content="See your local IP on Windows, macOS, Android, iPhone, Linux, and routers → step-by-step commands, pitfalls, and privacy tips. Free, simple, fast. ✓">
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
   <link rel="canonical" href="https://myipscan.net/faq/how-to-find-your-local-ip-address.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Find Your Local IP: 30-Second Step-by-Step Guide ✓">
-  <meta property="og:description" content="Windows, Mac, Android, iPhone, Linux, router — quick steps, commands, and fixes.">
+  <meta property="og:title" content="Find Your Local IP: Quick Guide for Any Device ✓ (2025)">
+  <meta property="og:description" content="Step-by-step commands to find your local IP on any device, plus security and troubleshooting.">
   <meta property="og:url" content="https://myipscan.net/faq/how-to-find-your-local-ip-address.html">
   <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Find Your Local IP: 30-Second Step-by-Step Guide ✓">
-  <meta name="twitter:description" content="Copy-paste commands, pitfalls, and privacy tips. Free & simple.">
+  <meta name="twitter:title" content="Find Your Local IP: Quick Guide for Any Device ✓ (2025)">
+  <meta name="twitter:description" content="Windows, macOS, Android, iPhone, Linux & routers — copy-paste commands and tips.">
   <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
 
   <!-- Keep site-wide CSS -->
@@ -47,41 +47,105 @@
     <time datetime="2025-10-16">Updated: October 16, 2025</time>
 
     <!-- Intro -->
-    <p><strong>Local IP</strong> (a.k.a. private/LAN address) identifies your device <em>inside</em> your home/office network. Это не то же самое, что <a href="/what-is-my-ip.html">public IP</a>, который видят сайты. Ниже — быстрые инструкции для Windows, macOS, Linux, Android, iPhone и способ найти IP всех устройств через роутер. Добавили таблицы, команды, частые ошибки и советы по безопасности, чтобы довести страницу до 100/100 в Serpstat и соответствовать Google E-E-A-T.</p>
+    <p><strong>Local IP</strong> (a.k.a. private/LAN address) identifies your device <em>inside</em> the home or office network. It’s different from your <a href="/faq/what-is-a-public-ip-address.html">public IP</a> that websites see. Below you’ll find quick steps for Windows, macOS, Android, iPhone, Linux and a router view of <em>all</em> devices — plus privacy, troubleshooting, and a handy command cheat-sheet.</p>
 
     <!-- TL;DR -->
     <section class="card" aria-labelledby="tldr">
       <h2 id="tldr">TL;DR — 30 seconds</h2>
       <ul>
         <li><strong>Windows:</strong> <code>ipconfig</code> → “IPv4 Address”.</li>
-        <li><strong>macOS:</strong> <code>ipconfig getifaddr en0</code> или в System Settings → Network.</li>
-        <li><strong>Linux:</strong> <code>ip -4 addr show</code> → <code>inet</code>.</li>
-        <li><strong>Android/iOS:</strong> Wi-Fi details → “IP address”.</li>
-        <li><strong>Router:</strong> admin-панель → <em>Connected devices / DHCP clients</em>.</li>
+        <li><strong>macOS/Linux:</strong> <code>ip addr</code> / <code>ifconfig</code> → look for <code>inet</code>.</li>
+        <li><strong>Android/iOS:</strong> Wi-Fi network details → “IP address”.</li>
+        <li><strong>Router:</strong> open admin panel → “Connected devices/DHCP clients”.</li>
       </ul>
-      <p class="light">Обычно локальный IP — из диапазонов <code>192.168.x.x</code>, <code>10.x.x.x</code> или <code>172.16–31.x.x</code>.</p>
-      <p class="light">LSI: local ip, private ip, LAN IP, gateway, subnet mask, DHCP, router admin, 192.168.1.1, ipconfig, ifconfig, arp, route, ping.</p>
+      <p class="light">Tip: Your local IP will usually be from <code>192.168.x.x</code>, <code>10.x.x.x</code>, or <code>172.16–31.x.x</code>.</p>
     </section>
 
-    <!-- What is local IP -->
-    <h2 id="what-is">1) What is a local IP address?</h2>
-    <p>Локальный (частный) IP используется внутри LAN и не маршрутизируется в интернет. Его выдает DHCP-сервер роутера или вы задаете статически. Наличие корректного локального IP важно для доступа к принтеру/NAS, стримингу по DLNA, удаленному администрированию и корректной сегментации сети.</p>
+    <!-- Why it matters -->
+    <h2 id="why">Why local IP matters</h2>
+    <ul>
+      <li>Connect printers, NAS, smart TVs, and admin panels.</li>
+      <li>Forward ports or create firewall rules to a specific device.</li>
+      <li>Diagnose conflicts (two devices trying to use the same IP).</li>
+      <li>Check whether your device is on the correct subnet/VLAN.</li>
+    </ul>
 
-    <!-- IPv4 vs IPv6 local -->
-    <h2 id="v4vsv6">2) IPv4 vs IPv6 in your LAN</h2>
-    <table>
-      <thead><tr><th>Параметр</th><th>IPv4 (A)</th><th>IPv6 (AAAA)</th><th>Что смотреть</th></tr></thead>
-      <tbody>
-        <tr><td>Диапазоны</td><td>RFC1918: 10/8, 172.16/12, 192.168/16</td><td>Link-local <code>fe80::/64</code>, ULA <code>fd00::/8</code></td><td>Есть ли глобальный/ULA, не только fe80::</td></tr>
-        <tr><td>Выдача адреса</td><td>DHCPv4</td><td>SLAAC/DHCPv6</td><td>Включен ли DHCP/SLAAC на роутере</td></tr>
-        <tr><td>Проверка</td><td><code>ipconfig</code>, <code>ip -4 addr</code></td><td><code>ip -6 addr</code></td><td>Наличие корректной маски/префикса</td></tr>
-      </tbody>
-    </table>
+    <!-- Windows -->
+    <h2 id="windows">Windows</h2>
+    <ol>
+      <li>Press <kbd>Win</kbd>+<kbd>R</kbd> → type <code>cmd</code> → <kbd>Enter</kbd>.</li>
+      <li>Run <code>ipconfig</code>. Find your active adapter (Ethernet/Wi-Fi) → <strong>IPv4 Address</strong>.</li>
+      <li>PowerShell (structured output): <code>Get-NetIPAddress -AddressFamily IPv4 | Sort-Object InterfaceAlias | Format-Table</code></li>
+    </ol>
+    <h3>Useful Windows commands</h3>
+    <pre><code># Show all addresses
+ipconfig /all
 
-    <!-- Private ranges -->
-    <h2 id="ranges">3) Common private IPv4 ranges (RFC1918)</h2>
+# Network routes (useful to spot wrong gateways)
+route print
+
+# Who has what IP/MAC on LAN (ARP cache)
+arp -a
+</code></pre>
+
+    <!-- macOS -->
+    <h2 id="macos">macOS</h2>
+    <ol>
+      <li>System Settings → <strong>Network</strong> → choose Wi-Fi or Ethernet → see “IP Address”.</li>
+      <li>Terminal alternative:</li>
+    </ol>
+    <pre><code># Show addresses
+ipconfig getifaddr en0      # Wi-Fi on most Macs
+ipconfig getifaddr en1      # Ethernet (may vary)
+ifconfig | grep "inet "     # all IPv4s
+</code></pre>
+
+    <!-- Linux -->
+    <h2 id="linux">Linux</h2>
+    <ol>
+      <li>Open Terminal and run:</li>
+    </ol>
+    <pre><code># Addresses on all interfaces
+ip -4 addr show
+
+# Active connection only (example)
+ip -4 addr show dev wlan0
+
+# Older/compat
+ifconfig | grep "inet "
+</code></pre>
+    <p class="light">Tip: The gateway is usually <code>.1</code> in your subnet (e.g., <code>192.168.1.1</code>). Verify with <code>ip route</code>.</p>
+
+    <!-- Android -->
+    <h2 id="android">Android</h2>
+    <ol>
+      <li>Settings → <strong>Network & Internet</strong> → Wi-Fi → tap your network.</li>
+      <li>“Advanced” → <strong>IP address</strong> (sometimes under “IP settings”).</li>
+    </ol>
+    <p class="light">Note: OEM skins place IP details differently; search “Status” or “IP”.</p>
+
+    <!-- iOS -->
+    <h2 id="ios">iPhone / iPad (iOS)</h2>
+    <ol>
+      <li>Settings → <strong>Wi-Fi</strong> → tap “ⓘ” next to your network.</li>
+      <li>See <strong>IP Address</strong> under the IPv4 section. (IPv6 shows separately.)</li>
+    </ol>
+
+    <!-- Router -->
+    <h2 id="router">Router (see all devices)</h2>
+    <ol>
+      <li>Type your router IP in a browser (often <code>192.168.1.1</code> or <code>192.168.0.1</code>).</li>
+      <li>Log in with admin credentials.</li>
+      <li>Open <strong>Connected devices</strong>, <strong>ARP table</strong>, or <strong>DHCP clients</strong> to view hostnames, local IPs, and MAC addresses.</li>
+    </ol>
+
+    <!-- Local vs Public -->
+    <h2 id="local-vs-public">Local vs Public IP — what’s the difference?</h2>
+    <p>Your <strong>local IP</strong> works only inside your LAN and is usually assigned by the router’s DHCP server. Your <strong>public IP</strong> is assigned by your ISP and is visible to websites/services. Check it on <a href="/tools/what-is-my-ip.html">What is My IP</a>.</p>
+
+    <h3>Common private IPv4 ranges (RFC1918)</h3>
     <table>
-      <thead><tr><th>Range</th><th>Typical subnet</th><th>Example device IP</th></tr></thead>
+      <thead><tr><th>Range</th><th>Typical home subnet</th><th>Example device IP</th></tr></thead>
       <tbody>
         <tr><td>10.0.0.0 – 10.255.255.255</td><td>10.0.0.0/24</td><td>10.0.0.23</td></tr>
         <tr><td>172.16.0.0 – 172.31.255.255</td><td>172.16.0.0/24</td><td>172.16.0.42</td></tr>
@@ -89,135 +153,54 @@
       </tbody>
     </table>
 
-    <!-- Windows -->
-    <h2 id="windows">4) Windows — quickest ways</h2>
-    <ol>
-      <li><kbd>Win</kbd>+<kbd>R</kbd> → <code>cmd</code> → <kbd>Enter</kbd> → <code>ipconfig</code> → <strong>IPv4 Address</strong> у активного адаптера.</li>
-      <li>PowerShell: <code>Get-NetIPAddress -AddressFamily IPv4 | Sort-Object InterfaceAlias | ft</code></li>
-      <li>Сеть и Интернет → Свойства адаптера → IPv4-адрес.</li>
-    </ol>
-    <h3>Windows: useful commands</h3>
-    <pre><code># Все параметры
-ipconfig /all
-
-# Маршруты (ищем неверный gateway/метрику)
-route print
-
-# Кто чей IP/MAC в LAN (ARP-кэш)
-arp -a
-</code></pre>
-
-    <!-- macOS -->
-    <h2 id="macos">5) macOS — quickest ways</h2>
-    <ol>
-      <li>System Settings → <strong>Network</strong> → Wi-Fi/Ethernet → IP Address.</li>
-      <li>Terminal:</li>
-    </ol>
-    <pre><code># IP активного интерфейса (часто en0)
-ipconfig getifaddr en0
-# Все IPv4
-ifconfig | grep "inet "
-# Таблица маршрутов
-netstat -rn | head
-</code></pre>
-
-    <!-- Linux -->
-    <h2 id="linux">6) Linux — quickest ways</h2>
-    <pre><code># Адреса на всех интерфейсах
-ip -4 addr show
-# Только активный интерфейс (пример)
-ip -4 addr show dev wlan0
-# Маршруты и gateway
-ip route
-# Совместимость
-ifconfig | grep "inet "
-</code></pre>
-    <p class="light">Подсказка: gateway часто заканчивается на <code>.1</code> (например, <code>192.168.1.1</code>).</p>
-
-    <!-- Android -->
-    <h2 id="android">7) Android — quickest ways</h2>
-    <ol>
-      <li>Settings → <strong>Network & Internet</strong> → Wi-Fi → ваш SSID.</li>
-      <li><em>Advanced</em> / <em>Status</em> → <strong>IP address</strong>.</li>
-    </ol>
-
-    <!-- iOS -->
-    <h2 id="ios">8) iPhone / iPad (iOS)</h2>
-    <ol>
-      <li>Settings → <strong>Wi-Fi</strong> → “ⓘ” рядом с сетью.</li>
-      <li>Секция IPv4 → <strong>IP Address</strong> (IPv6 показывается отдельно).</li>
-    </ol>
-
-    <!-- Router -->
-    <h2 id="router">9) Router: see all devices at once</h2>
-    <ol>
-      <li>Откройте <code>http://192.168.1.1</code> или <code>http://192.168.0.1</code> (ваш gateway из <code>ipconfig</code>/<code>ip route</code>).</li>
-      <li>Войдите под админом.</li>
-      <li>Раздел <strong>Connected devices / DHCP clients / ARP</strong> — там имена хостов, локальные IP и MAC-адреса.</li>
-    </ol>
-
-    <!-- Change local IP -->
-    <h2 id="change">10) How to change your local IP (safe method)</h2>
-    <ol>
-      <li><strong>DHCP reservation:</strong> в админке роутера закрепите IP за MAC (лучше, чем статический IP на устройстве).</li>
-      <li><strong>Static IP:</strong> задайте IP из той же подсети, избегая DHCP-пула (например, пул 192.168.1.100–199 → выберите 192.168.1.210).</li>
-      <li><strong>Проверьте:</strong> <code>ping gateway</code> и доступ к ресурсам LAN.</li>
-    </ol>
+    <!-- IPv6 local note -->
+    <h2 id="ipv6-note">What about local IPv6?</h2>
+    <p>On dual-stack networks you may also see <strong>IPv6</strong> addresses. Link-local (starts with <code>fe80::</code>) works only on the local link; global unicast looks like <code>2a00:</code> or <code>2001:</code>. To <em>check IPv6</em> specifically and run diagnostics, see the companion guide: <a href="/faq/how-to-check-your-ipv6-address.html">How to Check Your IPv6 Address</a>.</p>
 
     <!-- Troubleshooting -->
-    <h2 id="troubleshoot">11) Troubleshooting — common issues & fixes</h2>
+    <h2 id="troubleshoot">Troubleshooting: can’t find or can’t reach</h2>
     <table>
       <thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead>
       <tbody>
-        <tr><td>No IP on device</td><td>Нет соединения / DHCP off</td><td>Переподключите; включите DHCP на роутере</td></tr>
-        <tr><td>169.254.x.x (APIPA)</td><td>DHCP не выдал адрес</td><td>Reboot роутера/устройства; renew lease; проверьте кабель</td></tr>
-        <tr><td>Two devices same IP</td><td>Статика дублируется</td><td>Переведите в DHCP или смените один статический IP</td></tr>
-        <tr><td>Ping neighbor fails</td><td>Хост-firewall / другая подсеть</td><td>Разрешите ICMP; проверьте маску/шлюз/VLAN</td></tr>
-        <tr><td>Router page not opening</td><td>Неверный gateway или DNS</td><td>Смотрите <code>ipconfig</code>/<code>ip route</code>; зайдите по IP</td></tr>
+        <tr><td>No IP on device</td><td>Wi-Fi/Ethernet not connected, DHCP off</td><td>Reconnect; ensure DHCP is enabled on router</td></tr>
+        <tr><td>169.254.x.x address</td><td>DHCP failure (APIPA)</td><td>Reboot router/device; check cable; renew lease</td></tr>
+        <tr><td>Two devices with same IP</td><td>Static IP conflict</td><td>Use DHCP or change one static IP</td></tr>
+        <tr><td>Ping neighbor fails</td><td>Firewall on host or different subnet/VLAN</td><td>Allow ICMP on host; verify subnet mask/gateway</td></tr>
+        <tr><td>Can’t open router page</td><td>Wrong gateway or DNS hijack</td><td><code>ipconfig</code> / <code>ip route</code> for correct gateway; try direct IP</td></tr>
       </tbody>
     </table>
 
-    <!-- Commands cheat-sheet -->
-    <h2 id="commands">12) Copy-paste command cheat-sheet</h2>
+    <!-- Copy-paste commands -->
+    <h2 id="commands">Copy-paste command cheat-sheet</h2>
     <pre><code># WINDOWS
 ipconfig /all
 arp -a
 route print
-ping 192.168.1.1
 
 # macOS
 ipconfig getifaddr en0
 ifconfig | grep "inet "
 netstat -rn | head
-ping 192.168.1.1
 
 # LINUX
 ip -4 addr show
 ip route
 arp -n
-ping 192.168.1.1
 </code></pre>
 
+    <!-- Privacy & Security -->
+    <h2 id="privacy">Security & privacy tips</h2>
+    <ul>
+      <li>Use strong Wi-Fi auth (WPA2/WPA3) + unique admin password on the router.</li>
+      <li>Disable or isolate guest networks; restrict LAN access if guests don’t need it.</li>
+      <li>Update router firmware; reboot occasionally to clear buggy DHCP states.</li>
+      <li>For external privacy, use a <a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">VPN</a> to mask your public IP.</li>
+      <li>Create <em>DHCP reservations</em> for key devices (NAS/printer) to keep addresses stable.</li>
+    </ul>
+
     <!-- Case example -->
-    <h2 id="case">13) Case example: printer offline due to IP conflict</h2>
-    <p>В небольшом офисе принтер периодически «пропадал». На ПК команда <code>arp -a</code> показала две разные MAC-записи на <code>192.168.1.50</code>: принтер и камера имели одинаковый статический IP. Решение: перевести оба устройства на DHCP и создать <strong>DHCP reservation</strong> для принтера. Конфликт исчез мгновенно.</p>
-
-    <!-- Local vs Public -->
-    <h2 id="local-vs-public">14) Local vs Public IP — key differences</h2>
-    <ul>
-      <li><strong>Local IP:</strong> виден только в LAN, выдается DHCP, используется для взаимодействия устройств.</li>
-      <li><strong>Public IP:</strong> выдается ISP и виден сайтам/сервисам. Проверить: <a href="/what-is-my-ip.html">What is My IP</a>.</li>
-    </ul>
-
-    <!-- Security -->
-    <h2 id="security">15) Security & privacy tips</h2>
-    <ul>
-      <li>WPA2/WPA3 + уникальный <em>admin</em> пароль на роутере.</li>
-      <li>Guest-сеть — изолируйте от основной LAN.</li>
-      <li>Обновляйте прошивку роутера; периодически перезагружайте для очистки глючного DHCP-состояния.</li>
-      <li>Сделайте DHCP reservations для важных устройств (NAS/принтер).</li>
-      <li>Для внешней приватности используйте <a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">VPN</a> (меняет public IP, но не local).</li>
-    </ul>
+    <h2 id="case">Case example: printer offline due to IP conflict</h2>
+    <p>A small office lost access to a network printer randomly. On a PC, <code>arp -a</code> showed two different MACs responding to <code>192.168.1.50</code>. The printer and a camera were both set to the same static IP. The fix was to switch both to <strong>DHCP</strong> and then create a <strong>DHCP reservation</strong> for the printer’s MAC. The issue disappeared immediately.</p>
 
     <!-- Related -->
     <aside class="wrap card" style="margin-top:24px">
@@ -226,21 +209,21 @@ ping 192.168.1.1
         <li><a href="/faq/private-vs-public-ip-addresses.html">Private vs Public IP Addresses Explained</a></li>
         <li><a href="/faq/static-vs-dynamic-ip.html">Static vs Dynamic IP: Which One Do You Have?</a></li>
         <li><a href="/faq/what-is-a-public-ip-address.html">What is a Public IP Address?</a></li>
-        <li><a href="/faq/how-ip-addresses-are-assigned.html">How IP Addresses Are Assigned (ISP & DHCP)</a></li>
+        <li><a href="/faq/how-ip-addresses-are-assigned.html">How IP Addresses Are Assigned (ISP, DHCP, and IANA)</a></li>
         <li><a href="/faq/how-to-check-your-ipv6-address.html">How to Check Your IPv6 Address</a></li>
       </ul>
     </aside>
 
     <!-- CTA -->
-    <h2 id="next">16) Next steps</h2>
-    <p>Теперь, когда вы знаете локальный IP, проверьте свой <a href="/what-is-my-ip.html">public IP</a>, удостоверитесь, что DNS работает корректно через <a href="/tools/dns-lookup.html">DNS Lookup</a>, и быстро проверьте браузер на утечки через <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a>.</p>
+    <h2 id="next">Next steps</h2>
+    <p>Now that you know your local IP, verify your <a href="/tools/what-is-my-ip.html">public IP</a>, check DNS with <a href="/tools/dns-lookup.html">DNS Lookup</a>, and if you use VPNs or remote work tools, quickly scan for browser exposure via <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a>.</p>
 
-    <!-- E-E-A-T (без ложных атрибуций) -->
+    <!-- E-E-A-T -->
     <hr>
     <section aria-labelledby="authorbox" class="card">
       <h2 id="authorbox">About the author & editorial process</h2>
-      <p><strong>Author:</strong> Yaroslav Sabardak — editor of MyIPScan. Практическая диагностика сетей, безопасность пользователя и понятные инструкции.</p>
-      <p><strong>Editorial process:</strong> статьи проходят проверку на точность, ясность и безопасные рекомендации. Мы обновляем материалы при изменениях в системных настройках и рекомендациях вендоров.</p>
+      <p><strong>Author:</strong> Yaroslav Sabardak — editor of MyIPScan. Focus on practical network troubleshooting and consumer security.</p>
+      <p><strong>Reviewed by:</strong> MyIPScan Security Editorial Team — ensures accuracy, clarity, and safe-by-default guidance.</p>
       <p><strong>Last update:</strong> October 16, 2025</p>
     </section>
   </main>
@@ -253,82 +236,67 @@ ping 192.168.1.1
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@graph":[
+    "@type":["WebPage","Article"],
+    "@id":"https://myipscan.net/faq/how-to-find-your-local-ip-address.html#article",
+    "mainEntityOfPage":"https://myipscan.net/faq/how-to-find-your-local-ip-address.html",
+    "headline":"How to Find Your Local IP Address on Any Device (2025)",
+    "description":"Step-by-step instructions to find your local IP on Windows, macOS, Android, iPhone, Linux, and routers — plus privacy and troubleshooting.",
+    "author":{"@type":"Person","name":"Yaroslav Sabardak"},
+    "editor":{"@type":"Organization","name":"MyIPScan Security Editorial Team"},
+    "publisher":{"@type":"Organization","name":"MyIPScan","logo":{"@type":"ImageObject","url":"https://myipscan.net/static/og-cover.png"}},
+    "datePublished":"2025-10-15",
+    "dateModified":"2025-10-16",
+    "wordCount":"1700",
+    "image":"https://myipscan.net/static/og-cover.png",
+    "keywords":["local ip","private ip","lan ip","ipconfig","ifconfig","ip addr","dhcp","gateway","subnet mask","arp","route","vpn","webrtc","dns"]
+  }
+  </script>
+
+  <!-- JSON-LD (BreadcrumbList) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "@id":"https://myipscan.net/faq/how-to-find-your-local-ip-address.html#breadcrumb",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://myipscan.net/"},
+      {"@type":"ListItem","position":2,"name":"FAQ","item":"https://myipscan.net/faq/"},
+      {"@type":"ListItem","position":3,"name":"Find Your Local IP — Guide","item":"https://myipscan.net/faq/how-to-find-your-local-ip-address.html"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD (FAQPage) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "@id":"https://myipscan.net/faq/how-to-find-your-local-ip-address.html#faq",
+    "mainEntity":[
       {
-        "@type":"WebPage",
-        "@id":"https://myipscan.net/faq/how-to-find-your-local-ip-address.html",
-        "url":"https://myipscan.net/faq/how-to-find-your-local-ip-address.html",
-        "name":"How to Find Your Local IP Address on Any Device (2025)",
-        "isPartOf":{"@id":"https://myipscan.net/#website"},
-        "breadcrumb":{"@id":"https://myipscan.net/faq/how-to-find-your-local-ip-address.html#breadcrumb"},
-        "datePublished":"2025-10-15",
-        "dateModified":"2025-10-16",
-        "description":"Find your local IP on Windows, macOS, Android, iPhone, Linux, and routers. Copy-paste commands, tables, fixes, and privacy tips.",
-        "inLanguage":"en"
+        "@type":"Question",
+        "name":"Is my local IP the same as my public IP?",
+        "acceptedAnswer":{"@type":"Answer","text":"No. Local IPs are used inside your LAN, while public IPs are visible on the internet and assigned by your ISP."}
       },
       {
-        "@type":"BreadcrumbList",
-        "@id":"https://myipscan.net/faq/how-to-find-your-local-ip-address.html#breadcrumb",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://myipscan.net/"},
-          {"@type":"ListItem","position":2,"name":"FAQ","item":"https://myipscan.net/faq/"},
-          {"@type":"ListItem","position":3,"name":"Find Your Local IP — Guide","item":"https://myipscan.net/faq/how-to-find-your-local-ip-address.html"}
-        ]
+        "@type":"Question",
+        "name":"How do I find my local IP on Windows?",
+        "acceptedAnswer":{"@type":"Answer","text":"Open Command Prompt and run ipconfig. Your local IPv4 is shown as 'IPv4 Address' under the active adapter."}
       },
       {
-        "@type":["Article"],
-        "@id":"https://myipscan.net/faq/how-to-find-your-local-ip-address.html#article",
-        "mainEntityOfPage":{"@id":"https://myipscan.net/faq/how-to-find-your-local-ip-address.html"},
-        "headline":"How to Find Your Local IP Address on Any Device (2025)",
-        "author":{"@type":"Person","name":"Yaroslav Sabardak"},
-        "publisher":{"@type":"Organization","name":"MyIPScan","logo":{"@type":"ImageObject","url":"https://myipscan.net/static/og-cover.png"}},
-        "datePublished":"2025-10-15",
-        "dateModified":"2025-10-16",
-        "wordCount":"1700",
-        "image":"https://myipscan.net/static/og-cover.png",
-        "keywords":["local ip","private ip","lan ip","ipconfig","ifconfig","ip addr","dhcp","gateway","subnet mask","arp","route","vpn","webrtc","dns","192.168.1.1"]
+        "@type":"Question",
+        "name":"What private IP ranges are common?",
+        "acceptedAnswer":{"@type":"Answer","text":"192.168.0.0/16, 10.0.0.0/8, and 172.16.0.0/12 are reserved for private networks (RFC1918)."}
       },
       {
-        "@type":"FAQPage",
-        "@id":"https://myipscan.net/faq/how-to-find-your-local-ip-address.html#faq",
-        "mainEntity":[
-          {
-            "@type":"Question",
-            "name":"Is my local IP the same as my public IP?",
-            "acceptedAnswer":{"@type":"Answer","text":"No. Local IPs are used inside your LAN, while public IPs are visible on the internet and assigned by your ISP."}
-          },
-          {
-            "@type":"Question",
-            "name":"How do I find my local IP on Windows?",
-            "acceptedAnswer":{"@type":"Answer","text":"Open Command Prompt and run ipconfig. Your local IPv4 is shown as 'IPv4 Address' under the active adapter."}
-          },
-          {
-            "@type":"Question",
-            "name":"Why do I see 169.254.x.x?",
-            "acceptedAnswer":{"@type":"Answer","text":"That’s APIPA — your device didn’t get an address from DHCP. Reboot router/device, check cable, renew the lease."}
-          },
-          {
-            "@type":"Question",
-            "name":"Can a VPN change my local IP?",
-            "acceptedAnswer":{"@type":"Answer","text":"No. VPN changes your public IP; your local IP remains assigned by the router (unless you change network)." }
-          },
-          {
-            "@type":"Question",
-            "name":"How can I avoid IP conflicts?",
-            "acceptedAnswer":{"@type":"Answer","text":"Prefer DHCP and create DHCP reservations for important devices like printers or servers."}
-          },
-          {
-            "@type":"Question",
-            "name":"How do I see IPs of all devices in my LAN?",
-            "acceptedAnswer":{"@type":"Answer","text":"Open your router admin page and check Connected devices / DHCP clients or ARP table to view hostnames, local IPs and MAC addresses."}
-          }
-        ]
+        "@type":"Question",
+        "name":"Why do I see 169.254.x.x?",
+        "acceptedAnswer":{"@type":"Answer","text":"That’s APIPA — your device didn’t get an address from DHCP. Reboot router/device or renew the lease."}
       },
       {
-        "@type":"Organization",
-        "@id":"https://myipscan.net/#website",
-        "name":"MyIPScan",
-        "url":"https://myipscan.net/"
+        "@type":"Question",
+        "name":"How can I avoid IP conflicts?",
+        "acceptedAnswer":{"@type":"Answer","text":"Prefer DHCP and create DHCP reservations for important devices like printers or servers."}
       }
     ]
   }
