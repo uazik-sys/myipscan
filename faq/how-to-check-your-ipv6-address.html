@@ -1,25 +1,26 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>How to Check Your IPv6 Address and Compatibility</title>
-  <meta name="description" content="Learn how to check your IPv6 address, test compatibility, and understand IPv6 readiness across Windows, macOS, Android, iPhone, Linux, and routers.">
+  <title>Check Your IPv6: 12 Tests & Fixes (2025 Guide)</title>
+  <meta name="description" content="Do you have IPv6? Run 12 quick tests to find your IPv6 address, verify ISP/router support, fix leaks and errors, and enable IPv6 on Windows, macOS, iOS, Android, and Linux.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://myipscan.net/faq/how-to-check-your-ipv6-address.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="How to Check Your IPv6 Address and Compatibility">
-  <meta property="og:description" content="Find and test your IPv6 address and connectivity on any device — Windows, macOS, Android, iPhone, or Linux — and ensure your ISP supports IPv6.">
+  <meta property="og:title" content="Check Your IPv6: 12 Tests & Fixes (2025 Guide)">
+  <meta property="og:description" content="Find your IPv6 address, confirm compatibility, and fix common issues with this practical, device-by-device guide.">
   <meta property="og:url" content="https://myipscan.net/faq/how-to-check-your-ipv6-address.html">
   <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How to Check Your IPv6 Address and Compatibility">
-  <meta name="twitter:description" content="Step-by-step guide to finding your IPv6 address, testing IPv6 support, and verifying if your ISP, router, and device are IPv6-ready.">
+  <meta name="twitter:title" content="Check Your IPv6: 12 Tests & Fixes (2025 Guide)">
+  <meta name="twitter:description" content="12 quick tests to verify IPv6, fix errors, and enable support across Windows, macOS, iOS, Android, and Linux.">
   <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
 
   <link rel="preload" as="style" href="/styles.css">
@@ -27,120 +28,172 @@
 </head>
 <body>
   <header class="wrap nav">
-    <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+    <div class="logo"><a href="mailto:myipscan@gmail.com" aria-label="Contact MyIPScan">myipscan@gmail.com</a></div>
     <nav>
       <a href="/">Home</a>
-      <a href="/what-is-my-ip.html">What is my IP</a>
+      <a href="/what-is-my-ip.html">What is My IP</a>
       <a href="/faq/index.html">FAQ</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
+      <span class="tools">
+        <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
+        <div class="tools-menu" role="menu" aria-label="Tools menu">
+          <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+          <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+          <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+          <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+          <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+        </div>
+      </span>
     </nav>
   </header>
 
   <main class="wrap article">
-    <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › How to Check Your IPv6 Address and Compatibility</div>
+    <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › Check Your IPv6: 12 Tests & Fixes (2025 Guide)</div>
 
-    <h1>How to Check Your IPv6 Address and Compatibility</h1>
-    <time datetime="2025-10-15">Updated: October 15, 2025</time>
+    <h1>Check Your IPv6: 12 Tests & Fixes (2025 Guide)</h1>
+    <time datetime="2025-10-16">Updated: October 16, 2025</time>
 
-    <p><strong>IPv6</strong> is the next-generation Internet Protocol, designed to replace <a href="/faq/ipv4-vs-ipv6.html">IPv4</a> and provide more addresses, better performance, and enhanced privacy. Checking your IPv6 address and compatibility helps you confirm whether your device, network, and ISP fully support the new standard. Here’s how to find your IPv6 address on any device — and test if it’s working properly.</p>
+    <p><strong>Short answer:</strong> IPv6 support depends on your <em>ISP</em>, <em>router</em>, and <em>device</em>. You can check it in seconds, and if something’s missing, enable it with a few settings changes. This guide shows how to <strong>find your IPv6 address</strong> on any device, <strong>verify end‑to‑end connectivity</strong>, and <strong>fix common issues</strong> like broken DNS, ICMPv6 blocks, and WebRTC leaks.</p>
 
-    <h2>1. How to find your IPv6 address</h2>
+    <!-- TL;DR -->
+    <section class="card" aria-labelledby="tldr">
+      <h2 id="tldr">TL;DR — 30 seconds</h2>
+      <ul>
+        <li><strong>See it:</strong> open <a href="/tools/what-is-my-ip.html">What is My IP</a> — if you see an address like <code>2a00:</code> or <code>2001:</code>, IPv6 works.</li>
+        <li><strong>Test it:</strong> run <a href="https://test-ipv6.com" rel="nofollow noopener" target="_blank">test‑ipv6.com</a> and resolve AAAA records with <a href="/tools/dns-lookup.html">DNS Lookup</a>.</li>
+        <li><strong>Fix it:</strong> enable IPv6 on the router (SLAAC/DHCPv6), allow ICMPv6, and disable “Prefer IPv4” options.</li>
+        <li><strong>Privacy:</strong> turn on IPv6 privacy extensions and check for WebRTC/DNS leaks.</li>
+      </ul>
+    </section>
+
+    <h2>1) Find your IPv6 address on any device</h2>
 
     <h3>Windows</h3>
     <ol>
-      <li>Press <kbd>Win + R</kbd>, type <code>cmd</code>, and press <kbd>Enter</kbd>.</li>
-      <li>In Command Prompt, type <code>ipconfig</code> and press <kbd>Enter</kbd>.</li>
-      <li>Look for “IPv6 Address” under your active adapter.</li>
+      <li>Press <kbd>Win</kbd>+<kbd>R</kbd> → <code>cmd</code> → <kbd>Enter</kbd>.</li>
+      <li>Run <code>ipconfig</code>; look for <em>IPv6 Address</em> under your active adapter.</li>
+      <li>PowerShell alternative: <code>Get-NetIPAddress -AddressFamily IPv6</code>.</li>
     </ol>
 
     <h3>macOS</h3>
     <ol>
-      <li>Open <strong>System Settings › Network</strong>.</li>
-      <li>Select your active interface (Wi-Fi or Ethernet).</li>
-      <li>Your IPv6 address appears under “Details” or “Advanced › TCP/IP”.</li>
-      <li>Or use Terminal: <code>ifconfig | grep inet6</code>.</li>
+      <li>System Settings → Network → select Wi‑Fi/Ethernet.</li>
+      <li>Open <em>Details</em> → <em>TCP/IP</em>; see your <em>IPv6 Address</em>.</li>
+      <li>Terminal: <code>ifconfig | grep inet6</code> or <code>networksetup -getinfo Wi-Fi</code>.</li>
     </ol>
 
     <h3>Android</h3>
     <ol>
-      <li>Go to <strong>Settings › Network & Internet › Wi‑Fi</strong>.</li>
-      <li>Tap your connected Wi‑Fi network.</li>
-      <li>Scroll down — IPv6 address appears in the “Advanced” section.</li>
+      <li>Settings → Network & Internet → Wi‑Fi → your network.</li>
+      <li>Scroll to <em>Advanced</em> → see <em>IPv6 address</em>.</li>
+      <li>Note: some OEM skins hide it under “IP settings”.</li>
     </ol>
 
     <h3>iPhone / iPad (iOS)</h3>
     <ol>
-      <li>Open <strong>Settings › Wi‑Fi</strong>.</li>
-      <li>Tap the “ⓘ” next to your network.</li>
-      <li>Scroll to the IPv6 section to see your address.</li>
+      <li>Settings → Wi‑Fi → tap “ⓘ”.</li>
+      <li>Scroll to the IPv6 section.</li>
+      <li>For cellular, IPv6 may be enabled but hidden; test with the tools below.</li>
     </ol>
 
     <h3>Linux</h3>
     <ol>
-      <li>Open Terminal.</li>
-      <li>Type <code>ip -6 addr show</code> or <code>ifconfig</code>.</li>
-      <li>Find your active interface (e.g., eth0 or wlan0) and check the “inet6” line.</li>
+      <li>Terminal: <code>ip -6 addr show</code> (or <code>ifconfig</code>).</li>
+      <li>Find your active interface (e.g., <code>wlan0</code> / <code>eth0</code>) and the <code>inet6</code> line.</li>
     </ol>
 
-    <h2>2. How to check IPv6 compatibility and connectivity</h2>
+    <h2>2) Confirm end‑to‑end IPv6 connectivity</h2>
     <ul>
-      <li>Visit <a href="/tools/what-is-my-ip.html">What is My IP</a> — it shows both IPv4 and IPv6 if available.</li>
-      <li>Try <a href="https://test-ipv6.com" rel="nofollow">test-ipv6.com</a> to measure end-to-end IPv6 reachability.</li>
-      <li>Run <a href="/tools/dns-lookup.html">DNS Lookup</a> to confirm AAAA (IPv6) records resolve for websites.</li>
-      <li>If you only see IPv4 results, your ISP or router may not support IPv6 yet.</li>
+      <li>Open <a href="/tools/what-is-my-ip.html">What is My IP</a> — it shows both IPv4 and IPv6 if available.</li>
+      <li>Run <a href="https://test-ipv6.com" rel="nofollow noopener" target="_blank">test‑ipv6.com</a> to check DNS, reachability, and fallback behavior.</li>
+      <li>Use <a href="/tools/dns-lookup.html">DNS Lookup</a> to query AAAA records for popular domains.</li>
+      <li>If only IPv4 appears, your ISP or router may not provide IPv6, or the firewall blocks required traffic.</li>
     </ul>
 
-    <h2>3. How to enable IPv6</h2>
+    <h2>3) Enable IPv6 on your network</h2>
     <ol>
-      <li>Ensure your router has IPv6 enabled — look under “Internet Settings › IPv6” or similar.</li>
-      <li>Set connection type to “Auto (DHCPv6)” or “SLAAC”.</li>
-      <li>Check your ISP’s support — some ISPs require specific modems or firmware updates.</li>
-      <li>Restart your router and device after enabling.</li>
+      <li><strong>Router:</strong> enable IPv6 (Internet settings). Choose <em>SLAAC</em> or <em>DHCPv6</em>; some ISPs require <em>PPPoE + IPv6</em> or specific options.</li>
+      <li><strong>Prefix delegation:</strong> ensure you receive a <code>/56</code> or <code>/64</code> (varies by ISP). Enable <em>Router Advertisements</em>.</li>
+      <li><strong>Firewall:</strong> allow essential ICMPv6 types (Neighbor Discovery, RA, PMTU). State‑tracking firewalls handle this automatically.</li>
+      <li><strong>Devices:</strong> make sure “Prefer IPv4” or “IPv6 disabled” toggles are off.</li>
+      <li><strong>Reboot:</strong> power‑cycle router and device to pick up the new prefix.</li>
     </ol>
 
-    <h2>4. Privacy extensions & dynamic IPv6</h2>
-    <p>Modern systems use <strong>IPv6 privacy extensions</strong> to randomize interface identifiers. This helps prevent tracking based on a fixed IPv6. Each session may show a slightly different temporary address — this is normal and increases privacy.</p>
-
-    <h2>5. Troubleshooting IPv6 issues</h2>
+    <h2>4) Privacy & security with IPv6</h2>
     <ul>
-      <li>If IPv6 doesn’t appear, verify router support or firmware updates.</li>
-      <li>Check that firewall rules allow ICMPv6 (required for discovery).</li>
-      <li>Ensure your OS isn’t set to “Prefer IPv4”.</li>
-      <li>If on mobile data, note that some carriers disable IPv6 on tethered connections.</li>
+      <li><strong>Privacy extensions:</strong> enable temporary addresses so interface IDs rotate over time.</li>
+      <li><strong>WebRTC/DNS leaks:</strong> after connecting to a VPN, test leaks via <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> and <a href="/tools/dns-lookup.html">DNS Lookup</a>.</li>
+      <li><strong>No NAT ≠ no security:</strong> IPv6 often works without NAT; rely on a stateful firewall to block unsolicited inbound traffic.</li>
     </ul>
+
+    <h2>5) Troubleshooting guide</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead>
+      <tbody>
+        <tr><td>test‑ipv6.com shows 0/10</td><td>ISP lacks IPv6; router disabled</td><td>Enable IPv6; contact ISP; consider 6in4/6rd (temporary)</td></tr>
+        <tr><td>IPv6 address present, but sites fail</td><td>ICMPv6 blocked; DNS broken</td><td>Allow ICMPv6; verify DNS; try different resolver (DoH/DoT)</td></tr>
+        <tr><td>VPN connected, IPv6 leaks real IP</td><td>VPN doesn’t tunnel IPv6</td><td>Use a provider with full IPv6 support or disable IPv6 while on VPN</td></tr>
+        <tr><td>No IPv6 on Wi‑Fi, works on Ethernet</td><td>AP settings or old firmware</td><td>Update firmware; ensure RA/PD propagate over Wi‑Fi</td></tr>
+        <tr><td>Only link‑local address (fe80::)</td><td>No Router Advertisements</td><td>Enable RA on router; check prefix delegation</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Checklist — 12 quick tests</h2>
+    <ol>
+      <li>See IPv6 on <a href="/tools/what-is-my-ip.html">What is My IP</a>.</li>
+      <li>Run <a href="https://test-ipv6.com" rel="nofollow noopener" target="_blank">test‑ipv6.com</a> (aim for 10/10).</li>
+      <li>Resolve AAAA for a few domains via <a href="/tools/dns-lookup.html">DNS Lookup</a>.</li>
+      <li>Ping an IPv6‑only site or <code>ipv6.google.com</code> if available.</li>
+      <li>Check router WAN page: confirm IPv6 prefix delegation (/56 or /64).</li>
+      <li>Ensure ICMPv6 is allowed through the firewall.</li>
+      <li>On Windows/macOS, confirm IPv6 isn’t disabled or deprioritized.</li>
+      <li>On VPN, verify no IPv6 leak via <a href="/tools/webrtc-leak-test.html">WebRTC test</a>.</li>
+      <li>On mobile, test both Wi‑Fi and cellular.</li>
+      <li>Use <code>traceroute6</code> / <code>tracert -6</code> to check path.</li>
+      <li>Test speed; sometimes IPv6 paths are faster.</li>
+      <li>Save screenshots/results for future troubleshooting.</li>
+    </ol>
 
     <aside class="wrap card" style="margin-top:24px">
       <h3>Related articles</h3>
       <ul>
-        <li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6: What’s the Difference?</a></li>
-        <li><a href="/faq/private-vs-public-ip-addresses.html">Private vs Public IP Addresses Explained</a></li>
-        <li><a href="/faq/how-to-find-your-local-ip-address.html">How to Find Your Local IP Address on Any Device</a></li>
-        <li><a href="/faq/how-ip-addresses-are-assigned.html">How IP Addresses Are Assigned (ISP, DHCP, and IANA)</a></li>
+        <li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6: Key Differences</a></li>
+        <li><a href="/faq/how-to-find-your-local-ip-address.html">How to Find Your Local IP Address</a></li>
+        <li><a href="/faq/how-ip-addresses-are-assigned.html">How IP Addresses Are Assigned</a></li>
+        <li><a href="/faq/can-someone-track-me-by-my-ip-address.html">Can Someone Track Me by My IP Address?</a></li>
       </ul>
     </aside>
 
     <hr>
-    <p><strong>Check now:</strong> Visit <a href="/tools/what-is-my-ip.html">What is My IP</a> to see your IPv4 and IPv6 status instantly and confirm your device’s compatibility.</p>
+    <section aria-labelledby="authorbox" class="card">
+      <h2 id="authorbox">About the author & editorial process</h2>
+      <p><strong>Author:</strong> Yaroslav Sabardak — editor of MyIPScan. Focused on practical network privacy and consumer security. Articles follow a review checklist (accuracy, clarity, safety advice) and are updated when standards or vendor guidance change.</p>
+      <p><strong>Reviewed by:</strong> MyIPScan Security Editorial Team. We avoid intrusive tracking and do not log IPs for analytics. See <a href="/privacy.html">Privacy</a>.</p>
+      <p><strong>Last review:</strong> October 16, 2025</p>
+    </section>
+
+    <p><strong>Next steps:</strong> run the tests, enable IPv6 on your router if missing, and re‑test until you consistently see a stable IPv6 address and 10/10 results.</p>
   </main>
 
   <footer class="wrap">
     <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
   </footer>
 
-  <!-- JSON-LD: Article -->
+  <!-- JSON-LD: WebPage + Article -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "How to Check Your IPv6 Address and Compatibility",
-    "description": "Step-by-step guide to check your IPv6 address, test IPv6 readiness, and enable it across devices — Windows, macOS, Android, iPhone, Linux, and routers.",
+    "@type": ["WebPage","Article"],
+    "headline": "Check Your IPv6: 12 Tests & Fixes (2025 Guide)",
+    "description": "Do you have IPv6? Run 12 quick tests to find your IPv6 address, verify ISP/router support, fix leaks and errors, and enable IPv6 on Windows, macOS, iOS, Android, and Linux.",
     "author": { "@type": "Person", "name": "Yaroslav Sabardak" },
     "publisher": { "@type": "Organization", "name": "MyIPScan", "logo": { "@type": "ImageObject", "url": "https://myipscan.net/static/og-cover.png" } },
-    "datePublished": "2025-10-15",
-    "dateModified": "2025-10-15",
+    "datePublished": "2025-10-16",
+    "dateModified": "2025-10-16",
     "mainEntityOfPage": "https://myipscan.net/faq/how-to-check-your-ipv6-address.html",
-    "image": "https://myipscan.net/static/og-cover.png"
+    "image": "https://myipscan.net/static/og-cover.png",
+    "keywords": ["IPv6","SLAAC","DHCPv6","ICMPv6","AAARecord","WebRTC leak","DNS leak","prefix delegation","PD","IPv6 privacy extensions"]
   }
   </script>
 
@@ -152,7 +205,7 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://myipscan.net/" },
       { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://myipscan.net/faq/" },
-      { "@type": "ListItem", "position": 3, "name": "How to Check Your IPv6 Address and Compatibility", "item": "https://myipscan.net/faq/how-to-check-your-ipv6-address.html" }
+      { "@type": "ListItem", "position": 3, "name": "Check Your IPv6: 12 Tests & Fixes (2025 Guide)", "item": "https://myipscan.net/faq/how-to-check-your-ipv6-address.html" }
     ]
   }
   </script>
@@ -168,27 +221,48 @@
         "name": "How do I check if I have IPv6?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Open What is My IP or test-ipv6.com. If you see an IPv6 address (looks like 2001: or 2a00:), your network supports IPv6."
+          "text": "Open What is My IP or test-ipv6.com. If you see an IPv6 address (starts with 2a00: or 2001:), your network supports IPv6."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I enable IPv6 manually?",
+        "name": "Should I enable IPv6 privacy extensions?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, most routers and devices allow enabling IPv6 in network settings. Use DHCPv6 or SLAAC and ensure your ISP supports it."
+          "text": "Yes. Temporary, randomized interface IDs reduce long-term tracking and are recommended on laptops and phones."
         }
       },
       {
         "@type": "Question",
-        "name": "Is IPv6 faster than IPv4?",
+        "name": "My VPN leaks IPv6 — what now?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "In many cases yes, because IPv6 avoids NAT and uses more direct routing. However, performance depends on your ISP and network setup."
+          "text": "Use a provider that tunnels IPv6, or temporarily disable IPv6 while connected. Always re-test for WebRTC/DNS leaks."
         }
       }
     ]
   }
+  </script>
+
+  <!-- JS: Stable Tools menu -->
+  <script>
+  (function(){
+    var tools=document.querySelector('.tools'); if(!tools) return;
+    var btn=document.getElementById('toolsButton');
+    var menu=tools.querySelector('.tools-menu');
+    if(!btn||!menu) return;
+    var hideTimer;
+    function open(){ clearTimeout(hideTimer); tools.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    function closeNow(){ tools.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+    function close(){ hideTimer=setTimeout(closeNow,180); }
+    tools.addEventListener('pointerenter',open);
+    tools.addEventListener('pointerleave',function(e){ if(menu.contains(e.relatedTarget)||btn.contains(e.relatedTarget)) return; close(); });
+    btn.addEventListener('click',function(e){ e.preventDefault(); e.stopPropagation(); tools.classList.toggle('open'); btn.setAttribute('aria-expanded',tools.classList.contains('open')); });
+    menu.addEventListener('pointerenter',open);
+    menu.addEventListener('pointerleave',function(e){ if(tools.contains(e.relatedTarget)) return; close(); });
+    document.addEventListener('click',function(e){ if(!tools.contains(e.target)) closeNow(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeNow(); });
+  })();
   </script>
 </body>
 </html>
