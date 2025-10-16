@@ -4,22 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Can Hackers Use My IP to Access My Device?</title>
-  <meta name="description" content="Can hackers use your IP to access your device? Learn what an IP reveals, realistic attack vectors, legal limits, and practical defenses to secure your network.">
+  <title>Can Hackers Use My IP to Access My Device? Risks & Protection</title>
+  <meta name="description" content="Can someone hack you just by knowing your IP? Learn realistic risks (open ports, exposed services, router/IoT flaws), what an IP reveals, and step-by-step defenses.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://myipscan.net/faq/can-hackers-use-my-ip-to-access-my-device.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Can Hackers Use My IP to Access My Device?">
-  <meta property="og:description" content="Can hackers use your IP to access your device? What an IP reveals, common attack vectors (open ports, exposed services), and clear prevention steps.">
+  <meta property="og:title" content="Can Hackers Use My IP to Access My Device? Risks & Protection">
+  <meta property="og:description" content="What an IP reveals, how attackers actually exploit it, and 15 practical defenses to secure your network and devices.">
   <meta property="og:url" content="https://myipscan.net/faq/can-hackers-use-my-ip-to-access-my-device.html">
   <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Can Hackers Use My IP to Access My Device?">
-  <meta name="twitter:description" content="Find out what information an IP reveals, how attackers try to reach devices, and 11 practical defenses you can apply today.">
+  <meta name="twitter:title" content="Can Hackers Use My IP to Access My Device? Risks & Protection">
+  <meta name="twitter:description" content="Understand the real risks of IP exposure and apply step-by-step defenses today.">
   <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
 
   <link rel="preload" as="style" href="/styles.css">
@@ -27,7 +27,7 @@
 </head>
 <body>
   <header class="wrap nav">
-    <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+    <div class="logo"><a href="mailto:myipscan@gmail.com" aria-label="Contact MyIPScan">myipscan@gmail.com</a></div>
     <nav>
       <a href="/">Home</a>
       <a href="/what-is-my-ip.html">What is My IP</a>
@@ -51,70 +51,161 @@
     <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › Can Hackers Use My IP to Access My Device?</div>
 
     <h1>Can Hackers Use My IP to Access My Device?</h1>
-    <time datetime="2025-10-15">Updated: October 15, 2025</time>
+    <time datetime="2025-10-16">Updated: October 16, 2025</time>
 
-    <p>Short answer: <strong>rarely, directly</strong>. An IP address by itself usually only reveals your approximate location and the network provider. However, combined with exposed services (open ports), weak passwords, misconfigured routers, or vulnerable software, attackers can use an IP as a starting point to attempt access. This guide explains realistic attack paths, what an IP can reveal, and 11 practical defenses you should apply today.</p>
+    <p><strong>Short answer:</strong> <em>not directly, most of the time</em>. An IP address alone is usually not enough to break into your phone or laptop. But it can be a starting point if your network or devices expose services (open ports), run outdated software, or use weak credentials. This guide explains what an IP really reveals, how attackers try to use it in the real world, and the exact defenses to apply today.</p>
+
+    <!-- TL;DR -->
+    <section class="card" aria-labelledby="tldr">
+      <h2 id="tldr">TL;DR (What to know in 30 seconds)</h2>
+      <ul>
+        <li><strong>IP ≠ instant access.</strong> It points to your network, not your identity or files.</li>
+        <li><strong>Real risk appears</strong> when something is exposed: public RDP/SSH, router remote admin, UPnP-opened ports, weak passwords, unpatched services.</li>
+        <li><strong>Home routers & NAT</strong> usually block unsolicited inbound traffic, but misconfigurations remove that protection.</li>
+        <li><strong>Fix fast:</strong> update firmware/OS, disable remote admin & UPnP, close ports, use MFA, set strong unique passwords, segment IoT, and use a VPN for remote access.</li>
+      </ul>
+    </section>
 
     <h2>What an IP reveals — limits and signals</h2>
-    <p>An IP typically shows the ISP (ASN), city/region, and whether the address belongs to a residential, mobile, or data-center range. It does <em>not</em> reveal your name or exact address without ISP records and legal process. Still, IP + behavioral signals (logins, cookies) can be combined to track or profile users.</p>
+    <p>Your public IP generally reveals the <strong>ISP/ASN</strong>, a broad <strong>geographic region</strong> (city or area), and sometimes whether it’s <strong>residential, mobile, or data-center</strong>. It <em>does not</em> reveal your name, exact street address, or device data without the ISP’s internal records and legal process. However, IP data can be combined with other signals (cookies, login sessions, browser fingerprinting) for <strong>tracking or profiling</strong> on the web.</p>
 
-    <h2>How attackers use an IP in practice</h2>
+    <h2>How attackers try to use an IP</h2>
     <ul>
-      <li><strong>Port scans and discovery:</strong> attackers probe an IP to find open ports and services (e.g., RDP, SSH, HTTP) they can target.</li>
-      <li><strong>Exploiting exposed services:</strong> if a service listens publicly and is unpatched or misconfigured, it may allow access.</li>
-      <li><strong>Credential stuffing / brute force:</strong> repeated login attempts against exposed admin panels or remote desktop services.</li>
-      <li><strong>Router / IoT vulnerabilities:</strong> default passwords, UPnP exposing ports, or outdated firmware can give access to home networks.</li>
-      <li><strong>Targeted attacks:</strong> attackers may combine IP with social engineering, phishing, or leaked credentials to gain access.</li>
+      <li><strong>Port scanning & service discovery.</strong> Probe the IP for open ports (e.g., 22/SSH, 80/HTTP, 443/HTTPS, 3389/RDP) to find targets.</li>
+      <li><strong>Exploiting exposed services.</strong> Public admin panels, outdated NAS, cameras, or RDP endpoints are common entry points.</li>
+      <li><strong>Credential stuffing / brute force.</strong> If a login page is exposed, attackers try leaked or weak passwords at scale.</li>
+      <li><strong>Router/IoT weaknesses.</strong> Default passwords, old firmware, UPnP auto-port-forwarding expose your LAN to the internet.</li>
+      <li><strong>Social engineering + IP intel.</strong> Phishing that references your provider or IP type to increase credibility.</li>
     </ul>
 
-    <h2>Important caution — ethical & legal note</h2>
-    <p>Testing or scanning networks you do not own or explicitly have permission to test can be illegal. The guidance here focuses on defensive checks for your own devices and networks. If you need security testing beyond basic checks, hire a professional or use authorised penetration testing services.</p>
+    <h2>Myths vs facts</h2>
+    <ul>
+      <li><strong>Myth:</strong> “If someone knows my IP, they can immediately hack my phone.”<br><strong>Fact:</strong> Not without an exposed, vulnerable service or user interaction.</li>
+      <li><strong>Myth:</strong> “VPN makes me unhackable.”<br><strong>Fact:</strong> VPN hides your IP but doesn’t fix weak passwords, outdated firmware, or malicious apps.</li>
+      <li><strong>Myth:</strong> “Mobile data IPs are always safe.”<br><strong>Fact:</strong> Safer by default (NAT/CGNAT), but phishing and app-level attacks still work.</li>
+      <li><strong>Myth:</strong> “Turning on UPnP is harmless.”<br><strong>Fact:</strong> UPnP can silently expose ports without you noticing.</li>
+    </ul>
 
-    <h2>11 proven defenses to secure your devices</h2>
+    <h2>Risk matrix: what’s exposed and how bad is it?</h2>
+    <table>
+      <thead>
+        <tr><th>Exposure</th><th>Common examples</th><th>Risk</th><th>Quick fix</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Public remote desktop</td>
+          <td>RDP on 3389, VNC on 5900</td>
+          <td>Very high (password spraying, ransomware)</td>
+          <td>Close port; require VPN + MFA</td>
+        </tr>
+        <tr>
+          <td>Router remote admin</td>
+          <td>HTTP/HTTPS admin open to WAN</td>
+          <td>High (known vulns, default creds)</td>
+          <td>Disable WAN admin; update firmware</td>
+        </tr>
+        <tr>
+          <td>UPnP auto-forwards</td>
+          <td>Console/camera opens port</td>
+          <td>Medium→High (silent exposure)</td>
+          <td>Disable UPnP; review port mappings</td>
+        </tr>
+        <tr>
+          <td>Legacy services</td>
+          <td>Telnet/FTP, old NAS/SMB</td>
+          <td>Medium→High</td>
+          <td>Disable/upgrade; enforce TLS/MFA</td>
+        </tr>
+        <tr>
+          <td>Nothing exposed</td>
+          <td>Default NAT/router firewall</td>
+          <td>Low</td>
+          <td>Keep updated; keep it that way</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>15 practical defenses to secure your home and devices</h2>
     <ol>
-      <li><strong>Keep systems updated:</strong> apply OS and firmware updates for routers, NAS, IoT, and computers to close known vulnerabilities.</li>
-      <li><strong>Use a firewall & NAT:</strong> enable the router firewall and rely on NAT — it blocks most unsolicited inbound connections by default.</li>
-      <li><strong>Disable unnecessary remote services:</strong> turn off RDP, SSH, Telnet, remote admin interfaces unless you actively use them.</li>
-      <li><strong>Change default passwords:</strong> replace factory credentials on routers and IoT devices with strong, unique passwords.</li>
-      <li><strong>Disable UPnP on the router</strong> or review port mappings; UPnP can expose ports automatically to devices on the LAN.</li>
-      <li><strong>Use VPNs for remote access:</strong> require VPN connections to access home services rather than exposing ports to the public internet.</li>
-      <li><strong>Enable multi-factor authentication (MFA):</strong> wherever available (remote desktop, admin consoles, cloud accounts).</li>
-      <li><strong>Segment the network:</strong> place IoT devices on a separate guest VLAN and keep important devices isolated.</li>
-      <li><strong>Monitor logs & alerts:</strong> enable router/system logs and review for unusual access attempts; consider automated alerts.</li>
-      <li><strong>Use reputable security tools:</strong> run malware scanners and enable platform protections (Windows Defender, Gatekeeper on macOS).</li>
-      <li><strong>Contact your ISP for help:</strong> if you see repeated attacks, ask the ISP about blocking or rotating your public IP or applying upstream filters.</li>
+      <li><strong>Update everything:</strong> router firmware, OS, browsers, NAS, cameras, apps. Enable auto-updates where possible.</li>
+      <li><strong>Use NAT + firewall:</strong> keep default inbound blocking on the router; don’t open ports unless absolutely necessary.</li>
+      <li><strong>Disable remote admin (WAN):</strong> manage the router only from the LAN or via a secure vendor cloud if needed.</li>
+      <li><strong>Turn off UPnP:</strong> or audit it monthly; remove unknown port mappings.</li>
+      <li><strong>Strong, unique passwords + password manager:</strong> avoid re-use. Change factory credentials on every device.</li>
+      <li><strong>Enable multi-factor authentication (MFA):</strong> for any remote access, admin portals, and cloud accounts.</li>
+      <li><strong>Prefer VPN for remote access:</strong> WireGuard/OpenVPN over exposing RDP/SSH/HTTP to the internet.</li>
+      <li><strong>Network segmentation:</strong> put IoT on guest/VLAN; keep work devices isolated from smart TVs/cameras.</li>
+      <li><strong>Lock down SMB/NAS:</strong> require authenticated access; disable legacy protocols; patch promptly.</li>
+      <li><strong>Harden Wi-Fi:</strong> WPA2-AES or WPA3, strong passphrase, disable WPS, change default SSID.</li>
+      <li><strong>Browser & DNS privacy:</strong> block third-party cookies, review extensions, consider DNS-over-HTTPS.</li>
+      <li><strong>Endpoint protection:</strong> enable built-in protections (Windows Defender, XProtect/Gatekeeper on macOS), run periodic scans.</li>
+      <li><strong>Monitor & alert:</strong> enable router/syslog; look for repeated failed logins and unfamiliar IPs.</li>
+      <li><strong>Backup & recovery:</strong> keep offline backups; test restore; know how to factory-reset the router safely.</li>
+      <li><strong>Ask ISP if under attack:</strong> about changing IP, upstream filtering, or blocking abusive traffic.</li>
     </ol>
 
-    <h2>How to safely check your exposure</h2>
-    <p>For your own devices, perform safe, defensive checks:</p>
+    <h2>How to safely check your own exposure (legal & safe)</h2>
+    <p><strong>Only test IPs you own or have permission to test.</strong> For quick self-checks:</p>
     <ul>
-      <li>Use <a href="/tools/what-is-my-ip.html">What is My IP</a> to confirm your public IP.</li>
-      <li>Use online port-check services or authorised scanning tools (only against your IP) to see open ports. If unfamiliar, ask a tech-savvy friend or professional.</li>
-      <li>Check router admin page for remote management settings and UPnP port mappings.</li>
-      <li>Verify that critical services require authentication and MFA.</li>
+      <li>Confirm your public IP with <a href="/tools/what-is-my-ip.html">What is My IP</a>.</li>
+      <li>Review the router’s <em>Port Forwarding</em> / <em>UPnP</em> pages and remove unknown entries.</li>
+      <li>Ensure <strong>Remote Administration</strong> (from WAN) is <em>disabled</em>.</li>
+      <li>Verify critical services (NAS, cameras) require strong auth and (ideally) MFA, or are only reachable over VPN.</li>
+      <li>Check for browser/DNS leaks with <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> and <a href="/tools/dns-lookup.html">DNS Lookup</a>.</li>
     </ul>
 
-    <h2>If you discover a problem — immediate steps</h2>
+    <h2>Step-by-step: common hardening tasks</h2>
+    <h3>Disable UPnP and remove unknown port forwards</h3>
     <ol>
-      <li>Disconnect affected device from network or power off the device to stop active compromise.</li>
-      <li>Change passwords for affected accounts from a secure device using a different network.</li>
-      <li>Run a full malware scan and restore from a clean backup if needed.</li>
-      <li>Factory-reset compromised routers and reconfigure securely (strong admin password, disable remote admin).</li>
-      <li>Consider professional incident response if sensitive data or financial access is at risk.</li>
+      <li>Open router admin (usually <code>192.168.0.1</code> or <code>192.168.1.1</code>).</li>
+      <li>Settings → <em>Advanced</em> → <em>UPnP</em> → toggle <strong>Off</strong>.</li>
+      <li>Check <em>Port Forwarding</em> / <em>NAT</em> and delete entries you don’t recognize.</li>
+    </ol>
+
+    <h3>Require VPN for remote access</h3>
+    <ol>
+      <li>Install a lightweight VPN (e.g., WireGuard) on the router or a dedicated device.</li>
+      <li>Create unique keys/users; store configs in your password manager.</li>
+      <li>Close public ports for RDP/SSH/HTTP; access services only through the VPN tunnel.</li>
+    </ol>
+
+    <h3>Harden Wi-Fi</h3>
+    <ol>
+      <li>Set security to WPA2-AES or WPA3; disable WPS.</li>
+      <li>Use a long passphrase (16+ chars), avoid dictionary words.</li>
+      <li>Change default SSID (but don’t include personal info).</li>
+    </ol>
+
+    <h2>What to do if you suspect a compromise</h2>
+    <ol>
+      <li><strong>Isolate:</strong> disconnect the device from the network or power it off.</li>
+      <li><strong>Change passwords:</strong> do it from a known-clean device and a different network.</li>
+      <li><strong>Scan & clean:</strong> run full AV/anti-malware; consider reinstall for high-risk cases.</li>
+      <li><strong>Reset & harden router:</strong> factory-reset if needed; disable WAN admin, UPnP; set strong admin password.</li>
+      <li><strong>Review accounts & finances:</strong> look for unauthorized activity; enable MFA everywhere.</li>
+      <li><strong>Professional help:</strong> if sensitive data or funds are involved, contact incident response support.</li>
     </ol>
 
     <aside class="wrap card" style="margin-top:24px">
       <h3>Related articles</h3>
       <ul>
-        <li><a href="/faq/what-is-a-public-ip-address.html">What is a Public IP Address and How to Protect It</a></li>
-        <li><a href="/faq/what-is-a-dns-leak.html">What Is a DNS Leak and How to Prevent It</a></li>
-        <li><a href="/faq/how-to-hide-your-ip-address.html">How to Hide Your IP Address (Free & Paid Methods)</a></li>
+        <li><a href="/faq/can-someone-track-me-by-my-ip-address.html">Can Someone Track Me by My IP Address?</a></li>
+        <li><a href="/faq/how-to-hide-your-ip-address.html">How to Hide Your IP Address (VPN, Proxy, Tor)</a></li>
         <li><a href="/faq/how-to-check-if-your-ip-is-blacklisted.html">How to Check if Your IP Is Blacklisted</a></li>
+        <li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6: Key Differences</a></li>
+        <li><a href="/faq/ip-geolocation-accuracy.html">IP Geolocation Accuracy</a></li>
       </ul>
     </aside>
 
     <hr>
-    <p><strong>Test and harden:</strong> check your public IP on <a href="/tools/what-is-my-ip.html">What is My IP</a>, then review browser and DNS leaks with <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> and <a href="/tools/dns-lookup.html">DNS Lookup</a>. For deeper verification, consult a security professional.</p>
+    <section aria-labelledby="authorbox" class="card">
+      <h2 id="authorbox">About the author & editorial process</h2>
+      <p><strong>Author:</strong> Yaroslav Sabardak — editor of MyIPScan. Focused on practical network privacy and consumer security. Articles follow a review checklist (accuracy, clarity, safety advice) and are updated when standards or vendor guidance change.</p>
+      <p><strong>Reviewed by:</strong> MyIPScan Security Editorial Team. We avoid intrusive tracking and do not log IPs for analytics. See <a href="/privacy.html">Privacy</a>.</p>
+      <p><strong>Last review:</strong> October 16, 2025</p>
+    </section>
+
+    <p><strong>Next steps:</strong> check your IP on <a href="/tools/what-is-my-ip.html">What is My IP</a>, review for leaks with <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> and <a href="/tools/dns-lookup.html">DNS Lookup</a>, and then apply at least 5 defenses from the list above today.</p>
   </main>
 
   <footer class="wrap">
@@ -126,14 +217,15 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Can Hackers Use My IP to Access My Device?",
-    "description": "Explains realistic attack paths from knowing an IP to accessing a device, and 11 concrete defenses to secure your home and devices.",
+    "headline": "Can Hackers Use My IP to Access My Device? Risks & Protection",
+    "description": "What an IP reveals, how attackers can leverage exposed services, and practical defenses to secure home networks and devices.",
     "author": { "@type": "Person", "name": "Yaroslav Sabardak" },
     "publisher": { "@type": "Organization", "name": "MyIPScan", "logo": { "@type": "ImageObject", "url": "https://myipscan.net/static/og-cover.png" } },
-    "datePublished": "2025-10-15",
-    "dateModified": "2025-10-15",
+    "datePublished": "2025-10-16",
+    "dateModified": "2025-10-16",
     "mainEntityOfPage": "https://myipscan.net/faq/can-hackers-use-my-ip-to-access-my-device.html",
-    "image": "https://myipscan.net/static/og-cover.png"
+    "image": "https://myipscan.net/static/og-cover.png",
+    "keywords": ["IP address", "open ports", "router security", "UPnP", "VPN", "RDP", "SSH", "IoT security", "network hardening"]
   }
   </script>
 
@@ -161,23 +253,31 @@
         "name": "Can someone hack me just by knowing my IP?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not usually. An IP alone doesn’t give direct access to a device. It becomes useful to attackers only if services on your IP are exposed, unpatched, or weakly protected."
+          "text": "Not usually. An IP by itself doesn’t grant access. The risk appears when services are exposed or misconfigured (e.g., public RDP/SSH, router WAN admin, UPnP-created ports) or when you fall for phishing."
         }
       },
       {
         "@type": "Question",
-        "name": "Should I run port scans on other people's IPs?",
+        "name": "Is it legal to scan other people’s IPs?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Scanning or probing networks you don't own or have permission to test may be illegal. Only scan your own IPs or use authorised services."
+          "text": "Scanning networks without explicit permission may be illegal. Only test addresses you own or are authorized to assess."
         }
       },
       {
         "@type": "Question",
-        "name": "What immediate step should I take if I suspect compromise?",
+        "name": "How do I quickly reduce risk at home?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Disconnect the affected device from the network, change passwords from a secure device, run malware scans, and consider a factory reset or professional incident response if needed."
+          "text": "Update router/OS, disable WAN admin and UPnP, remove unknown port forwards, require VPN for any remote access, enable MFA, and set strong unique passwords."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do VPNs fully protect me from hacking?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "VPNs hide your public IP but don’t fix weak passwords, outdated firmware, or malicious apps. They’re one layer in a broader defense-in-depth strategy."
         }
       }
     ]
@@ -187,18 +287,22 @@
   <!-- JS: Stable Tools menu -->
   <script>
   (function(){
-    var tools=document.querySelector('.tools');if(!tools)return;
-    var btn=document.getElementById('toolsButton');var menu=tools.querySelector('.tools-menu');if(!btn||!menu)return;
+    var tools=document.querySelector('.tools'); if(!tools) return;
+    var btn=document.getElementById('toolsButton');
+    var menu=tools.querySelector('.tools-menu');
+    if(!btn||!menu) return;
     var hideTimer;
-    function open(){clearTimeout(hideTimer);tools.classList.add('open');btn.setAttribute('aria-expanded','true');}
-    function closeNow(){tools.classList.remove('open');btn.setAttribute('aria-expanded','false');}
-    function close(){hideTimer=setTimeout(closeNow,180);}
-    tools.addEventListener('pointerenter',function(){open();});
-    tools.addEventListener('pointerleave',function(e){if(menu.contains(e.relatedTarget)||btn.contains(e.relatedTarget))return;close();});
-    btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();tools.classList.toggle('open');btn.setAttribute('aria-expanded',tools.classList.contains('open'));});
-    menu.addEventListener('pointerenter',function(){open();});
-    menu.addEventListener('pointerleave',function(e){if(tools.contains(e.relatedTarget))return;close();});
-    document.addEventListener('click',function(e){if(!tools.contains(e.target))closeNow();});
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNow();});
+    function open(){ clearTimeout(hideTimer); tools.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    function closeNow(){ tools.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+    function close(){ hideTimer=setTimeout(closeNow,180); }
+    tools.addEventListener('pointerenter',open);
+    tools.addEventListener('pointerleave',function(e){ if(menu.contains(e.relatedTarget)||btn.contains(e.relatedTarget)) return; close(); });
+    btn.addEventListener('click',function(e){ e.preventDefault(); e.stopPropagation(); tools.classList.toggle('open'); btn.setAttribute('aria-expanded',tools.classList.contains('open')); });
+    menu.addEventListener('pointerenter',open);
+    menu.addEventListener('pointerleave',function(e){ if(tools.contains(e.relatedTarget)) return; close(); });
+    document.addEventListener('click',function(e){ if(!tools.contains(e.target)) closeNow(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeNow(); });
   })();
   </script>
+</body>
+</html>
