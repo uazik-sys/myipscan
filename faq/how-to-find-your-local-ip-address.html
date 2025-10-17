@@ -1,25 +1,26 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>How to Find Your Local IP Address on Any Device</title>
-  <meta name="description" content="Learn how to find your local IP address on Windows, macOS, Android, iPhone, Linux, and routers — with step-by-step instructions and privacy tips.">
+  <title>Find Your Local IP — Quick, Easy, Free Guide (2025) ✓</title>
+  <meta name="description" content="See your local IP on Windows, macOS, Android, iPhone, Linux & routers → step-by-step commands, fixes, and tips. Fast, simple, free. ✓">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://myipscan.net/faq/how-to-find-your-local-ip-address.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="How to Find Your Local IP Address on Any Device">
-  <meta property="og:description" content="Find your local IP address easily — step-by-step for Windows, macOS, Android, iPhone, and Linux. Understand local vs public IPs and how to stay private.">
+  <meta property="og:title" content="Find Your Local IP — Quick, Easy, Free Guide (2025) ✓">
+  <meta property="og:description" content="Step-by-step: find your local IP on Windows, macOS, Android, iPhone, Linux & routers — plus troubleshooting, examples, and security tips.">
   <meta property="og:url" content="https://myipscan.net/faq/how-to-find-your-local-ip-address.html">
   <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How to Find Your Local IP Address on Any Device">
-  <meta name="twitter:description" content="Step-by-step guide: find your local IP on Windows, macOS, Android, iPhone, and Linux — and learn the difference between local and public IP.">
+  <meta name="twitter:title" content="Find Your Local IP — Quick, Easy, Free Guide (2025) ✓">
+  <meta name="twitter:description" content="Find your local IP on any device with clear steps, commands, and real-world fixes.">
   <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
 
   <link rel="preload" as="style" href="/styles.css">
@@ -41,87 +42,315 @@
     <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › How to Find Your Local IP Address on Any Device</div>
 
     <h1>How to Find Your Local IP Address on Any Device</h1>
-    <time datetime="2025-10-15">Updated: October 15, 2025</time>
+    <time datetime="2025-10-17">Updated: October 17, 2025</time>
 
-    <p>Your <strong>local IP address</strong> identifies your device inside your home or office network — it’s different from your <a href="/faq/what-is-a-public-ip-address.html">public IP</a> that the internet sees. Knowing your local IP helps you troubleshoot connections, set up printers or servers, or manage your router. Here’s how to find it on any device, plus a few security tips.</p>
+    <p>Your <strong>local IP address</strong> is the identifier your device uses inside your private network (home, office, hotspot). It’s not the same as your <a href="/faq/what-is-a-public-ip-address.html">public IP</a>, which websites see. Knowing your local IP helps with Wi‑Fi troubleshooting, printer setup, file sharing, gaming, port forwarding, and smart‑home devices. Below are quick GUI steps and reliable command‑line methods for every platform, followed by fixes for common issues, a real‑world case, and admin‑level tips.</p>
 
-    <h2>Windows</h2>
-    <ol>
-      <li>Press <kbd>Win + R</kbd>, type <code>cmd</code>, and hit <kbd>Enter</kbd>.</li>
-      <li>In Command Prompt, type <code>ipconfig</code> and press <kbd>Enter</kbd>.</li>
-      <li>Look for “IPv4 Address” — that’s your local IP (e.g., 192.168.1.101).</li>
-    </ol>
-
-    <h2>macOS</h2>
-    <ol>
-      <li>Open <strong>System Settings › Network</strong>.</li>
-      <li>Select your active connection (Wi-Fi or Ethernet).</li>
-      <li>Your local IP appears under “Status” or “Details”.</li>
-      <li>Alternatively, open <strong>Terminal</strong> and type <code>ifconfig | grep inet</code>.</li>
-    </ol>
-
-    <h2>Android</h2>
-    <ol>
-      <li>Go to <strong>Settings › Network & Internet › Wi‑Fi</strong>.</li>
-      <li>Tap the connected Wi‑Fi network.</li>
-      <li>Scroll to “Advanced” or “IP address”.</li>
-    </ol>
-
-    <h2>iPhone / iPad (iOS)</h2>
-    <ol>
-      <li>Open <strong>Settings › Wi‑Fi</strong>.</li>
-      <li>Tap the “ⓘ” icon next to your network.</li>
-      <li>Find “IP Address” under the IPv4 section.</li>
-    </ol>
-
-    <h2>Linux</h2>
-    <ol>
-      <li>Open Terminal.</li>
-      <li>Type <code>ip addr show</code> or <code>ifconfig</code>.</li>
-      <li>Find your active interface (e.g., eth0, wlan0) and read the “inet” address line.</li>
-    </ol>
-
-    <h2>Router (to see all connected devices)</h2>
-    <ol>
-      <li>Type your router’s address (often <code>192.168.1.1</code> or <code>192.168.0.1</code>) in a browser.</li>
-      <li>Login with admin credentials.</li>
-      <li>Open “Connected devices” or “DHCP clients” — you’ll see local IPs for every device.</li>
-    </ol>
-
-    <h2>Local vs public IP: what’s the difference?</h2>
-    <p>Your <strong>local IP</strong> only works inside your network. It’s usually from one of these private ranges:</p>
+    <h2>Local vs Public IP (and why it matters)</h2>
+    <p><strong>Local (private) IPs</strong> live only inside your LAN and usually come from these ranges:</p>
     <ul>
       <li>192.168.0.0 – 192.168.255.255</li>
       <li>10.0.0.0 – 10.255.255.255</li>
       <li>172.16.0.0 – 172.31.255.255</li>
     </ul>
-    <p>Your <strong>public IP</strong> is assigned by your ISP and seen by websites and online services. You can check it with <a href="/tools/what-is-my-ip.html">What is My IP</a>.</p>
+    <p><strong>Public IPs</strong> are assigned by your ISP and are reachable over the internet. Check yours on <a href="/tools/what-is-my-ip.html">What is My IP</a>. Most homes use <strong>NAT</strong>: many local devices share one public IP via the router. In <strong>dual‑stack</strong> networks, you may have both <strong>IPv4</strong> and <strong>IPv6</strong> local addresses at the same time. Understanding your <strong>subnet mask</strong> (e.g., <code>255.255.255.0</code> or <code>/24</code>) and <strong>gateway</strong> (the router’s IP) helps diagnose reachability inside the LAN.</p>
 
-    <h2>Security and privacy tips</h2>
+    <h2>Quick paths by device (table)</h2>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Device</th>
+            <th>GUI path</th>
+            <th>CLI command</th>
+            <th>What to read</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Windows</td>
+            <td>Settings → Network & Internet → Status/Properties</td>
+            <td><code>ipconfig</code>, <code>Get-NetIPAddress</code></td>
+            <td>“IPv4 Address”, “IPv6 Address”, “Default Gateway”</td>
+          </tr>
+          <tr>
+            <td>macOS</td>
+            <td>System Settings → Network → (Wi‑Fi/Ethernet)</td>
+            <td><code>ipconfig getifaddr en0</code>, <code>ifconfig</code></td>
+            <td>“IP Address”, <code>inet</code>/<code>inet6</code>, router</td>
+          </tr>
+          <tr>
+            <td>Linux</td>
+            <td>Network Manager (if present)</td>
+            <td><code>ip addr show</code>, <code>hostname -I</code>, <code>nmcli</code></td>
+            <td><code>inet</code> (IPv4), <code>inet6</code> (IPv6), routes</td>
+          </tr>
+          <tr>
+            <td>Android</td>
+            <td>Settings → Network & Internet → Wi‑Fi → (your network)</td>
+            <td>—</td>
+            <td>“IP address” / “IPv6 address”</td>
+          </tr>
+          <tr>
+            <td>iPhone/iPad</td>
+            <td>Settings → Wi‑Fi → ⓘ on your network</td>
+            <td>—</td>
+            <td>IPv4 “IP Address”, IPv6 (if shown)</td>
+          </tr>
+          <tr>
+            <td>Router</td>
+            <td>Web UI → Connected devices / DHCP clients</td>
+            <td>—</td>
+            <td>Lists all device local IPs, hostnames, MACs</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Find your local IP on Windows</h2>
+    <h3>Method A — Settings (GUI)</h3>
+    <ol>
+      <li>Open <strong>Settings → Network & Internet</strong>.</li>
+      <li>Click <strong>Wi‑Fi</strong> (or <strong>Ethernet</strong>) → your network.</li>
+      <li>Scroll to <strong>Properties</strong> to see <em>IPv4 address</em>, <em>IPv6 address</em>, <em>Default gateway</em>.</li>
+    </ol>
+    <h3>Method B — Command Prompt</h3>
+    <ol>
+      <li>Press <kbd>Win</kbd> → type <code>cmd</code> → <kbd>Enter</kbd>.</li>
+      <li>Run:
+        <pre><code>ipconfig</code></pre>
+      </li>
+      <li>Under your active adapter (e.g., “Wi‑Fi”), read <strong>IPv4 Address</strong> and (if present) <strong>IPv6 Address</strong>.</li>
+    </ol>
+    <h3>Method C — PowerShell (more detailed)</h3>
+    <pre><code># All addresses on all interfaces
+Get-NetIPAddress | Sort-Object InterfaceAlias | Format-Table InterfaceAlias, AddressFamily, IPAddress, PrefixLength
+
+# Only active IPv4 on Wi‑Fi
+Get-NetIPAddress -InterfaceAlias "Wi-Fi" -AddressFamily IPv4 | Select-Object IPAddress, PrefixLength
+
+# Default route (gateway)
+Get-NetRoute -DestinationPrefix "0.0.0.0/0" | Select-Object NextHop, InterfaceAlias</code></pre>
+    <p><em>Connectivity check:</em></p>
+    <pre><code>ping 192.168.1.1
+tracert -4 myipscan.net
+tracert -6 myipscan.net</code></pre>
+
+    <h2>Find your local IP on macOS</h2>
+    <h3>Method A — System Settings</h3>
+    <ol>
+      <li>Open <strong>System Settings → Network</strong>.</li>
+      <li>Select your active interface (Wi‑Fi/Ethernet).</li>
+      <li>See <strong>IP Address</strong> and, if enabled, <strong>IPv6</strong> details and <strong>Router</strong>.</li>
+    </ol>
+    <h3>Method B — Terminal</h3>
+    <p>One‑line IPv4 on Wi‑Fi:</p>
+    <pre><code>ipconfig getifaddr en0</code></pre>
+    <p>Full view (IPv4/IPv6 for all interfaces):</p>
+    <pre><code>ifconfig | egrep "inet6? "</code></pre>
+    <p>Preferred service order (optional):</p>
+    <pre><code>networksetup -listnetworkserviceorder</code></pre>
+
+    <h2>Find your local IP on Linux</h2>
+    <ol>
+      <li>Open Terminal.</li>
+      <li>Show addresses:
+        <pre><code>ip addr show</code></pre>
+      </li>
+      <li>Quick list:
+        <pre><code>hostname -I</code></pre>
+      </li>
+      <li>Routes and gateway:
+        <pre><code>ip route show</code></pre>
+      </li>
+      <li>NetworkManager (if installed):
+        <pre><code>nmcli device show | egrep "IP4.ADDRESS|IP6.ADDRESS|IP4.GATEWAY|IP6.GATEWAY"</code></pre>
+      </li>
+    </ol>
+
+    <h2>Find your local IP on Android</h2>
+    <ol>
+      <li><strong>Settings → Network & Internet → Wi‑Fi</strong>.</li>
+      <li>Tap your connected network.</li>
+      <li>See <strong>IP address</strong> (tap <em>Advanced</em> if needed). Some vendors show IPv6 on a separate line.</li>
+    </ol>
+
+    <h2>Find your local IP on iPhone / iPad (iOS)</h2>
+    <ol>
+      <li><strong>Settings → Wi‑Fi</strong> → tap the <strong>ⓘ</strong> next to your network.</li>
+      <li>Under <strong>IPv4 Address</strong>, read <em>IP Address</em>. iOS can also display IPv6 when enabled by the router.</li>
+    </ol>
+
+    <h2>Use your router to list every device</h2>
+    <ol>
+      <li>Open a browser and go to your router’s address (commonly <code>192.168.1.1</code> or <code>192.168.0.1</code>).</li>
+      <li>Sign in with admin credentials.</li>
+      <li>Open <strong>Connected devices</strong> / <strong>DHCP clients</strong> to see all local IPs, hostnames, and sometimes MACs.</li>
+      <li>Optional: export the list (some routers allow CSV) for inventory or parental‑control rules.</li>
+    </ol>
+
+    <h2>IPv4 vs IPv6 inside your LAN (dual‑stack)</h2>
+    <p>In a <strong>dual‑stack</strong> setup, devices get <em>both</em> an IPv4 and an IPv6 address. IPv6 addresses often start with <code>fe80::</code> (link‑local) or a unique local address (ULA) like <code>fd00::/8</code>. Your OS may prefer IPv6 when available, which can improve reliability. LAN‑only protocols (AirPlay, Chromecast, SMB, NFS) work across both, but discovery can behave differently per vendor.</p>
+    <p>Check whether a hostname resolves to IPv6 (AAAA):</p>
+    <pre><code>dig AAAA myipscan.net +short
+nslookup -type=AAAA myipscan.net</code></pre>
+    <p>Test IPv6 reachability:</p>
+    <pre><code>ping6 myipscan.net
+traceroute -6 myipscan.net   # (Linux/macOS)</code></pre>
+
+    <h2>Static vs dynamic local IPs (and DHCP reservations)</h2>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th>How it works</th>
+            <th>Best for</th>
+            <th>Pros</th>
+            <th>Cons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dynamic (DHCP)</td>
+            <td>Router assigns an IP from a pool</td>
+            <td>Phones, laptops, guests</td>
+            <td>Hands‑off, avoids conflicts</td>
+            <td>IP may change, bookmarks break</td>
+          </tr>
+          <tr>
+            <td>DHCP reservation</td>
+            <td>Router always gives the same IP to a MAC</td>
+            <td>TVs, NAS, cameras, consoles</td>
+            <td>Centralized, conflict‑free, stable</td>
+            <td>Needs router access</td>
+          </tr>
+          <tr>
+            <td>Static on device</td>
+            <td>Set manual IP/gateway/DNS on OS</td>
+            <td>Servers, IoT gateways</td>
+            <td>Works even if DHCP is down</td>
+            <td>Risk of conflicts if outside plan</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Tip:</strong> Keep static/reserved addresses <em>outside</em> the DHCP dynamic pool (e.g., DHCP = <code>192.168.1.100–199</code>, static/reserved = <code>192.168.1.2–99</code>).</p>
+
+    <h2>Troubleshooting: “IPv6 not working”, “No IP”, or “APIPA 169.254.x.x”</h2>
+    <h3>Symptoms</h3>
     <ul>
-      <li>Local IPs aren’t exposed publicly, but devices on your LAN can still communicate — secure your Wi‑Fi with WPA2/3 and strong passwords.</li>
-      <li>Disable guest networks or restrict them to internet-only access.</li>
-      <li>Update router firmware regularly.</li>
-      <li>For external privacy, use a <a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">VPN</a> to hide your public IP.</li>
+      <li>Windows shows <code>169.254.x.x</code> (APIPA) instead of <code>192.168.x.x</code>.</li>
+      <li>Pages resolve over IPv4 but not IPv6; some sites feel slow until fallback.</li>
+      <li><code>ipconfig</code>/<code>ip addr</code> shows no address on the active interface.</li>
+      <li>Router’s device list shows duplicates or stale clients.</li>
     </ul>
+    <h3>Quick fixes</h3>
+    <ol>
+      <li><strong>Renew DHCP lease</strong>:
+        <pre><code>:: Windows
+ipconfig /release
+ipconfig /renew
+
+# macOS
+sudo ipconfig set en0 DHCP
+
+# Linux
+sudo dhclient -r
+sudo dhclient</code></pre>
+      </li>
+      <li><strong>Toggle the adapter</strong>: disable/enable Wi‑Fi or unplug/replug Ethernet.</li>
+      <li><strong>Forget and rejoin Wi‑Fi</strong> (enter password again; ensure WPA2/3).</li>
+      <li><strong>Restart the router</strong>; verify DHCP server is enabled and pool is not exhausted.</li>
+      <li><strong>Check IPv6</strong> is enabled on router and device. On Windows:
+        <pre><code>Control Panel → Network and Sharing Center → Change adapter settings → (Adapter) → Properties → Internet Protocol Version 6 (TCP/IPv6)</code></pre>
+      </li>
+      <li><strong>DNS tests</strong>:
+        <pre><code>nslookup myipscan.net
+nslookup -type=AAAA myipscan.net</code></pre>
+      </li>
+      <li><strong>Check for IP conflicts</strong>: if two devices share one IP, one will “flap”. Prefer DHCP reservations to avoid this.</li>
+    </ol>
+
+    <h2>Case example: fixing a smart‑TV that “disappears”</h2>
+    <p><strong>Problem:</strong> A smart‑TV streams fine for hours, then the phone’s remote app can’t find it. <code>ipconfig</code> on the laptop shows the TV’s IP has changed.</p>
+    <p><strong>Fix:</strong> On the router, create a <em>DHCP reservation</em> for the TV’s MAC (e.g., always give it <code>192.168.1.50</code>). Reboot TV and router. The TV now keeps a stable local IP, and the remote app discovers it reliably.</p>
+    <p><em>Why it works:</em> Multicast/SSDP discovery tolerates changes poorly; a stable IP improves device discovery and app pairing.</p>
+
+    <h2>Security & privacy tips for local networks</h2>
+    <ul>
+      <li>Use strong Wi‑Fi passphrases (WPA2/WPA3). Update router firmware regularly.</li>
+      <li>Disable <strong>WPS</strong>; isolate <strong>Guest Wi‑Fi</strong> or block LAN access.</li>
+      <li>Review <strong>UPnP</strong> auto‑port‑forwarding; close unused ports.</li>
+      <li>For external privacy, use a <a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">VPN</a> to mask your public IP.</li>
+      <li>If you self‑host email/services, keep public DNS (A/AAAA) accurate and set <a href="/faq/how-to-check-if-your-ip-is-blacklisted.html">blacklist checks</a>, <strong>SPF</strong>, <strong>DKIM</strong>, and <strong>DMARC</strong> for deliverability.</li>
+    </ul>
+
+    <h2>Finding other devices by local IP (printers, NAS, cameras)</h2>
+    <p>Many devices expose a web interface. Put the IP in your browser (e.g., <code>http://192.168.1.50</code>). If nothing responds, try a vendor discovery app or scan your LAN in the router. For SMB/NFS shares, map by hostname or static IP to avoid changes.</p>
 
     <aside class="wrap card" style="margin-top:24px">
       <h3>Related articles</h3>
       <ul>
         <li><a href="/faq/private-vs-public-ip-addresses.html">Private vs Public IP Addresses Explained</a></li>
         <li><a href="/faq/static-vs-dynamic-ip.html">Static vs Dynamic IP: Which One Do You Have?</a></li>
-        <li><a href="/faq/what-is-a-public-ip-address.html">What is a Public IP Address?</a></li>
-        <li><a href="/faq/how-ip-addresses-are-assigned.html">How IP Addresses Are Assigned (ISP, DHCP, and IANA)</a></li>
+        <li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6: What’s the Difference?</a></li>
+        <li><a href="/faq/how-to-check-your-ipv6-address.html">How to Check Your IPv6 Address</a></li>
+        <li><a href="/faq/how-ip-addresses-are-assigned.html">How IP Addresses Are Assigned (ISP, DHCP, IANA)</a></li>
+        <li><a href="/faq/ip-geolocation-accuracy.html">IP Geolocation Accuracy: What to Expect</a></li>
       </ul>
     </aside>
 
+    <h2>FAQ</h2>
+    <dl class="faq">
+      <dt>Is my local IP the same as my public IP?</dt>
+      <dd>No. Local IPs work only inside your LAN; public IPs are visible on the internet. Check public IP on <a href="/tools/what-is-my-ip.html">What is My IP</a>.</dd>
+
+      <dt>What are common local IP ranges?</dt>
+      <dd>192.168.0.0/16, 10.0.0.0/8, and 172.16.0.0/12 are reserved for private use.</dd>
+
+      <dt>Why do I have both IPv4 and IPv6?</dt>
+      <dd>You’re on a <strong>dual‑stack</strong> network. Devices can use either protocol; many OSes prefer IPv6 when available.</dd>
+
+      <dt>How do I find my printer’s IP?</dt>
+      <dd>Check the printer’s status page, its control panel network screen, or your router’s “Connected devices”.</dd>
+
+      <dt>What if Windows shows 169.254.x.x?</dt>
+      <dd>That’s APIPA (self‑assigned). Renew the DHCP lease (<code>ipconfig /renew</code>), reconnect Wi‑Fi, or restart the router.</dd>
+
+      <dt>How can I run an IPv6 test quickly?</dt>
+      <dd>Use <code>dig AAAA domain +short</code> or <code>nslookup -type=AAAA</code> to confirm AAAA records, then try <code>ping6</code> and <code>traceroute -6</code>.</dd>
+    </dl>
+
     <hr>
-    <p><strong>Next step:</strong> See your <a href="/tools/what-is-my-ip.html">public IP</a> and verify DNS with <a href="/tools/dns-lookup.html">DNS Lookup</a> or browser exposure using <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a>.</p>
+    <p><strong>Next steps:</strong> See your <a href="/tools/what-is-my-ip.html">public IP</a> now, verify DNS with <a href="/tools/dns-lookup.html">DNS Lookup</a>, or check browser exposure via <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a>. Need more help? Compare <a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6</a> or learn <a href="/faq/static-vs-dynamic-ip.html">when to use static vs dynamic IPs</a>.</p>
+
+    <section class="card" style="margin-top:24px;padding:16px">
+      <h3>About the author</h3>
+      <p><strong>Yaroslav Sabardak</strong> — creator of MyIPScan, writes practical guides on IP networking, privacy, and browser/network diagnostics. <em>Last updated: October 17, 2025.</em></p>
+    </section>
   </main>
 
   <footer class="wrap">
     <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
   </footer>
+
+  <!-- JSON-LD: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "How to Find Your Local IP Address on Any Device",
+    "url": "https://myipscan.net/faq/how-to-find-your-local-ip-address.html",
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://myipscan.net/static/og-cover.png"
+    },
+    "datePublished": "2025-10-15",
+    "dateModified": "2025-10-17",
+    "inLanguage": "en"
+  }
+  </script>
 
   <!-- JSON-LD: Article -->
   <script type="application/ld+json">
@@ -129,11 +358,11 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "How to Find Your Local IP Address on Any Device",
-    "description": "Step-by-step instructions to find your local IP address on Windows, macOS, Android, iPhone, Linux, and routers — plus privacy and security tips.",
+    "description": "Step-by-step instructions to find your local IP address on Windows, macOS, Android, iPhone, Linux, and routers — plus troubleshooting, examples, and security tips.",
     "author": { "@type": "Person", "name": "Yaroslav Sabardak" },
     "publisher": { "@type": "Organization", "name": "MyIPScan", "logo": { "@type": "ImageObject", "url": "https://myipscan.net/static/og-cover.png" } },
     "datePublished": "2025-10-15",
-    "dateModified": "2025-10-15",
+    "dateModified": "2025-10-17",
     "mainEntityOfPage": "https://myipscan.net/faq/how-to-find-your-local-ip-address.html",
     "image": "https://myipscan.net/static/og-cover.png"
   }
@@ -160,26 +389,50 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Is my local IP address the same as my public IP?",
+        "name": "Is my local IP the same as my public IP?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Your local IP identifies your device inside your private network, while your public IP is assigned by your ISP and visible on the internet."
+          "text": "No. Local IPs work only inside your LAN; public IPs are visible on the internet. Check your public IP on the What is My IP tool."
         }
       },
       {
         "@type": "Question",
-        "name": "Can other people see my local IP?",
+        "name": "What are common local IP ranges?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No, local IPs are private and not routed on the internet. Only devices on your local network can see them."
+          "text": "192.168.0.0/16, 10.0.0.0/8, and 172.16.0.0/12 are reserved for private use in local networks."
         }
       },
       {
         "@type": "Question",
-        "name": "What are examples of local IP ranges?",
+        "name": "Why do I have both IPv4 and IPv6?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Common ranges include 192.168.x.x, 10.x.x.x, and 172.16–172.31.x.x — reserved for private LAN use."
+          "text": "You are on a dual-stack network and your device received both IPv4 and IPv6 addresses. Operating systems often prefer IPv6 when available."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I find my printer’s IP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Check the printer's control panel, print the network status page, or open your router's 'Connected devices' list to read the assigned local IP."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if Windows shows 169.254.x.x?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "That's an APIPA address (no DHCP). Renew the lease with 'ipconfig /renew', reconnect to Wi-Fi, or reboot the router and ensure DHCP is enabled."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I run an IPv6 test quickly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use 'dig AAAA your-domain +short' or 'nslookup -type=AAAA' to confirm AAAA records, then ping with 'ping6' or traceroute with 'traceroute -6'."
         }
       }
     ]
