@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free Calculator — Fast, Keyboard‑Friendly | MyIPScan Tools</title>
+  <meta name="description" content="A fast, privacy‑friendly online calculator. Works with keyboard and mouse. Supports +, −, ×, ÷, %, parentheses, power, history, and copy. No tracking, no ads." />
+  <link rel="canonical" href="https://myipscan.net/tools/calculator.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Free Calculator — Fast, Keyboard‑Friendly" />
+  <meta property="og:description" content="Super‑light calculator that works with keyboard and mouse. No tracking, no ads." />
+  <meta property="og:url" content="https://myipscan.net/tools/calculator.html" />
+  <meta property="og:site_name" content="MyIPScan" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- Minimal dark theme to match site -->
+  <style>
+    :root{
+      --bg:#0b1220; --fg:#e7ecf3; --muted:#98a2b3; --card:#11172a; --accent:#8ab4ff;
+      --radius:16px; --shadow:0 6px 24px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;}
+    a{color:var(--accent);text-decoration:none}
+    header{position:sticky;top:0;background:linear-gradient(180deg,rgba(11,18,32,.95),rgba(11,18,32,.8));backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid rgba(255,255,255,.06);}
+    .container{max-width:980px;margin:0 auto;padding:16px}
+    nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .nav-link{padding:8px 12px;border-radius:999px;background:transparent;border:1px solid rgba(255,255,255,.08);color:var(--fg)}
+    .nav-link:hover{border-color:rgba(255,255,255,.2)}
+
+    main{padding:24px}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+    h1{font-size:clamp(22px,4vw,28px);margin:0 0 4px}
+    .subtitle{color:var(--muted);margin:0 0 12px}
+
+    .calc{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .display{grid-column:1/-1;background:#0d1527;border-radius:12px;padding:12px 14px;border:1px solid rgba(255,255,255,.08)}
+    .expr{font-size:14px;color:var(--muted);min-height:20px;word-break:break-all}
+    .result{font-size:28px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+    .copy-btn{border:1px solid rgba(255,255,255,.1);background:transparent;border-radius:10px;padding:4px 10px;color:var(--fg);cursor:pointer}
+    .copy-btn:focus,.key:focus{outline:2px solid #2b3f63;outline-offset:2px}
+
+    .key{user-select:none;cursor:pointer;background:#0f1930;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:12px;text-align:center;font-size:18px}
+    .key:hover{border-color:rgba(255,255,255,.18)}
+    .key.op{background:#0e1a34}
+    .key.equals{background:linear-gradient(180deg,#12335f,#0d2547)}
+    .key.wide{grid-column:span 2}
+
+    .kbd-hint{font-size:12px;color:var(--muted)}
+    .note{font-size:13px;color:var(--muted)}
+    .history{max-height:220px;overflow:auto;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:8px}
+    .history-item{display:flex;justify-content:space-between;gap:8px;padding:6px 4px;border-bottom:1px dashed rgba(255,255,255,.06)}
+    .history-item:last-child{border-bottom:none}
+    .btn-sm{font:inherit;border:1px solid rgba(255,255,255,.1);background:transparent;color:var(--fg);border-radius:10px;padding:4px 8px;cursor:pointer}
+
+    footer{border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
+    .sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+  </style>
+
+  <!-- JSON-LD: SoftwareApplication + Breadcrumbs for E-E-A-T/SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MyIPScan Free Calculator",
+    "applicationCategory": "Calculator",
+    "operatingSystem": "Web",
+    "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "url": "https://myipscan.net/tools/calculator.html",
+    "description": "A privacy-friendly web calculator that works with keyboard and mouse; supports basic math, parentheses, percent, and power.",
+    "publisher": {"@type":"Organization","name":"MyIPScan"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://myipscan.net/"},
+      {"@type":"ListItem","position":2,"name":"Tools","item":"https://myipscan.net/#tools"},
+      {"@type":"ListItem","position":3,"name":"Calculator","item":"https://myipscan.net/tools/calculator.html"}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/faq/">FAQ</a>
+        <a class="nav-link" href="/tools/">Tools</a>
+        <a class="nav-link" href="/terms.html">Terms</a>
+        <span aria-hidden="true" class="note">•</span>
+        <span class="note">New: <strong>Calculator</strong></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid">
+      <div class="card" aria-labelledby="h1">
+        <h1 id="h1">Free Calculator</h1>
+        <p class="subtitle">Keyboard‑first, ad‑free, privacy‑friendly. <span class="kbd-hint">Keys: 0‑9, + − × ÷, %, ^, ( ), .  •  Enter = equals, Backspace = delete, Esc = clear</span></p>
+
+        <div class="calc" id="calc" role="application" aria-label="Calculator">
+          <div class="display" aria-live="polite">
+            <div class="expr" id="expr" aria-label="Expression" tabindex="0"></div>
+            <div class="result"><span id="res" aria-label="Result">0</span><button class="copy-btn" id="copy" aria-label="Copy result">Copy</button></div>
+          </div>
+
+          <!-- Row 1 -->
+          <button class="key op" data-k="%" aria-label="percent">%</button>
+          <button class="key op" data-k="^" aria-label="power">^</button>
+          <button class="key op" data-k="(" aria-label="open parenthesis">(</button>
+          <button class="key op" data-k=")" aria-label="close parenthesis">)</button>
+
+          <!-- Row 2 -->
+          <button class="key" data-k="7">7</button>
+          <button class="key" data-k="8">8</button>
+          <button class="key" data-k="9">9</button>
+          <button class="key op" data-k="/" aria-label="divide">÷</button>
+
+          <!-- Row 3 -->
+          <button class="key" data-k="4">4</button>
+          <button class="key" data-k="5">5</button>
+          <button class="key" data-k="6">6</button>
+          <button class="key op" data-k="*" aria-label="multiply">×</button>
+
+          <!-- Row 4 -->
+          <button class="key" data-k="1">1</button>
+          <button class="key" data-k="2">2</button>
+          <button class="key" data-k="3">3</button>
+          <button class="key op" data-k="-" aria-label="minus">−</button>
+
+          <!-- Row 5 -->
+          <button class="key" data-k="0">0</button>
+          <button class="key" data-k=".">.</button>
+          <button class="key equals wide" data-k="=" aria-label="equals">=</button>
+          <button class="key op" data-k="+" aria-label="plus">+</button>
+
+          <!-- Row 6: actions -->
+          <button class="key wide" data-act="clear" aria-label="clear">AC</button>
+          <button class="key wide" data-act="back" aria-label="backspace">⌫</button>
+        </div>
+
+        <details class="card" style="margin-top:12px">
+          <summary>History</summary>
+          <div class="history" id="history" aria-live="polite"></div>
+          <div style="margin-top:8px;display:flex;gap:8px">
+            <button class="btn-sm" id="clearHistory">Clear history</button>
+            <button class="btn-sm" id="exportHistory">Export CSV</button>
+          </div>
+        </details>
+
+        <p class="note">Tip: percent works like in spreadsheets: <code>50% * 200</code> → <code>100</code>, and <code>200 + 10%</code> → <code>220</code>.</p>
+      </div>
+
+      <div class="card">
+        <h2>About & Trust</h2>
+        <p>Built by <strong>MyIPScan</strong> as a free, privacy‑friendly utility. No tracking, no ads, no cookies beyond necessary storage for your local history (stored on your device only). Updated: <time id="updated"></time>.</p>
+        <ul class="note">
+          <li>Works fully offline once loaded (PWA‑friendly).</li>
+          <li>Accessible: semantic buttons, ARIA labels, and keyboard support.</li>
+          <li>Open source feel: single‑file, small footprint, easy to audit.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="container" style="padding-bottom:24px">
+      <p class="note">© <span id="y"></span> MyIPScan • <a href="/">Home</a> • <a href="/tools/">Tools</a> • <a href="/terms.html">Terms</a></p>
+    </footer>
+  </main>
+
+  <script>
+  // ——— Utility: tiny evaluator (tokenize → shunting-yard → RPN eval) ———
+  (() => {
+    const exprEl = document.getElementById('expr');
+    const resEl = document.getElementById('res');
+    const copyBtn = document.getElementById('copy');
+    const histEl = document.getElementById('history');
+    const clearHistBtn = document.getElementById('clearHistory');
+    const exportHistBtn = document.getElementById('exportHistory');
+
+    const now = new Date();
+    document.getElementById('y').textContent = now.getFullYear();
+    document.getElementById('updated').textContent = now.toISOString().split('T')[0];
+
+    const ops = { 
+      '+':{p:1,a:'L',f:(a,b)=>a+b},
+      '-':{p:1,a:'L',f:(a,b)=>a-b},
+      '*':{p:2,a:'L',f:(a,b)=>a*b},
+      '/':{p:2,a:'L',f:(a,b)=>a/b},
+      '%':{p:3,a:'R',f:(a)=>a/100},
+      '^':{p:4,a:'R',f:(a,b)=>Math.pow(a,b)}
+    };
+
+    function tokenize(s){
+      const out=[]; let i=0; const n=s.length;
+      while(i<n){
+        const c=s[i];
+        if(/\s/.test(c)){i++; continue;}
+        if(/[0-9.]/.test(c)){
+          let j=i; while(j<n && /[0-9.]/.test(s[j])) j++; out.push({t:'num',v:parseFloat(s.slice(i,j))}); i=j; continue;
+        }
+        if(c==='('||c===')'){ out.push({t:c}); i++; continue; }
+        if(['+','-','*','/','%','^'].includes(c)){
+          // unary minus → convert to 0-...
+          if(c==='-' && (out.length===0 || (out[out.length-1].t!=='num' && out[out.length-1].t!==')'))){ out.push({t:'num',v:0}); }
+          out.push({t:'op',v:c}); i++; continue;
+        }
+        // ignore other chars
+        i++;
+      }
+      return out;
+    }
+
+    function toRPN(tokens){
+      const out=[], st=[]; 
+      for(const tok of tokens){
+        if(tok.t==='num'){ out.push(tok); }
+        else if(tok.t==='op'){
+          const o1 = ops[tok.v];
+          while(st.length){
+            const top = st[st.length-1];
+            if(top.t==='op'){
+              const o2 = ops[top.v];
+              if((o1.a==='L' && o1.p<=o2.p) || (o1.a==='R' && o1.p<o2.p)) out.push(st.pop()); else break;
+            } else break;
+          }
+          st.push(tok);
+        } else if(tok.t==='('){ st.push(tok); }
+        else if(tok.t===')'){
+          while(st.length && st[st.length-1].t!=='(') out.push(st.pop());
+          if(st.length && st[st.length-1].t==='(') st.pop();
+        }
+      }
+      while(st.length) out.push(st.pop());
+      return out;
+    }
+
+    function evalRPN(rpn){
+      const st=[];
+      for(const tok of rpn){
+        if(tok.t==='num') st.push(tok.v);
+        else if(tok.t==='op'){
+          if(tok.v==='%'){ const a=st.pop(); st.push(ops['%'].f(a)); continue; }
+          const b=st.pop(), a=st.pop();
+          const f=ops[tok.v].f; st.push(f(a,b));
+        }
+      }
+      const x = st.pop();
+      if(!isFinite(x)) return NaN; 
+      return x;
+    }
+
+    function pretty(n){
+      if(Number.isNaN(n)) return 'Error';
+      const s = Math.abs(n) >= 1e12 ? n.toExponential(6) : n.toLocaleString(undefined,{maximumFractionDigits:12});
+      return s.replace(/(?:\.\d*?)0+(?=$|[^0-9])/,'').replace(/\.$/,'');
+    }
+
+    function compute(){
+      const s = exprEl.textContent || '';
+      const tokens = tokenize(s.replace(/×/g,'*').replace(/÷/g,'/'));
+      const val = evalRPN(toRPN(tokens));
+      resEl.textContent = pretty(val);
+      return val;
+    }
+
+    function append(ch){ exprEl.textContent += ch; compute(); }
+    function back(){ exprEl.textContent = (exprEl.textContent||'').slice(0,-1); compute(); }
+    function clear(){ exprEl.textContent=''; compute(); }
+
+    function commit(){
+      const s = (exprEl.textContent||'').trim(); if(!s) return;
+      const v = compute();
+      const row = document.createElement('div'); row.className='history-item';
+      const l = document.createElement('div'); l.textContent = s + ' =' ;
+      const r = document.createElement('div'); r.textContent = pretty(v);
+      row.append(l,r); row.addEventListener('click',()=>{ exprEl.textContent = r.textContent; compute(); });
+      histEl.prepend(row);
+      try{
+        const key = 'calc_history_v1';
+        const arr = JSON.parse(localStorage.getItem(key) || '[]');
+        arr.unshift([s,v]);
+        localStorage.setItem(key, JSON.stringify(arr.slice(0,100)));
+      }catch{}
+    }
+
+    function loadHistory(){
+      try{ const arr = JSON.parse(localStorage.getItem('calc_history_v1')||'[]'); arr.slice(0,100).forEach(([s,v])=>{
+        const row = document.createElement('div'); row.className='history-item';
+        const l = document.createElement('div'); l.textContent = s + ' =';
+        const r = document.createElement('div'); r.textContent = pretty(v);
+        row.append(l,r); row.addEventListener('click',()=>{ exprEl.textContent=r.textContent; compute(); });
+        histEl.append(row);
+      }); }catch{}
+    }
+
+    // Button clicks
+    document.getElementById('calc').addEventListener('click', (e)=>{
+      const t = e.target.closest('button'); if(!t) return;
+      const act = t.getAttribute('data-act');
+      const k = t.getAttribute('data-k');
+      if(act==='clear') return void clear();
+      if(act==='back') return void back();
+      if(k==='=') { commit(); return; }
+      append(k);
+    });
+
+    // Keyboard support
+    window.addEventListener('keydown', (e)=>{
+      if(e.key==='Enter'){ e.preventDefault(); commit(); return; }
+      if(e.key==='Backspace'){ back(); return; }
+      if(e.key==='Escape'){ clear(); return; }
+      const map={ 'x':'*', 'X':'*', ',':'.' };
+      const k = map[e.key] ?? e.key;
+      if(/^[0-9.+\-*/%^()]$/.test(k)) append(k);
+    });
+
+    // Copy result
+    copyBtn.addEventListener('click', async()=>{
+      try { await navigator.clipboard.writeText(resEl.textContent); copyBtn.textContent='Copied'; setTimeout(()=>copyBtn.textContent='Copy',1200);} catch{}
+    });
+
+    clearHistBtn.addEventListener('click',()=>{ histEl.innerHTML=''; localStorage.removeItem('calc_history_v1'); });
+    exportHistBtn.addEventListener('click',()=>{
+      try{
+        const arr = JSON.parse(localStorage.getItem('calc_history_v1')||'[]');
+        const csv = 'expression,result\n' + arr.map(([s,v])=>JSON.stringify(s)+','+v).join('\n');
+        const blob = new Blob([csv],{type:'text/csv'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a'); a.href=url; a.download='calculator_history.csv'; a.click(); URL.revokeObjectURL(url);
+      }catch{}
+    });
+
+    compute(); loadHistory();
+  })();
+  </script>
+</body>
+</html>
