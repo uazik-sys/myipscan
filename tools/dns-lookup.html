@@ -5,15 +5,15 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>DNS Lookup — MyIPScan</title>
-<meta content="Query A, AAAA, CNAME, MX, and TXT records via DNS-over-HTTPS (Cloudflare)." name="description"/>
-<link href="https://myipscan.net/tools/dns-lookup.html" rel="canonical"/>
+<meta content="Uses Cloudflare DNS-over-HTTPS /dns-query (no server logs on our side). Results depend on resolver." name="description"/>
+
 <link href="/styles.css" rel="stylesheet"/>
 <meta content="website" property="og:type"/>
 <meta content="DNS Lookup — MyIPScan" property="og:title"/>
-<meta content="Query A, AAAA, CNAME, MX, and TXT records via DNS-over-HTTPS (Cloudflare)." property="og:description"/>
+<meta content="Uses Cloudflare DNS-over-HTTPS /dns-query (no server logs on our side). Results depend on resolver." property="og:description"/>
 <meta content="https://myipscan.net/icon-512.png" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-</head>
+<link href="https://myipscan.net/tools/dns-lookup.html" rel="canonical"/><meta content="https://myipscan.net/tools/dns-lookup.html" property="og:url"/></head>
 <body>
 <div class="wrap">
 <header class="nav">
@@ -68,8 +68,6 @@ document.getElementById('go').addEventListener('click', lookup);
 <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/faq/">FAQ</a>
 </footer>
 </div>
-
-
 <script>
 (function(){
   var tools = document.querySelector('.tools');

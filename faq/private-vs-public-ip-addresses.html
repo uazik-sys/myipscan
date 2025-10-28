@@ -1,147 +1,129 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Private vs Public IP Addresses Explained</title>
+<meta content="Every device has IP addresses, but not all of them are visible to the open internet. Your router and ISP use a public IP to communicate on the web, while devices…" name="description"/>
+<meta content="index,follow" name="robots"/>
 
-  <title>Private vs Public IP Addresses Explained</title>
-  <meta name="description" content="Understand the difference between private and public IP addresses, see common ranges, how NAT works, and how to check which IP you expose online.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://myipscan.net/faq/private-vs-public-ip-addresses.html">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Private vs Public IP Addresses Explained">
-  <meta property="og:description" content="Learn how private and public IPs differ, typical IPv4/IPv6 ranges, NAT basics, and how to verify what the internet sees.">
-  <meta property="og:url" content="https://myipscan.net/faq/private-vs-public-ip-addresses.html">
-  <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Private vs Public IP Addresses Explained">
-  <meta name="twitter:description" content="Private vs public IPs in plain English: ranges, NAT, ULA/link‑local, and quick tests to see your real public IP.">
-  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
-
-  <link rel="preload" as="style" href="/styles.css">
-  <link rel="stylesheet" href="/styles.css">
-</head>
+<!-- Open Graph -->
+<meta content="article" property="og:type"/>
+<meta content="Private vs Public IP Addresses Explained" property="og:title"/>
+<meta content="Every device has IP addresses, but not all of them are visible to the open internet. Your router and ISP use a public IP to communicate on the web, while devices…" property="og:description"/>
+<meta content="https://myipscan.net/faq/private-vs-public-ip-addresses.html" property="og:url"/>
+<meta content="https://myipscan.net/static/og-cover.png" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Private vs Public IP Addresses Explained" name="twitter:title"/>
+<meta content="Private vs public IPs in plain English: ranges, NAT, ULA/link‑local, and quick tests to see your real public IP." name="twitter:description"/>
+<meta content="https://myipscan.net/static/og-cover.png" name="twitter:image"/>
+<link as="style" href="/styles.css" rel="preload"/>
+<link href="/styles.css" rel="stylesheet"/>
+<link href="https://myipscan.net/faq/private-vs-public-ip-addresses.html" rel="canonical"/></head>
 <body>
-  <!-- Header / Nav -->
-  <header class="wrap nav">
-    <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/what-is-my-ip.html">What is my IP</a>
-      <a href="/faq/index.html">FAQ</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <span class="tools">
-        <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
-        <div class="tools-menu" role="menu" aria-label="Tools menu">
-          <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
-          <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
-          <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
-          <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
-          <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
-        </div>
-      </span>
-    </nav>
-  </header>
-
-  <!-- Article -->
-  <main class="wrap article">
-    <!-- Breadcrumbs -->
-    <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › Private vs Public IP Addresses Explained</div>
-
-    <!-- Title & date -->
-    <h1>Private vs Public IP Addresses Explained</h1>
-    <time datetime="2025-10-15">Updated: October 15, 2025</time>
-
-    <!-- Lede -->
-    <p>Every device has IP addresses, but not all of them are visible to the open internet. Your router and ISP use a <strong>public IP</strong> to communicate on the web, while devices inside your home or office typically use <strong>private IPs</strong> that are not routable on the public internet. This guide explains how the two types differ, shows common IPv4/IPv6 ranges, how <strong>NAT</strong> connects them, and how to quickly check what the world actually sees when you go online.</p>
-
-    <h2>What is a public IP?</h2>
-    <p>A public IP is an address that’s reachable over the public internet. It identifies your connection (or VPN exit) to websites and services. Public IPs are globally unique and are allocated to networks by registries and ISPs.</p>
-
-    <h2>What is a private IP?</h2>
-    <p>A private IP is used <em>inside</em> local networks (LANs). These addresses are not routed on the internet and can be reused by many networks worldwide. Routers translate private addresses to a single public IP via <strong>Network Address Translation (NAT)</strong>.</p>
-
-    <h2>Common IPv4 private ranges</h2>
-    <ul>
-      <li><code>10.0.0.0 – 10.255.255.255</code> (10/8)</li>
-      <li><code>172.16.0.0 – 172.31.255.255</code> (172.16/12)</li>
-      <li><code>192.168.0.0 – 192.168.255.255</code> (192.168/16)</li>
-    </ul>
-    <p>These are defined for private use and appear on home routers, office LANs and hotspots.</p>
-
-    <h2>IPv6 equivalents (at a glance)</h2>
-    <ul>
-      <li><strong>ULA — Unique Local Address:</strong> <code>fc00::/7</code> (commonly <code>fdxx:</code> prefixes) — similar to private space, not routable globally.</li>
-      <li><strong>Link‑local:</strong> <code>fe80::/10</code> — auto‑configured for communication on the local link only.</li>
-      <li><strong>Global unicast:</strong> starts outside the above — routable on the public internet (your “public” IPv6).</li>
-    </ul>
-
-    <h2>Private vs Public: key differences</h2>
-    <table class="compare" summary="Comparison of private and public IP addresses" style="margin-top:10px">
-      <thead>
-        <tr><th>Property</th><th>Private IP</th><th>Public IP</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Scope</td><td>Local network (LAN)</td><td>Global internet</td></tr>
-        <tr><td>Uniqueness</td><td>Not globally unique (reused)</td><td>Globally unique</td></tr>
-        <tr><td>Routability</td><td>Not routed on the internet</td><td>Routed across the internet</td></tr>
-        <tr><td>Typical owner</td><td>End users / internal networks</td><td>ISPs / data centers / VPN exits</td></tr>
-        <tr><td>Security view</td><td>Hidden behind NAT by default</td><td>Exposed entry point to your network</td></tr>
-      </tbody>
-    </table>
-
-    <h2>How NAT connects private and public IPs</h2>
-    <p><strong>NAT</strong> lets many devices share one public IP. Outbound traffic is mapped to the router’s public IP with unique port numbers. Replies come back to the router, which forwards them to the correct private device. This is why sites usually see a single public IP even though multiple devices are online behind the same router.</p>
-
-    <h2>How to check which one you expose</h2>
-    <ol>
-      <li>Open <a href="/tools/what-is-my-ip.html">What is My IP</a> — this shows the <strong>public IP</strong> the internet sees (or your VPN’s exit IP).</li>
-      <li>On your device, find your <strong>private IP</strong>:
+<!-- Header / Nav -->
+<header class="wrap nav">
+<div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+<nav>
+<a href="/">Home</a>
+<a href="/what-is-my-ip.html">What is my IP</a>
+<a href="/faq/">FAQ</a>
+<a href="/privacy.html">Privacy</a>
+<a href="/terms.html">Terms</a>
+<span class="tools">
+<button aria-expanded="false" aria-haspopup="true" id="toolsButton">Tools</button>
+<div aria-label="Tools menu" class="tools-menu" role="menu">
+<a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+<a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+<a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+<a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+<a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+</div>
+</span>
+</nav>
+</header>
+<!-- Article -->
+<main class="wrap article">
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › Private vs Public IP Addresses Explained</div>
+<!-- Title & date -->
+<h1>Private vs Public IP Addresses Explained</h1>
+<time datetime="2025-10-15">Updated: October 15, 2025</time>
+<!-- Lede -->
+<p>Every device has IP addresses, but not all of them are visible to the open internet. Your router and ISP use a <strong>public IP</strong> to communicate on the web, while devices inside your home or office typically use <strong>private IPs</strong> that are not routable on the public internet. This guide explains how the two types differ, shows common IPv4/IPv6 ranges, how <strong>NAT</strong> connects them, and how to quickly check what the world actually sees when you go online.</p>
+<h2>What is a public IP?</h2>
+<p>A public IP is an address that’s reachable over the public internet. It identifies your connection (or VPN exit) to websites and services. Public IPs are globally unique and are allocated to networks by registries and ISPs.</p>
+<h2>What is a private IP?</h2>
+<p>A private IP is used <em>inside</em> local networks (LANs). These addresses are not routed on the internet and can be reused by many networks worldwide. Routers translate private addresses to a single public IP via <strong>Network Address Translation (NAT)</strong>.</p>
+<h2>Common IPv4 private ranges</h2>
+<ul>
+<li><code>10.0.0.0 – 10.255.255.255</code> (10/8)</li>
+<li><code>172.16.0.0 – 172.31.255.255</code> (172.16/12)</li>
+<li><code>192.168.0.0 – 192.168.255.255</code> (192.168/16)</li>
+</ul>
+<p>These are defined for private use and appear on home routers, office LANs and hotspots.</p>
+<h2>IPv6 equivalents (at a glance)</h2>
+<ul>
+<li><strong>ULA — Unique Local Address:</strong> <code>fc00::/7</code> (commonly <code>fdxx:</code> prefixes) — similar to private space, not routable globally.</li>
+<li><strong>Link‑local:</strong> <code>fe80::/10</code> — auto‑configured for communication on the local link only.</li>
+<li><strong>Global unicast:</strong> starts outside the above — routable on the public internet (your “public” IPv6).</li>
+</ul>
+<h2>Private vs Public: key differences</h2>
+<table class="compare" style="margin-top:10px" summary="Comparison of private and public IP addresses">
+<thead>
+<tr><th>Property</th><th>Private IP</th><th>Public IP</th></tr>
+</thead>
+<tbody>
+<tr><td>Scope</td><td>Local network (LAN)</td><td>Global internet</td></tr>
+<tr><td>Uniqueness</td><td>Not globally unique (reused)</td><td>Globally unique</td></tr>
+<tr><td>Routability</td><td>Not routed on the internet</td><td>Routed across the internet</td></tr>
+<tr><td>Typical owner</td><td>End users / internal networks</td><td>ISPs / data centers / VPN exits</td></tr>
+<tr><td>Security view</td><td>Hidden behind NAT by default</td><td>Exposed entry point to your network</td></tr>
+</tbody>
+</table>
+<h2>How NAT connects private and public IPs</h2>
+<p><strong>NAT</strong> lets many devices share one public IP. Outbound traffic is mapped to the router’s public IP with unique port numbers. Replies come back to the router, which forwards them to the correct private device. This is why sites usually see a single public IP even though multiple devices are online behind the same router.</p>
+<h2>How to check which one you expose</h2>
+<ol>
+<li>Open <a href="/tools/what-is-my-ip.html">What is My IP</a> — this shows the <strong>public IP</strong> the internet sees (or your VPN’s exit IP).</li>
+<li>On your device, find your <strong>private IP</strong>:
         <ul>
-          <li>Windows: <code>ipconfig</code> → IPv4 Address</li>
-          <li>macOS/Linux: <code>ifconfig</code> / <code>ip addr</code> → <code>inet</code> / <code>inet6</code></li>
-          <li>Router admin → LAN / DHCP list</li>
-        </ul>
-      </li>
-      <li>If you use VPN, your public IP should change to the VPN server. Verify no leaks with <a href="/tools/webrtc-leak-test.html">WebRTC</a> and <a href="/tools/dns-lookup.html">DNS Lookup</a>.</li>
-    </ol>
-
-    <h2>Privacy & security tips</h2>
-    <ul>
-      <li>Prefer a <a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">VPN</a> on public Wi‑Fi to avoid exposing your real public IP.</li>
-      <li>Keep router firmware updated; disable unnecessary port forwarding and UPnP.</li>
-      <li>Use strong admin passwords and enable the firewall on router and OS.</li>
-      <li>Separate IoT devices on a guest or VLAN network.</li>
-    </ul>
-
-    <!-- Related articles -->
-    <aside class="wrap card" style="margin-top:24px">
-      <h3>Related articles</h3>
-      <ul>
-        <li><a href="/faq/what-is-an-ip-address.html">What is an IP address?</a></li>
-        <li><a href="/faq/what-is-a-public-ip-address.html">What is a Public IP Address and How to Protect It</a></li>
-        <li><a href="/faq/static-vs-dynamic-ip.html">Static vs Dynamic IP: Which One Do You Have?</a></li>
-        <li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6</a></li>
-      </ul>
-    </aside>
-
-    <!-- CTA -->
-    <hr>
-    <p><strong>Check now:</strong> See your public IP on <a href="/tools/what-is-my-ip.html">What is My IP</a> and confirm no exposure via <a href="/tools/webrtc-leak-test.html">WebRTC</a> and <a href="/tools/dns-lookup.html">DNS</a>.</p>
-  </main>
-
-  <!-- Footer -->
-  <footer class="wrap">
-    <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
-  </footer>
-
-  <!-- JSON-LD: Article -->
-  <script type="application/ld+json">
+<li>Windows: <code>ipconfig</code> → IPv4 Address</li>
+<li>macOS/Linux: <code>ifconfig</code> / <code>ip addr</code> → <code>inet</code> / <code>inet6</code></li>
+<li>Router admin → LAN / DHCP list</li>
+</ul>
+</li>
+<li>If you use VPN, your public IP should change to the VPN server. Verify no leaks with <a href="/tools/webrtc-leak-test.html">WebRTC</a> and <a href="/tools/dns-lookup.html">DNS Lookup</a>.</li>
+</ol>
+<h2>Privacy &amp; security tips</h2>
+<ul>
+<li>Prefer a <a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">VPN</a> on public Wi‑Fi to avoid exposing your real public IP.</li>
+<li>Keep router firmware updated; disable unnecessary port forwarding and UPnP.</li>
+<li>Use strong admin passwords and enable the firewall on router and OS.</li>
+<li>Separate IoT devices on a guest or VLAN network.</li>
+</ul>
+<!-- Related articles -->
+<aside class="wrap card" style="margin-top:24px">
+<h3>Related articles</h3>
+<ul>
+<li><a href="/faq/what-is-an-ip-address.html">What is an IP address?</a></li>
+<li><a href="/faq/what-is-a-public-ip-address.html">What is a Public IP Address and How to Protect It</a></li>
+<li><a href="/faq/static-vs-dynamic-ip.html">Static vs Dynamic IP: Which One Do You Have?</a></li>
+<li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6</a></li>
+</ul>
+</aside>
+<!-- CTA -->
+<hr/>
+<p><strong>Check now:</strong> See your public IP on <a href="/tools/what-is-my-ip.html">What is My IP</a> and confirm no exposure via <a href="/tools/webrtc-leak-test.html">WebRTC</a> and <a href="/tools/dns-lookup.html">DNS</a>.</p>
+</main>
+<!-- Footer -->
+<footer class="wrap">
+<p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
+</footer>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -155,9 +137,8 @@
     "image": "https://myipscan.net/static/og-cover.png"
   }
   </script>
-
-  <!-- JSON-LD: Breadcrumbs -->
-  <script type="application/ld+json">
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -168,9 +149,8 @@
     ]
   }
   </script>
-
-  <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -202,9 +182,8 @@
     ]
   }
   </script>
-
-  <!-- JS: Stable Tools menu -->
-  <script>
+<!-- JS: Stable Tools menu -->
+<script>
   (function(){
     var tools=document.querySelector('.tools');if(!tools)return;
     var btn=document.getElementById('toolsButton');var menu=tools.querySelector('.tools-menu');if(!btn||!menu)return;

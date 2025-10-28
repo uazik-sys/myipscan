@@ -5,15 +5,15 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>WebRTC Leak Test — MyIPScan</title>
-<meta content="Quickly check if your browser exposes IPs through WebRTC ICE candidates." name="description"/>
-<link href="https://myipscan.net/tools/webrtc-leak-test.html" rel="canonical"/>
+<meta content="This test collects ICE candidates via RTCPeerConnection to reveal any IPs your browser exposes. Modern browsers often mask local IPs." name="description"/>
+
 <link href="/styles.css" rel="stylesheet"/>
 <meta content="website" property="og:type"/>
 <meta content="WebRTC Leak Test — MyIPScan" property="og:title"/>
-<meta content="Quickly check if your browser exposes IPs through WebRTC ICE candidates." property="og:description"/>
+<meta content="This test collects ICE candidates via RTCPeerConnection to reveal any IPs your browser exposes. Modern browsers often mask local IPs." property="og:description"/>
 <meta content="https://myipscan.net/icon-512.png" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-</head>
+<link href="https://myipscan.net/tools/webrtc-leak-test.html" rel="canonical"/><meta content="https://myipscan.net/tools/webrtc-leak-test.html" property="og:url"/></head>
 <body>
 <div class="wrap">
 <header class="nav">
@@ -66,8 +66,6 @@ document.getElementById('run').addEventListener('click', test);
 <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/faq/">FAQ</a>
 </footer>
 </div>
-
-
 <script>
 (function(){
   var tools = document.querySelector('.tools');

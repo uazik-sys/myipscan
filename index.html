@@ -5,12 +5,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>What Is My IP? Fast IPv4/IPv6, Location &amp; ASN — No Logs</title>
-<meta content="Instantly see your public IP, IPv4/IPv6, city/country, ISP/ASN and User-Agent. Privacy-first, no logs, ultra-fast edge." name="description"/>
-<link href="https://myipscan.net/" rel="canonical"/>
+<meta content="Your IP, IPv4/IPv6, city/country, ISP/ASN and User-Agent — in milliseconds, with no logs." name="description"/>
+
 <meta content="website" property="og:type"/>
 <meta content="https://myipscan.net/" property="og:url"/>
 <meta content="What Is My IP? Fast IPv4/IPv6, Location &amp; ASN — No Logs" property="og:title"/>
-<meta content="Instantly see your public IP, IPv4/IPv6, city/country, ISP/ASN and User-Agent. Privacy-first, no logs, ultra-fast edge." property="og:description"/>
+<meta content="Your IP, IPv4/IPv6, city/country, ISP/ASN and User-Agent — in milliseconds, with no logs." property="og:description"/>
 <meta content="https://myipscan.net/icon-512.png" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="What Is My IP? Fast IPv4/IPv6, Location &amp; ASN — No Logs" name="twitter:title"/>
@@ -90,14 +90,14 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.08);margin:24px 0}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "MyIPScan", "url": "https://myipscan.net/", "logo": "https://myipscan.net/icon-512.png", "description": "Privacy-first IP checker with IPv4/IPv6, geolocation, ASN, and simple tools.", "sameAs": []}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "MyIPScan", "url": "https://myipscan.net/", "potentialAction": {"@type": "SearchAction", "target": "https://myipscan.net/?q={search_term_string}", "query-input": "required name=search_term_string"}}</script><link as="fetch" crossorigin="" href="/api/ip" rel="preload"/>
 <meta content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" name="robots"/>
-</head>
+<link href="https://myipscan.net/" rel="canonical"/></head>
 <body>
 <header class="wrap nav">
 <div class="logo"></div>
 <nav>
 <a href="/">Home</a>
 <a href="/what-is-my-ip.html">What is my IP</a>
-<a href="/faq/index.html">FAQ</a>
+<a href="/faq/">FAQ</a>
 <a href="/privacy.html">Privacy</a>
 <a href="/terms.html">Terms</a>
 <span class="tools"><button aria-expanded="false" aria-haspopup="true" id="toolsButton">Tools</button><div aria-labelledby="toolsButton" class="tools-menu" role="menu"><a href="/tools/password-generator.html" role="menuitem">Password Generator</a><a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a><a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a><a href="/tools/user-agent.html" role="menuitem">User‑Agent Info</a></div></span></nav>
@@ -129,13 +129,12 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.08);margin:24px 0}
 <li>Seeing both is normal — some networks prefer one over the other.</li>
 </ul>
 </section>
-
 </main>
 <footer class="wrap">
 <nav>
 <a href="/privacy.html">Privacy</a> ·
     <a href="/terms.html">Terms</a> ·
-    <a href="/faq/index.html">FAQ</a> ·
+    <a href="/faq/">FAQ</a> ·
     <a href="/">Check IP</a>
 </nav>
 <div class="light">Contact: myipscan@gmail.com • Privacy-first • No logs</div>
@@ -152,7 +151,6 @@ async function fetchIpify(){ const r=await fetch("https://api.ipify.org?format=j
  if(data){ ip.textContent=data.ip||"N/A"; loc.textContent=[data.city,data.region,data.country].filter(Boolean).join(", ")||"—"; asn.textContent=(data.asn?("AS"+data.asn):"")+(data.colo?` · ${data.colo}`:""); ua.textContent=data.ua||navigator.userAgent; copy.onclick=async()=>{ try{ await navigator.clipboard.writeText(data.ip||""); copied.hidden=false; setTimeout(()=>copied.hidden=true,900); }catch(_){} }; sourceNote.textContent = src==="api"?"Source: API (Cloudflare Edge)":(src==="fallback-cf"?"Source: Fallback (cdn-cgi/trace)":(src==="fallback-ipify"?"Source: Fallback (ipify)":"Source: none")); }
  else { ip.textContent="N/A"; loc.textContent="—"; asn.textContent="—"; ua.textContent=navigator.userAgent; sourceNote.textContent="Source: none"; }
 })();</script>
-
 <script>
 (function(){
   var tools = document.querySelector('.tools');

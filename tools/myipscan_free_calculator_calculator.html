@@ -1,23 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Free Calculator — Fast, Keyboard‑Friendly | MyIPScan Tools</title>
-  <meta name="description" content="A fast, privacy‑friendly online calculator. Works with keyboard and mouse. Supports +, −, ×, ÷, %, parentheses, power, history, and copy. No tracking, no ads." />
-  <link rel="canonical" href="https://myipscan.net/tools/calculator.html" />
-  <meta name="robots" content="index,follow" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Free Calculator — Fast, Keyboard‑Friendly | MyIPScan Tools</title>
+<meta content="Keyboard‑first, ad‑free, privacy‑friendly. Keys: 0‑9, + − × ÷, %, ^, ( ), . • Enter = equals, Backspace = delete, Esc = clear" name="description"/>
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Free Calculator — Fast, Keyboard‑Friendly" />
-  <meta property="og:description" content="Super‑light calculator that works with keyboard and mouse. No tracking, no ads." />
-  <meta property="og:url" content="https://myipscan.net/tools/calculator.html" />
-  <meta property="og:site_name" content="MyIPScan" />
-  <meta name="twitter:card" content="summary" />
-
-  <!-- Minimal dark theme to match site -->
-  <style>
+<meta content="index,follow" name="robots"/>
+<!-- Open Graph / Twitter -->
+<meta content="website" property="og:type"/>
+<meta content="Free Calculator — Fast, Keyboard‑Friendly | MyIPScan Tools" property="og:title"/>
+<meta content="Keyboard‑first, ad‑free, privacy‑friendly. Keys: 0‑9, + − × ÷, %, ^, ( ), . • Enter = equals, Backspace = delete, Esc = clear" property="og:description"/>
+<meta content="https://myipscan.net/tools/myipscan_free_calculator_calculator.html" property="og:url"/>
+<meta content="MyIPScan" property="og:site_name"/>
+<meta content="summary" name="twitter:card"/>
+<!-- Minimal dark theme to match site -->
+<style>
     :root{
       --bg:#0b1220; --fg:#e7ecf3; --muted:#98a2b3; --card:#11172a; --accent:#8ab4ff;
       --radius:16px; --shadow:0 6px 24px rgba(0,0,0,.25);
@@ -61,9 +60,8 @@
     footer{border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
     .sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
   </style>
-
-  <!-- JSON-LD: SoftwareApplication + Breadcrumbs for E-E-A-T/SEO -->
-  <script type="application/ld+json">
+<!-- JSON-LD: SoftwareApplication + Breadcrumbs for E-E-A-T/SEO -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -76,7 +74,7 @@
     "publisher": {"@type":"Organization","name":"MyIPScan"}
   }
   </script>
-  <script type="application/ld+json">
+<script type="application/ld+json">
   {
     "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://myipscan.net/"},
@@ -85,97 +83,84 @@
     ]
   }
   </script>
-</head>
+<link href="https://myipscan.net/tools/myipscan_free_calculator_calculator.html" rel="canonical"/></head>
 <body>
-  <header>
-    <div class="container">
-      <nav aria-label="Primary">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/faq/">FAQ</a>
-        <a class="nav-link" href="/tools/">Tools</a>
-        <a class="nav-link" href="/terms.html">Terms</a>
-        <span aria-hidden="true" class="note">•</span>
-        <span class="note">New: <strong>Calculator</strong></span>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="grid">
-      <div class="card" aria-labelledby="h1">
-        <h1 id="h1">Free Calculator</h1>
-        <p class="subtitle">Keyboard‑first, ad‑free, privacy‑friendly. <span class="kbd-hint">Keys: 0‑9, + − × ÷, %, ^, ( ), .  •  Enter = equals, Backspace = delete, Esc = clear</span></p>
-
-        <div class="calc" id="calc" role="application" aria-label="Calculator">
-          <div class="display" aria-live="polite">
-            <div class="expr" id="expr" aria-label="Expression" tabindex="0"></div>
-            <div class="result"><span id="res" aria-label="Result">0</span><button class="copy-btn" id="copy" aria-label="Copy result">Copy</button></div>
-          </div>
-
-          <!-- Row 1 -->
-          <button class="key op" data-k="%" aria-label="percent">%</button>
-          <button class="key op" data-k="^" aria-label="power">^</button>
-          <button class="key op" data-k="(" aria-label="open parenthesis">(</button>
-          <button class="key op" data-k=")" aria-label="close parenthesis">)</button>
-
-          <!-- Row 2 -->
-          <button class="key" data-k="7">7</button>
-          <button class="key" data-k="8">8</button>
-          <button class="key" data-k="9">9</button>
-          <button class="key op" data-k="/" aria-label="divide">÷</button>
-
-          <!-- Row 3 -->
-          <button class="key" data-k="4">4</button>
-          <button class="key" data-k="5">5</button>
-          <button class="key" data-k="6">6</button>
-          <button class="key op" data-k="*" aria-label="multiply">×</button>
-
-          <!-- Row 4 -->
-          <button class="key" data-k="1">1</button>
-          <button class="key" data-k="2">2</button>
-          <button class="key" data-k="3">3</button>
-          <button class="key op" data-k="-" aria-label="minus">−</button>
-
-          <!-- Row 5 -->
-          <button class="key" data-k="0">0</button>
-          <button class="key" data-k=".">.</button>
-          <button class="key equals wide" data-k="=" aria-label="equals">=</button>
-          <button class="key op" data-k="+" aria-label="plus">+</button>
-
-          <!-- Row 6: actions -->
-          <button class="key wide" data-act="clear" aria-label="clear">AC</button>
-          <button class="key wide" data-act="back" aria-label="backspace">⌫</button>
-        </div>
-
-        <details class="card" style="margin-top:12px">
-          <summary>History</summary>
-          <div class="history" id="history" aria-live="polite"></div>
-          <div style="margin-top:8px;display:flex;gap:8px">
-            <button class="btn-sm" id="clearHistory">Clear history</button>
-            <button class="btn-sm" id="exportHistory">Export CSV</button>
-          </div>
-        </details>
-
-        <p class="note">Tip: percent works like in spreadsheets: <code>50% * 200</code> → <code>100</code>, and <code>200 + 10%</code> → <code>220</code>.</p>
-      </div>
-
-      <div class="card">
-        <h2>About & Trust</h2>
-        <p>Built by <strong>MyIPScan</strong> as a free, privacy‑friendly utility. No tracking, no ads, no cookies beyond necessary storage for your local history (stored on your device only). Updated: <time id="updated"></time>.</p>
-        <ul class="note">
-          <li>Works fully offline once loaded (PWA‑friendly).</li>
-          <li>Accessible: semantic buttons, ARIA labels, and keyboard support.</li>
-          <li>Open source feel: single‑file, small footprint, easy to audit.</li>
-        </ul>
-      </div>
-    </section>
-
-    <footer class="container" style="padding-bottom:24px">
-      <p class="note">© <span id="y"></span> MyIPScan • <a href="/">Home</a> • <a href="/tools/">Tools</a> • <a href="/terms.html">Terms</a></p>
-    </footer>
-  </main>
-
-  <script>
+<header>
+<div class="container">
+<nav aria-label="Primary">
+<a class="nav-link" href="/">Home</a>
+<a class="nav-link" href="/faq/">FAQ</a>
+<a class="nav-link" href="/tools/">Tools</a>
+<a class="nav-link" href="/terms.html">Terms</a>
+<span aria-hidden="true" class="note">•</span>
+<span class="note">New: <strong>Calculator</strong></span>
+</nav>
+</div>
+</header>
+<main class="container">
+<section class="grid">
+<div aria-labelledby="h1" class="card">
+<h1 id="h1">Free Calculator</h1>
+<p class="subtitle">Keyboard‑first, ad‑free, privacy‑friendly. <span class="kbd-hint">Keys: 0‑9, + − × ÷, %, ^, ( ), .  •  Enter = equals, Backspace = delete, Esc = clear</span></p>
+<div aria-label="Calculator" class="calc" id="calc" role="application">
+<div aria-live="polite" class="display">
+<div aria-label="Expression" class="expr" id="expr" tabindex="0"></div>
+<div class="result"><span aria-label="Result" id="res">0</span><button aria-label="Copy result" class="copy-btn" id="copy">Copy</button></div>
+</div>
+<!-- Row 1 -->
+<button aria-label="percent" class="key op" data-k="%">%</button>
+<button aria-label="power" class="key op" data-k="^">^</button>
+<button aria-label="open parenthesis" class="key op" data-k="(">(</button>
+<button aria-label="close parenthesis" class="key op" data-k=")">)</button>
+<!-- Row 2 -->
+<button class="key" data-k="7">7</button>
+<button class="key" data-k="8">8</button>
+<button class="key" data-k="9">9</button>
+<button aria-label="divide" class="key op" data-k="/">÷</button>
+<!-- Row 3 -->
+<button class="key" data-k="4">4</button>
+<button class="key" data-k="5">5</button>
+<button class="key" data-k="6">6</button>
+<button aria-label="multiply" class="key op" data-k="*">×</button>
+<!-- Row 4 -->
+<button class="key" data-k="1">1</button>
+<button class="key" data-k="2">2</button>
+<button class="key" data-k="3">3</button>
+<button aria-label="minus" class="key op" data-k="-">−</button>
+<!-- Row 5 -->
+<button class="key" data-k="0">0</button>
+<button class="key" data-k=".">.</button>
+<button aria-label="equals" class="key equals wide" data-k="=">=</button>
+<button aria-label="plus" class="key op" data-k="+">+</button>
+<!-- Row 6: actions -->
+<button aria-label="clear" class="key wide" data-act="clear">AC</button>
+<button aria-label="backspace" class="key wide" data-act="back">⌫</button>
+</div>
+<details class="card" style="margin-top:12px">
+<summary>History</summary>
+<div aria-live="polite" class="history" id="history"></div>
+<div style="margin-top:8px;display:flex;gap:8px">
+<button class="btn-sm" id="clearHistory">Clear history</button>
+<button class="btn-sm" id="exportHistory">Export CSV</button>
+</div>
+</details>
+<p class="note">Tip: percent works like in spreadsheets: <code>50% * 200</code> → <code>100</code>, and <code>200 + 10%</code> → <code>220</code>.</p>
+</div>
+<div class="card">
+<h2>About &amp; Trust</h2>
+<p>Built by <strong>MyIPScan</strong> as a free, privacy‑friendly utility. No tracking, no ads, no cookies beyond necessary storage for your local history (stored on your device only). Updated: <time id="updated"></time>.</p>
+<ul class="note">
+<li>Works fully offline once loaded (PWA‑friendly).</li>
+<li>Accessible: semantic buttons, ARIA labels, and keyboard support.</li>
+<li>Open source feel: single‑file, small footprint, easy to audit.</li>
+</ul>
+</div>
+</section>
+<footer class="container" style="padding-bottom:24px">
+<p class="note">© <span id="y"></span> MyIPScan • <a href="/">Home</a> • <a href="/tools/">Tools</a> • <a href="/terms.html">Terms</a></p>
+</footer>
+</main>
+<script>
   // ——— Utility: tiny evaluator (tokenize → shunting-yard → RPN eval) ———
   (() => {
     const exprEl = document.getElementById('expr');

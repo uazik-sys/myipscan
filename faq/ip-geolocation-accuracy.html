@@ -1,32 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>How accurate is IP geolocation?</title>
-  <meta name="description" content="IP geolocation is approximate. Learn how it works, typical accuracy by country/city, why results can be wrong on mobile/VPN/CGNAT, and how to test and improve it.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://myipscan.net/faq/ip-geolocation-accuracy.html">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>How accurate is IP geolocation? — MyIPScan</title>
+<meta content="IP geolocation is approximate . It estimates where an IP address is likely located based on registry data, ISP allocations and network signals. Country accuracy is…" name="description"/>
+<meta content="index,follow" name="robots"/>
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="How accurate is IP geolocation?">
-  <meta property="og:description" content="Understand IP geolocation accuracy, why it’s sometimes wrong, and how to test and improve results.">
-  <meta property="og:url" content="https://myipscan.net/faq/ip-geolocation-accuracy.html">
-  <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How accurate is IP geolocation?">
-  <meta name="twitter:description" content="City-level accuracy, mobile vs. fixed, VPN/CGNAT effects, tests, and fixes.">
-  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
-
-  <link rel="icon" href="/favicon.ico">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="stylesheet" href="/styles.css">
-
-  <!-- Article JSON-LD -->
-  <script type="application/ld+json">
+<!-- Open Graph -->
+<meta content="article" property="og:type"/>
+<meta content="How accurate is IP geolocation? — MyIPScan" property="og:title"/>
+<meta content="IP geolocation is approximate . It estimates where an IP address is likely located based on registry data, ISP allocations and network signals. Country accuracy is…" property="og:description"/>
+<meta content="https://myipscan.net/faq/ip-geolocation-accuracy.html" property="og:url"/>
+<meta content="https://myipscan.net/static/og-cover.png" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="How accurate is IP geolocation?" name="twitter:title"/>
+<meta content="City-level accuracy, mobile vs. fixed, VPN/CGNAT effects, tests, and fixes." name="twitter:description"/>
+<meta content="https://myipscan.net/static/og-cover.png" name="twitter:image"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/styles.css" rel="stylesheet"/>
+<!-- Article JSON-LD -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -40,9 +37,8 @@
     "image": "https://myipscan.net/static/og-cover.png"
   }
   </script>
-
-  <!-- BreadcrumbList JSON-LD -->
-  <script type="application/ld+json">
+<!-- BreadcrumbList JSON-LD -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -53,9 +49,8 @@
     ]
   }
   </script>
-
-  <!-- FAQ JSON-LD -->
-  <script type="application/ld+json">
+<!-- FAQ JSON-LD -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -95,141 +90,127 @@
     ]
   }
   </script>
-</head>
+<link href="https://myipscan.net/faq/ip-geolocation-accuracy.html" rel="canonical"/></head>
 <body>
-  <!-- Header / Nav -->
-  <header class="wrap nav">
-    <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/tools/what-is-my-ip.html">What is my IP</a>
-      <a href="/faq/index.html">FAQ</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-    </nav>
-  </header>
-
-  <!-- Main article -->
-  <main class="wrap article">
-    <div class="breadcrumbs"><a href="/">Home</a> / <a href="/faq/index.html">FAQ</a> / How accurate is IP geolocation?</div>
-
-    <h1>How accurate is IP geolocation?</h1>
-    <div class="meta"><time datetime="2025-10-15">Updated: October 15, 2025</time> · by <a href="mailto:myipscan@gmail.com">Yaroslav Sabardak</a></div>
-
-    <!-- Lede -->
-    <p>
+<!-- Header / Nav -->
+<header class="wrap nav">
+<div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+<nav>
+<a href="/">Home</a>
+<a href="/tools/what-is-my-ip.html">What is my IP</a>
+<a href="/faq/">FAQ</a>
+<a href="/privacy.html">Privacy</a>
+<a href="/terms.html">Terms</a>
+</nav>
+</header>
+<!-- Main article -->
+<main class="wrap article">
+<div class="breadcrumbs"><a href="/">Home</a> / <a href="/faq/">FAQ</a> / How accurate is IP geolocation?</div>
+<h1>How accurate is IP geolocation?</h1>
+<div class="meta"><time datetime="2025-10-15">Updated: October 15, 2025</time> · by <a href="mailto:myipscan@gmail.com">Yaroslav Sabardak</a></div>
+<!-- Lede -->
+<p>
       IP geolocation is <em>approximate</em>. It estimates where an IP address is likely located based on registry data, ISP allocations and network signals.
       Country accuracy is typically very high, while city-level precision varies by provider, network type and whether you use VPNs or mobile data. This guide explains how it works, why it’s sometimes wrong, and how to <strong>test and improve</strong> your results.
     </p>
-
-    <h2>How IP geolocation works (in plain language)</h2>
-    <p>
+<h2>How IP geolocation works (in plain language)</h2>
+<p>
       Geolocation providers combine multiple inputs to infer location:
     </p>
-    <ul>
-      <li><strong>IP allocations &amp; registries:</strong> regional internet registries (like RIPE or ARIN) and ISP records indicate which organization owns an IP block and its service area.</li>
-      <li><strong>Routing signals:</strong> BGP paths and ASN relationships suggest countries/regions where traffic enters and exits.</li>
-      <li><strong>Network measurements:</strong> latency and path data hint at proximity to known network hubs.</li>
-      <li><strong>User &amp; provider feedback:</strong> correction reports, enterprise inputs and periodic database refreshes refine results over time.</li>
-    </ul>
-    <p>
+<ul>
+<li><strong>IP allocations &amp; registries:</strong> regional internet registries (like RIPE or ARIN) and ISP records indicate which organization owns an IP block and its service area.</li>
+<li><strong>Routing signals:</strong> BGP paths and ASN relationships suggest countries/regions where traffic enters and exits.</li>
+<li><strong>Network measurements:</strong> latency and path data hint at proximity to known network hubs.</li>
+<li><strong>User &amp; provider feedback:</strong> correction reports, enterprise inputs and periodic database refreshes refine results over time.</li>
+</ul>
+<p>
       None of these signals pinpoints a street address; at best, they converge on a city or metropolitan area. That’s why IP geolocation should not be used for personal identity or precise physical tracking.
     </p>
-
-    <h2>Typical accuracy ranges</h2>
-    <table class="compare" summary="Typical IP geolocation accuracy by level and network type">
-      <thead>
-        <tr>
-          <th>Level</th>
-          <th>Typical accuracy</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Country</td>
-          <td>95–99%</td>
-          <td>Usually correct unless traffic exits via another country (VPN/proxy).</td>
-        </tr>
-        <tr>
-          <td>Region / State</td>
-          <td>80–90%</td>
-          <td>Better near population centers; weaker for cross-border carriers.</td>
-        </tr>
-        <tr>
-          <td>City / Metro</td>
-          <td>60–80%</td>
-          <td>Often maps to ISP’s hub city, not the subscriber’s neighborhood.</td>
-        </tr>
-        <tr>
-          <td>Postal / ZIP</td>
-          <td>10–30%</td>
-          <td>Rare and unreliable; sometimes resolves to data center or billing office.</td>
-        </tr>
-        <tr>
-          <td>Mobile networks</td>
-          <td>Variable</td>
-          <td>May show carrier core locations far from the device.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>Why results can be wrong</h2>
-    <ul>
-      <li><strong>VPNs and proxies:</strong> your traffic appears to originate from the exit server’s city/country.</li>
-      <li><strong>Carrier-grade NAT (CGNAT):</strong> many users share one public IP that maps to the ISP gateway, not each home.</li>
-      <li><strong>Mobile routing:</strong> carriers may tunnel traffic through centralized gateways in another city or region.</li>
-      <li><strong>Enterprise networks:</strong> corporate egress points (data centers) mask branch office locations.</li>
-      <li><strong>Data freshness:</strong> IP blocks get reassigned; databases lag behind if not updated frequently.</li>
-      <li><strong>Hosting &amp; cloud IPs:</strong> often pinned to the provider’s facility, not the app’s end users.</li>
-    </ul>
-
-    <h2>How to check your IP location (quick test)</h2>
-    <ol>
-      <li>Open <a href="/tools/what-is-my-ip.html">What is my IP</a> to see your public IP and reported country/city.</li>
-      <li>Run <a href="/tools/dns-lookup.html">DNS Lookup</a> to view resolvers (ISP vs. custom/VPN) and confirm consistency.</li>
-      <li>If you use a browser-based VPN or collaboration tools, also try <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> to ensure the browser doesn’t reveal local/public IPs unexpectedly.</li>
-      <li>Compare results on <strong>home Wi-Fi vs. mobile data</strong>; save screenshots for reference.</li>
-    </ol>
-
-    <h2>How to improve geolocation accuracy</h2>
-    <ul>
-      <li><strong>Avoid intermediaries</strong> during tests: disable VPN/proxy and private relay features.</li>
-      <li><strong>Stabilize your setup:</strong> keep the same router/connection for a few days so databases can converge.</li>
-      <li><strong>Enable IPv6</strong> if your ISP supports it; dual-stack paths can improve signal quality.</li>
-      <li><strong>Check with your ISP:</strong> if your IP maps to the wrong city, ask whether your address block can be corrected in major databases.</li>
-      <li><strong>For websites/apps:</strong> don’t rely on IP alone for critical flows; combine with user-granted GPS or billing/shipping info.</li>
-    </ul>
-
-    <h2>Frequently asked questions</h2>
-    <div class="faq">
-      <h3>1) Can IP geolocation identify my street address?</h3>
-      <p>No. It estimates a general area (often a city or ISP facility). Personal addresses require user-granted data like GPS.</p>
-
-      <h3>2) Why does my IP point to a different city every day?</h3>
-      <p>Your ISP may use dynamic addressing, CGNAT or route changes; mobile networks also shift traffic among gateway locations.</p>
-
-      <h3>3) My result is clearly wrong — how do I fix it?</h3>
-      <p>Test without VPN/proxy, collect evidence (screenshots from different tools) and contact your ISP to request database updates.</p>
-    </div>
-
-    <!-- CTA -->
-    <hr>
-    <p><strong>Try it now:</strong> check your IP on <a href="/tools/what-is-my-ip.html">What is my IP</a>, then verify <a href="/tools/dns-lookup.html">DNS Lookup</a> and <a href="/tools/webrtc-leak-test.html">WebRTC</a> to see exactly what your connection exposes.</p>
-
-    <hr>
-    <p>Useful links: <a href="/">Check IP</a> • <a href="/tools/what-is-my-ip.html">IP lookup</a> • <a href="/faq/index.html">All FAQ</a></p>
-  </main>
-
-  <!-- Footer -->
-  <footer class="wrap">
-    <nav>
-      <a href="/privacy.html">Privacy</a> ·
+<h2>Typical accuracy ranges</h2>
+<table class="compare" summary="Typical IP geolocation accuracy by level and network type">
+<thead>
+<tr>
+<th>Level</th>
+<th>Typical accuracy</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Country</td>
+<td>95–99%</td>
+<td>Usually correct unless traffic exits via another country (VPN/proxy).</td>
+</tr>
+<tr>
+<td>Region / State</td>
+<td>80–90%</td>
+<td>Better near population centers; weaker for cross-border carriers.</td>
+</tr>
+<tr>
+<td>City / Metro</td>
+<td>60–80%</td>
+<td>Often maps to ISP’s hub city, not the subscriber’s neighborhood.</td>
+</tr>
+<tr>
+<td>Postal / ZIP</td>
+<td>10–30%</td>
+<td>Rare and unreliable; sometimes resolves to data center or billing office.</td>
+</tr>
+<tr>
+<td>Mobile networks</td>
+<td>Variable</td>
+<td>May show carrier core locations far from the device.</td>
+</tr>
+</tbody>
+</table>
+<h2>Why results can be wrong</h2>
+<ul>
+<li><strong>VPNs and proxies:</strong> your traffic appears to originate from the exit server’s city/country.</li>
+<li><strong>Carrier-grade NAT (CGNAT):</strong> many users share one public IP that maps to the ISP gateway, not each home.</li>
+<li><strong>Mobile routing:</strong> carriers may tunnel traffic through centralized gateways in another city or region.</li>
+<li><strong>Enterprise networks:</strong> corporate egress points (data centers) mask branch office locations.</li>
+<li><strong>Data freshness:</strong> IP blocks get reassigned; databases lag behind if not updated frequently.</li>
+<li><strong>Hosting &amp; cloud IPs:</strong> often pinned to the provider’s facility, not the app’s end users.</li>
+</ul>
+<h2>How to check your IP location (quick test)</h2>
+<ol>
+<li>Open <a href="/tools/what-is-my-ip.html">What is my IP</a> to see your public IP and reported country/city.</li>
+<li>Run <a href="/tools/dns-lookup.html">DNS Lookup</a> to view resolvers (ISP vs. custom/VPN) and confirm consistency.</li>
+<li>If you use a browser-based VPN or collaboration tools, also try <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> to ensure the browser doesn’t reveal local/public IPs unexpectedly.</li>
+<li>Compare results on <strong>home Wi-Fi vs. mobile data</strong>; save screenshots for reference.</li>
+</ol>
+<h2>How to improve geolocation accuracy</h2>
+<ul>
+<li><strong>Avoid intermediaries</strong> during tests: disable VPN/proxy and private relay features.</li>
+<li><strong>Stabilize your setup:</strong> keep the same router/connection for a few days so databases can converge.</li>
+<li><strong>Enable IPv6</strong> if your ISP supports it; dual-stack paths can improve signal quality.</li>
+<li><strong>Check with your ISP:</strong> if your IP maps to the wrong city, ask whether your address block can be corrected in major databases.</li>
+<li><strong>For websites/apps:</strong> don’t rely on IP alone for critical flows; combine with user-granted GPS or billing/shipping info.</li>
+</ul>
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<h3>1) Can IP geolocation identify my street address?</h3>
+<p>No. It estimates a general area (often a city or ISP facility). Personal addresses require user-granted data like GPS.</p>
+<h3>2) Why does my IP point to a different city every day?</h3>
+<p>Your ISP may use dynamic addressing, CGNAT or route changes; mobile networks also shift traffic among gateway locations.</p>
+<h3>3) My result is clearly wrong — how do I fix it?</h3>
+<p>Test without VPN/proxy, collect evidence (screenshots from different tools) and contact your ISP to request database updates.</p>
+</div>
+<!-- CTA -->
+<hr/>
+<p><strong>Try it now:</strong> check your IP on <a href="/tools/what-is-my-ip.html">What is my IP</a>, then verify <a href="/tools/dns-lookup.html">DNS Lookup</a> and <a href="/tools/webrtc-leak-test.html">WebRTC</a> to see exactly what your connection exposes.</p>
+<hr/>
+<p>Useful links: <a href="/">Check IP</a> • <a href="/tools/what-is-my-ip.html">IP lookup</a> • <a href="/faq/">All FAQ</a></p>
+</main>
+<!-- Footer -->
+<footer class="wrap">
+<nav>
+<a href="/privacy.html">Privacy</a> ·
       <a href="/terms.html">Terms</a> ·
-      <a href="/faq/index.html">FAQ</a> ·
+      <a href="/faq/">FAQ</a> ·
       <a href="/">Check IP</a>
-    </nav>
-    <div class="light">Contact: <a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a> • Privacy-first • No logs</div>
-  </footer>
+</nav>
+<div class="light">Contact: <a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a> • Privacy-first • No logs</div>
+</footer>
 </body>
 </html>

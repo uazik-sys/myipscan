@@ -1,35 +1,31 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>IP FAQ — Privacy, IPv4/IPv6, Geolocation &amp; More</title>
+<meta content="Expert-verified guides about IP addresses, privacy, IPv4/IPv6, DNS and geolocation — in plain English. Each article links to free tools so you can see your own…" name="description"/>
 
-<title>IP FAQ — Privacy, IPv4/IPv6, Geolocation & More</title>
-<meta name="description" content="Clear, practical guides about IP addresses, privacy, IPv4/IPv6, DNS, geolocation and CGNAT — linked to free tools to test your own connection."/>
-<link rel="canonical" href="https://myipscan.net/faq/index.html"/>
-<link rel="sitemap" type="application/xml" title="Sitemap" href="https://myipscan.net/sitemap.xml"/>
-<meta name="author" content="Yaroslav Sabardak"/>
-<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
-
+<link href="https://myipscan.net/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml"/>
+<meta content="Yaroslav Sabardak" name="author"/>
+<meta content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" name="robots"/>
 <!-- Open Graph -->
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://myipscan.net/faq/index.html"/>
-<meta property="og:title" content="IP FAQ — Privacy, IPv4/IPv6, DNS & Geolocation Guides"/>
-<meta property="og:description" content="Learn IP basics and privacy, IPv4 vs IPv6, DNS leaks, CGNAT and geolocation. Short, verified guides plus free tools to check your IP and leaks."/>
-<meta property="og:image" content="https://myipscan.net/static/og-cover.png"/>
-
+<meta content="website" property="og:type"/>
+<meta content="https://myipscan.net/faq/" property="og:url"/>
+<meta content="IP FAQ — Privacy, IPv4/IPv6, Geolocation &amp; More" property="og:title"/>
+<meta content="Expert-verified guides about IP addresses, privacy, IPv4/IPv6, DNS and geolocation — in plain English. Each article links to free tools so you can see your own…" property="og:description"/>
+<meta content="https://myipscan.net/static/og-cover.png" property="og:image"/>
 <!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="IP FAQ — Privacy, IPv4/IPv6, DNS & Geolocation Guides"/>
-<meta name="twitter:description" content="Short, expert-verified guides + free tools to check your IP, DNS and WebRTC."/>
-<meta name="twitter:image" content="https://myipscan.net/static/og-cover.png"/>
-
-<link rel="icon" href="/favicon.ico"/>
-<link rel="manifest" href="/manifest.json"/>
-<link rel="preload" as="style" href="/styles.css"/>
-<link rel="stylesheet" href="/styles.css"/>
-
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="IP FAQ — Privacy, IPv4/IPv6, DNS &amp; Geolocation Guides" name="twitter:title"/>
+<meta content="Short, expert-verified guides + free tools to check your IP, DNS and WebRTC." name="twitter:description"/>
+<meta content="https://myipscan.net/static/og-cover.png" name="twitter:image"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/manifest.json" rel="manifest"/>
+<link as="style" href="/styles.css" rel="preload"/>
+<link href="/styles.css" rel="stylesheet"/>
 <style>
 :root{--bg:#0f1115;--card:#12151c;--fg:#f5f7fa;--mut:#a3a9b6;--acc:#4ade80}
 *{box-sizing:border-box}
@@ -74,7 +70,6 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.08);margin:24px 0}
 .tools:hover .tools-menu{display:block}
 @media(hover:none){.tools:hover .tools-menu{display:none}.tools.open .tools-menu{display:block}}
 </style>
-
 <!-- JSON-LD: Breadcrumbs -->
 <script type="application/ld+json">
 {
@@ -86,7 +81,6 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.08);margin:24px 0}
   ]
 }
 </script>
-
 <!-- JSON-LD: WebPage / CollectionPage -->
 <script type="application/ld+json">
 {
@@ -97,7 +91,6 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.08);margin:24px 0}
   "publisher": { "@type": "Organization", "name": "MyIPScan" }
 }
 </script>
-
 <!-- JSON-LD: FAQPage (section-level questions) -->
 <script type="application/ld+json">
 {
@@ -131,154 +124,147 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.08);margin:24px 0}
   ]
 }
 </script>
-</head>
+<link href="https://myipscan.net/faq/" rel="canonical"/></head>
 <body>
 <header class="wrap nav">
-  <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/what-is-my-ip.html">What is my IP</a>
-    <a href="/faq/index.html">FAQ</a>
-    <a href="/privacy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
-    <span class="tools">
-      <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
-      <div class="tools-menu" role="menu" aria-label="Tools menu">
-        <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
-        <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
-        <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
-        <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
-        <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
-      </div>
-    </span>
-  </nav>
+<div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+<nav>
+<a href="/">Home</a>
+<a href="/what-is-my-ip.html">What is my IP</a>
+<a href="/faq/">FAQ</a>
+<a href="/privacy.html">Privacy</a>
+<a href="/terms.html">Terms</a>
+<span class="tools">
+<button aria-expanded="false" aria-haspopup="true" id="toolsButton">Tools</button>
+<div aria-label="Tools menu" class="tools-menu" role="menu">
+<a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+<a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+<a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+<a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+<a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+</div>
+</span>
+</nav>
 </header>
-
 <main class="wrap">
-  <div class="breadcrumbs"><a href="/">Home</a> / FAQ</div>
-
-  <section class="hero card">
-    <h1>FAQ &amp; Articles</h1>
-    <p class="light">
+<div class="breadcrumbs"><a href="/">Home</a> / FAQ</div>
+<section class="hero card">
+<h1>FAQ &amp; Articles</h1>
+<p class="light">
       Expert-verified guides about IP addresses, privacy, IPv4/IPv6, DNS and geolocation — in plain English.
       Each article links to free tools so you can <em>see your own results</em> (public IP, DNS resolvers, WebRTC exposure) in seconds.
     </p>
-    <div class="updated">Updated: October 15, 2025</div>
-  </section>
-
-  <section class="card section" aria-labelledby="about">
-    <h2 id="about">About MyIPScan FAQ</h2>
-    <p class="light">All articles are written and verified by <strong>Yaroslav Sabardak</strong>. We are privacy-first: no logs, no tracking pixels, no fingerprinting — just simple tools and clear explanations.</p>
-  </section>
-
-  <section class="card section">
-    <h2>Articles</h2>
-    <ul class="articles">
-      <li>
-        <a href="/faq/what-is-an-ip-address.html">What is an IP address?</a>
-        <p class="desc">Simple intro to IP: public vs private, IPv4 vs IPv6, static vs dynamic, plus safety tips. See also <a href="/faq/private-vs-public-ip-addresses.html">private vs public</a>.</p>
-      </li>
-      <li>
-        <a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6: What’s the difference?</a>
-        <p class="desc">Formats, benefits, and migration notes — and how to check which version you use. Try <a href="/faq/how-to-check-your-ipv6-address.html">IPv6 check</a>.</p>
-      </li>
-      <li>
-        <a href="/faq/private-vs-public-ip-addresses.html">Private vs Public IP Addresses Explained</a>
-        <p class="desc">Common ranges, NAT basics, and how to see what the internet actually sees (your public IP).</p>
-      </li>
-      <li>
-        <a href="/faq/static-vs-dynamic-ip.html">Static vs Dynamic IP: Which One Do You Have?</a>
-        <p class="desc">Pros and cons, how to tell which you have, and security implications.</p>
-      </li>
-      <li>
-        <a href="/faq/how-ip-addresses-are-assigned.html">How IP Addresses Are Assigned (ISP, DHCP, and IANA)</a>
-        <p class="desc">From IANA → RIRs → ISPs to your device via DHCP/SLAAC. CGNAT explained.</p>
-      </li>
-      <li>
-        <a href="/faq/what-is-cgnat.html">What Is CGNAT (Carrier-Grade NAT) and Why It Affects You</a>
-        <p class="desc">Shared public IPs, double NAT, gaming issues, and practical workarounds.</p>
-      </li>
-      <li>
-        <a href="/faq/what-is-a-public-ip-address.html">What is a Public IP Address and How to Protect It</a>
-        <p class="desc">Why public IPs matter, risks, and concrete protection steps.</p>
-      </li>
-      <li>
-        <a href="/faq/what-is-a-shared-ip-address.html">What Is a Shared IP Address and Is It Safe?</a>
-        <p class="desc">How shared IPs work with ISPs, hosting and VPNs; when to choose a dedicated IP.</p>
-      </li>
-      <li>
-        <a href="/faq/proxy-vs-vpn-vs-tor.html">Proxy vs VPN vs Tor: What’s the Difference?</a>
-        <p class="desc">Strengths, weaknesses, and best use-cases for privacy and access.</p>
-      </li>
-      <li>
-        <a href="/faq/how-to-hide-your-ip-address.html">How to Hide Your IP Address (Free &amp; Paid Methods)</a>
-        <p class="desc">Step-by-step methods with trade-offs and pitfalls to avoid.</p>
-      </li>
-      <li>
-        <a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">What Is a VPN and How Does It Hide My IP?</a>
-        <p class="desc">How VPN tunneling and encryption work; leak prevention tips.</p>
-      </li>
-      <li>
-        <a href="/faq/what-is-a-webrtc-leak.html">What Is a WebRTC Leak?</a>
-        <p class="desc">How browsers can expose IPs and how to test and fix it.</p>
-      </li>
-      <li>
-        <a href="/faq/what-is-a-dns-leak.html">What Is a DNS Leak?</a>
-        <p class="desc">Why DNS requests can betray your provider/location and how to test it.</p>
-      </li>
-      <li>
-        <a href="/faq/what-is-a-dns-leak-and-how-to-prevent-it.html">What Is a DNS Leak and How to Prevent It (Full Guide)</a>
-        <p class="desc">Comprehensive fixes: encrypted DNS (DoH/DoT), VPN DNS, and router settings.</p>
-      </li>
-      <li>
-        <a href="/faq/ip-geolocation-accuracy.html">How accurate is IP geolocation?</a>
-        <p class="desc">Real-world accuracy ranges and why results differ by ISP, VPN, or mobile.</p>
-      </li>
-      <li>
-        <a href="/faq/can-someone-track-me-by-my-ip-address.html">Can Someone Track Me by My IP Address?</a>
-        <p class="desc">Myths vs reality; what IP does and doesn’t reveal about you.</p>
-      </li>
-      <li>
-        <a href="/faq/can-hackers-use-my-ip-to-access-my-device.html">Can Hackers Use My IP to Access My Device?</a>
-        <p class="desc">Realistic attack paths from an IP and 11 defenses to apply today.</p>
-      </li>
-      <li>
-        <a href="/faq/how-to-check-if-your-ip-is-blacklisted.html">How to Check if Your IP Is Blacklisted</a>
-        <p class="desc">Blacklist/DNSBL checks, delisting steps, and prevention tips.</p>
-      </li>
-      <li>
-        <a href="/faq/how-to-find-your-local-ip-address.html">How to Find Your Local IP Address on Any Device</a>
-        <p class="desc">Windows, macOS, Android, iOS and Linux — step-by-step.</p>
-      </li>
-      <li>
-        <a href="/faq/how-to-check-your-ipv6-address.html">How to Check Your IPv6 Address and Compatibility</a>
-        <p class="desc">Find your IPv6, test readiness, enable it on routers and devices.</p>
-      </li>
-    </ul>
-  </section>
-
-  <section class="card section" aria-labelledby="tools">
-    <h2 id="tools">Try our free tools</h2>
-    <ul class="inline">
-      <li><a href="/what-is-my-ip.html">What is My IP</a> — see your public IPv4/IPv6 and location signal.</li>
-      <li><a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> — check if the browser exposes local/public IPs.</li>
-      <li><a href="/tools/dns-lookup.html">DNS Lookup</a> — see which resolvers your device is using.</li>
-      <li><a href="/tools/password-generator.html">Password Generator</a> — create strong passwords locally.</li>
-      <li><a href="/tools/user-agent.html">User‑Agent Info</a> — inspect your browser fingerprint basics.</li>
-    </ul>
-  </section>
+<div class="updated">Updated: October 15, 2025</div>
+</section>
+<section aria-labelledby="about" class="card section">
+<h2 id="about">About MyIPScan FAQ</h2>
+<p class="light">All articles are written and verified by <strong>Yaroslav Sabardak</strong>. We are privacy-first: no logs, no tracking pixels, no fingerprinting — just simple tools and clear explanations.</p>
+</section>
+<section class="card section">
+<h2>Articles</h2>
+<ul class="articles">
+<li>
+<a href="/faq/what-is-an-ip-address.html">What is an IP address?</a>
+<p class="desc">Simple intro to IP: public vs private, IPv4 vs IPv6, static vs dynamic, plus safety tips. See also <a href="/faq/private-vs-public-ip-addresses.html">private vs public</a>.</p>
+</li>
+<li>
+<a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6: What’s the difference?</a>
+<p class="desc">Formats, benefits, and migration notes — and how to check which version you use. Try <a href="/faq/how-to-check-your-ipv6-address.html">IPv6 check</a>.</p>
+</li>
+<li>
+<a href="/faq/private-vs-public-ip-addresses.html">Private vs Public IP Addresses Explained</a>
+<p class="desc">Common ranges, NAT basics, and how to see what the internet actually sees (your public IP).</p>
+</li>
+<li>
+<a href="/faq/static-vs-dynamic-ip.html">Static vs Dynamic IP: Which One Do You Have?</a>
+<p class="desc">Pros and cons, how to tell which you have, and security implications.</p>
+</li>
+<li>
+<a href="/faq/how-ip-addresses-are-assigned.html">How IP Addresses Are Assigned (ISP, DHCP, and IANA)</a>
+<p class="desc">From IANA → RIRs → ISPs to your device via DHCP/SLAAC. CGNAT explained.</p>
+</li>
+<li>
+<a href="/faq/what-is-cgnat.html">What Is CGNAT (Carrier-Grade NAT) and Why It Affects You</a>
+<p class="desc">Shared public IPs, double NAT, gaming issues, and practical workarounds.</p>
+</li>
+<li>
+<a href="/faq/what-is-a-public-ip-address.html">What is a Public IP Address and How to Protect It</a>
+<p class="desc">Why public IPs matter, risks, and concrete protection steps.</p>
+</li>
+<li>
+<a href="/faq/what-is-a-shared-ip-address.html">What Is a Shared IP Address and Is It Safe?</a>
+<p class="desc">How shared IPs work with ISPs, hosting and VPNs; when to choose a dedicated IP.</p>
+</li>
+<li>
+<a href="/faq/proxy-vs-vpn-vs-tor.html">Proxy vs VPN vs Tor: What’s the Difference?</a>
+<p class="desc">Strengths, weaknesses, and best use-cases for privacy and access.</p>
+</li>
+<li>
+<a href="/faq/how-to-hide-your-ip-address.html">How to Hide Your IP Address (Free &amp; Paid Methods)</a>
+<p class="desc">Step-by-step methods with trade-offs and pitfalls to avoid.</p>
+</li>
+<li>
+<a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">What Is a VPN and How Does It Hide My IP?</a>
+<p class="desc">How VPN tunneling and encryption work; leak prevention tips.</p>
+</li>
+<li>
+<a href="/faq/what-is-a-webrtc-leak.html">What Is a WebRTC Leak?</a>
+<p class="desc">How browsers can expose IPs and how to test and fix it.</p>
+</li>
+<li>
+<a href="/faq/what-is-a-dns-leak.html">What Is a DNS Leak?</a>
+<p class="desc">Why DNS requests can betray your provider/location and how to test it.</p>
+</li>
+<li>
+<a href="/faq/what-is-a-dns-leak-and-how-to-prevent-it.html">What Is a DNS Leak and How to Prevent It (Full Guide)</a>
+<p class="desc">Comprehensive fixes: encrypted DNS (DoH/DoT), VPN DNS, and router settings.</p>
+</li>
+<li>
+<a href="/faq/ip-geolocation-accuracy.html">How accurate is IP geolocation?</a>
+<p class="desc">Real-world accuracy ranges and why results differ by ISP, VPN, or mobile.</p>
+</li>
+<li>
+<a href="/faq/can-someone-track-me-by-my-ip-address.html">Can Someone Track Me by My IP Address?</a>
+<p class="desc">Myths vs reality; what IP does and doesn’t reveal about you.</p>
+</li>
+<li>
+<a href="/faq/can-hackers-use-my-ip-to-access-my-device.html">Can Hackers Use My IP to Access My Device?</a>
+<p class="desc">Realistic attack paths from an IP and 11 defenses to apply today.</p>
+</li>
+<li>
+<a href="/faq/how-to-check-if-your-ip-is-blacklisted.html">How to Check if Your IP Is Blacklisted</a>
+<p class="desc">Blacklist/DNSBL checks, delisting steps, and prevention tips.</p>
+</li>
+<li>
+<a href="/faq/how-to-find-your-local-ip-address.html">How to Find Your Local IP Address on Any Device</a>
+<p class="desc">Windows, macOS, Android, iOS and Linux — step-by-step.</p>
+</li>
+<li>
+<a href="/faq/how-to-check-your-ipv6-address.html">How to Check Your IPv6 Address and Compatibility</a>
+<p class="desc">Find your IPv6, test readiness, enable it on routers and devices.</p>
+</li>
+</ul>
+</section>
+<section aria-labelledby="tools" class="card section">
+<h2 id="tools">Try our free tools</h2>
+<ul class="inline">
+<li><a href="/what-is-my-ip.html">What is My IP</a> — see your public IPv4/IPv6 and location signal.</li>
+<li><a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> — check if the browser exposes local/public IPs.</li>
+<li><a href="/tools/dns-lookup.html">DNS Lookup</a> — see which resolvers your device is using.</li>
+<li><a href="/tools/password-generator.html">Password Generator</a> — create strong passwords locally.</li>
+<li><a href="/tools/user-agent.html">User‑Agent Info</a> — inspect your browser fingerprint basics.</li>
+</ul>
+</section>
 </main>
-
 <footer class="wrap">
-  <nav>
-    <a href="/privacy.html">Privacy</a> ·
+<nav>
+<a href="/privacy.html">Privacy</a> ·
     <a href="/terms.html">Terms</a> ·
-    <a href="/faq/index.html">FAQ</a> ·
+    <a href="/faq/">FAQ</a> ·
     <a href="/">Check IP</a>
-  </nav>
-  <div class="light">Contact: <a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a> • Privacy-first • No logs</div>
+</nav>
+<div class="light">Contact: <a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a> • Privacy-first • No logs</div>
 </footer>
-
 <!-- JS: stable Tools menu (first-visit fix) -->
 <script>
 (function(){

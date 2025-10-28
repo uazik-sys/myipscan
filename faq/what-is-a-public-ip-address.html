@@ -1,101 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>What is a Public IP Address and How to Protect It</title>
+<meta content="Your public IP address is the unique online identifier your internet provider assigns to your connection. It’s visible to every website you visit — and while it’s…" name="description"/>
 
-  <title>What is a Public IP Address and How to Protect It</title>
-  <meta name="description" content="Learn what a public IP address is, how it differs from private ones, and 7 proven ways to protect your real IP from leaks and tracking.">
-
-  <link rel="canonical" href="https://myipscan.net/faq/what-is-a-public-ip-address.html">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="What is a Public IP Address and How to Protect It">
-  <meta property="og:description" content="Understand public vs private IPs, why your public IP matters, and how to hide or secure it online.">
-  <meta property="og:url" content="https://myipscan.net/faq/what-is-a-public-ip-address.html">
-  <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="What is a Public IP Address and How to Protect It">
-  <meta name="twitter:description" content="A complete guide to public IPs, risks, and protection tips — by MyIPScan.">
-  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
-
-  <link rel="preload" as="style" href="/styles.css">
-  <link rel="stylesheet" href="/styles.css">
-</head>
+<!-- Open Graph -->
+<meta content="article" property="og:type"/>
+<meta content="What is a Public IP Address and How to Protect It" property="og:title"/>
+<meta content="Your public IP address is the unique online identifier your internet provider assigns to your connection. It’s visible to every website you visit — and while it’s…" property="og:description"/>
+<meta content="https://myipscan.net/faq/what-is-a-public-ip-address.html" property="og:url"/>
+<meta content="https://myipscan.net/static/og-cover.png" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="What is a Public IP Address and How to Protect It" name="twitter:title"/>
+<meta content="A complete guide to public IPs, risks, and protection tips — by MyIPScan." name="twitter:description"/>
+<meta content="https://myipscan.net/static/og-cover.png" name="twitter:image"/>
+<link as="style" href="/styles.css" rel="preload"/>
+<link href="/styles.css" rel="stylesheet"/>
+<link href="https://myipscan.net/faq/what-is-a-public-ip-address.html" rel="canonical"/></head>
 <body>
 <header class="wrap nav">
-  <nav>
-    <a href="/">Home</a>
-    <a href="/tools/what-is-my-ip.html">What is My IP</a>
-    <a href="/faq/index.html">FAQ</a>
-    <span class="tools">
-      <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
-      <div class="tools-menu" role="menu" aria-label="Tools menu">
-        <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
-        <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
-        <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
-        <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
-        <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
-      </div>
-    </span>
-  </nav>
+<nav>
+<a href="/">Home</a>
+<a href="/tools/what-is-my-ip.html">What is My IP</a>
+<a href="/faq/">FAQ</a>
+<span class="tools">
+<button aria-expanded="false" aria-haspopup="true" id="toolsButton">Tools</button>
+<div aria-label="Tools menu" class="tools-menu" role="menu">
+<a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+<a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+<a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+<a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+<a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+</div>
+</span>
+</nav>
 </header>
-
 <main class="wrap article">
-  <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › What is a Public IP Address and How to Protect It</div>
-
-  <h1>What is a Public IP Address and How to Protect It</h1>
-  <time datetime="2025-10-15">Updated: October 15, 2025</time>
-
-  <p>Your <strong>public IP address</strong> is the unique online identifier your internet provider assigns to your connection. It’s visible to every website you visit — and while it’s not personally identifying by itself, it can reveal your location, provider, and network type. In this guide, we’ll explain what public IPs are, how they differ from private addresses, and practical ways to protect them.</p>
-
-  <h2>Public vs Private IP Addresses</h2>
-  <p>Every device has two IP layers: a <em>private IP</em> inside your local network (for communication between home devices) and a <em>public IP</em> visible on the internet. The private IPs are usually 192.168.x.x or 10.x.x.x ranges and are hidden behind your router (NAT). The public IP belongs to your ISP and represents your connection online.</p>
-
-  <table style="margin-top:10px">
-    <thead>
-      <tr><th>Type</th><th>Example</th><th>Visible Online?</th><th>Assigned By</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Public IP</td><td>203.0.113.8</td><td>✅ Yes</td><td>ISP / Network Gateway</td></tr>
-      <tr><td>Private IP</td><td>192.168.1.4</td><td>❌ No</td><td>Router / Local Network</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Why Your Public IP Matters</h2>
-  <p>Websites, streaming services, and advertising networks often use your public IP for geolocation and access control. This can help deliver regional content or detect suspicious logins — but it also enables profiling and tracking. Even without cookies, your IP can combine with browser data (User-Agent, screen size, timezone) to create a digital fingerprint.</p>
-
-  <h2>7 Proven Ways to Protect Your Public IP</h2>
-  <ol>
-    <li><strong>Use a VPN:</strong> It routes your traffic through an encrypted tunnel, hiding your real IP from sites and trackers.</li>
-    <li><strong>Use a Proxy or Tor:</strong> Proxies mask your IP for specific apps; Tor anonymizes all browser traffic.</li>
-    <li><strong>Enable a Firewall and Router NAT:</strong> These block inbound requests to your device.</li>
-    <li><strong>Test for Leaks:</strong> Run <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> and <a href="/tools/dns-lookup.html">DNS Lookup</a> to ensure your real IP isn’t exposed.</li>
-    <li><strong>Avoid Public Wi-Fi without VPN:</strong> Such networks often share IPs and risk exposure to sniffing.</li>
-    <li><strong>Restart Your Router Periodically:</strong> Many ISPs rotate dynamic IPs — a new session may assign a new one.</li>
-    <li><strong>Use HTTPS Sites Only:</strong> Always look for the lock icon — it prevents interception of IP-based requests.</li>
-  </ol>
-
-  <h2>Can Someone Track You by IP?</h2>
-  <p>Not precisely. Your public IP can reveal your city or provider, but it can’t expose your name or address without your ISP’s legal cooperation. Still, combining IP logs with cookies or account activity can narrow it down. That’s why privacy-focused habits — VPNs, secure DNS, and leak tests — are essential if you value anonymity.</p>
-
-  <aside class="wrap card" style="margin-top:24px">
-    <h3>Related articles</h3>
-    <ul>
-      <li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6: What’s the Difference?</a></li>
-      <li><a href="/faq/ip-geolocation-accuracy.html">IP Geolocation Accuracy Explained</a></li>
-      <li><a href="/faq/how-to-hide-your-ip.html">How to Hide Your IP Address (Complete Guide)</a></li>
-    </ul>
-  </aside>
+<div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › What is a Public IP Address and How to Protect It</div>
+<h1>What is a Public IP Address and How to Protect It</h1>
+<time datetime="2025-10-15">Updated: October 15, 2025</time>
+<p>Your <strong>public IP address</strong> is the unique online identifier your internet provider assigns to your connection. It’s visible to every website you visit — and while it’s not personally identifying by itself, it can reveal your location, provider, and network type. In this guide, we’ll explain what public IPs are, how they differ from private addresses, and practical ways to protect them.</p>
+<h2>Public vs Private IP Addresses</h2>
+<p>Every device has two IP layers: a <em>private IP</em> inside your local network (for communication between home devices) and a <em>public IP</em> visible on the internet. The private IPs are usually 192.168.x.x or 10.x.x.x ranges and are hidden behind your router (NAT). The public IP belongs to your ISP and represents your connection online.</p>
+<table style="margin-top:10px">
+<thead>
+<tr><th>Type</th><th>Example</th><th>Visible Online?</th><th>Assigned By</th></tr>
+</thead>
+<tbody>
+<tr><td>Public IP</td><td>203.0.113.8</td><td>✅ Yes</td><td>ISP / Network Gateway</td></tr>
+<tr><td>Private IP</td><td>192.168.1.4</td><td>❌ No</td><td>Router / Local Network</td></tr>
+</tbody>
+</table>
+<h2>Why Your Public IP Matters</h2>
+<p>Websites, streaming services, and advertising networks often use your public IP for geolocation and access control. This can help deliver regional content or detect suspicious logins — but it also enables profiling and tracking. Even without cookies, your IP can combine with browser data (User-Agent, screen size, timezone) to create a digital fingerprint.</p>
+<h2>7 Proven Ways to Protect Your Public IP</h2>
+<ol>
+<li><strong>Use a VPN:</strong> It routes your traffic through an encrypted tunnel, hiding your real IP from sites and trackers.</li>
+<li><strong>Use a Proxy or Tor:</strong> Proxies mask your IP for specific apps; Tor anonymizes all browser traffic.</li>
+<li><strong>Enable a Firewall and Router NAT:</strong> These block inbound requests to your device.</li>
+<li><strong>Test for Leaks:</strong> Run <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> and <a href="/tools/dns-lookup.html">DNS Lookup</a> to ensure your real IP isn’t exposed.</li>
+<li><strong>Avoid Public Wi-Fi without VPN:</strong> Such networks often share IPs and risk exposure to sniffing.</li>
+<li><strong>Restart Your Router Periodically:</strong> Many ISPs rotate dynamic IPs — a new session may assign a new one.</li>
+<li><strong>Use HTTPS Sites Only:</strong> Always look for the lock icon — it prevents interception of IP-based requests.</li>
+</ol>
+<h2>Can Someone Track You by IP?</h2>
+<p>Not precisely. Your public IP can reveal your city or provider, but it can’t expose your name or address without your ISP’s legal cooperation. Still, combining IP logs with cookies or account activity can narrow it down. That’s why privacy-focused habits — VPNs, secure DNS, and leak tests — are essential if you value anonymity.</p>
+<aside class="wrap card" style="margin-top:24px">
+<h3>Related articles</h3>
+<ul>
+<li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6: What’s the Difference?</a></li>
+<li><a href="/faq/ip-geolocation-accuracy.html">IP Geolocation Accuracy Explained</a></li>
+<li><a href="/faq/how-to-hide-your-ip.html">How to Hide Your IP Address (Complete Guide)</a></li>
+</ul>
+</aside>
 </main>
-
 <footer class="wrap">
-  <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
+<p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
 </footer>
-
 <!-- JSON-LD: Article -->
 <script type="application/ld+json">
 {
@@ -109,7 +94,6 @@
   "image": "https://myipscan.net/static/og-cover.png"
 }
 </script>
-
 <!-- JSON-LD: Breadcrumbs -->
 <script type="application/ld+json">
 {
@@ -122,7 +106,6 @@
   ]
 }
 </script>
-
 <!-- JSON-LD: FAQ -->
 <script type="application/ld+json">
 {
@@ -156,7 +139,6 @@
   ]
 }
 </script>
-
 <!-- JS: stable Tools menu -->
 <script>
 (function(){

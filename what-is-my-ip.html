@@ -1,34 +1,30 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free &amp; Private</title>
+<meta content="See your public IP, IPv4/IPv6 version, country/city signal and ISP/ASN. This page is privacy-first: no cookies, no logs . Below we explain how it works, what you…" name="description"/>
+<meta content="index,follow" name="robots"/>
 
-  <title>IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free & Private</title>
-  <meta name="description" content="Private IP lookup: see your public IPv4/IPv6, country/city signal, ISP/ASN and browser UA. No cookies, no logs — fast and accurate checks with clear explanations."/>
-  <meta name="robots" content="index,follow"/>
-  <link rel="canonical" href="https://myipscan.net/what-is-my-ip.html"/>
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://myipscan.net/what-is-my-ip.html"/>
-  <meta property="og:title" content="IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free & Private"/>
-  <meta property="og:description" content="See your public IP, IPv4/IPv6 version, location signal and ISP/ASN. 100% private: no cookies, no logs."/>
-  <meta property="og:image" content="https://myipscan.net/static/og-cover.png"/>
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free & Private"/>
-  <meta name="twitter:description" content="Check your IP privately. IPv4/IPv6, ISP/ASN, geolocation signal & UA — with simple tips and tools."/>
-  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png"/>
-
-  <link rel="icon" href="/favicon.ico"/>
-  <link rel="manifest" href="/manifest.json"/>
-  <link rel="stylesheet" href="/styles.css"/>
-  <meta name="theme-color" content="#0f1115"/>
-
-  <!-- JSON-LD: Organization (kept) -->
-  <script type="application/ld+json">
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://myipscan.net/what-is-my-ip.html" property="og:url"/>
+<meta content="IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free &amp; Private" property="og:title"/>
+<meta content="See your public IP, IPv4/IPv6 version, country/city signal and ISP/ASN. This page is privacy-first: no cookies, no logs . Below we explain how it works, what you…" property="og:description"/>
+<meta content="https://myipscan.net/static/og-cover.png" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="IP Lookup: IPv4/IPv6, Location, ISP/ASN — Free &amp; Private" name="twitter:title"/>
+<meta content="Check your IP privately. IPv4/IPv6, ISP/ASN, geolocation signal &amp; UA — with simple tips and tools." name="twitter:description"/>
+<meta content="https://myipscan.net/static/og-cover.png" name="twitter:image"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="/styles.css" rel="stylesheet"/>
+<meta content="#0f1115" name="theme-color"/>
+<!-- JSON-LD: Organization (kept) -->
+<script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"Organization",
@@ -38,9 +34,8 @@
     "description":"Privacy-first IP checker with IPv4/IPv6, geolocation, ASN, and simple tools."
   }
   </script>
-
-  <!-- JSON-LD: WebSite (kept) -->
-  <script type="application/ld+json">
+<!-- JSON-LD: WebSite (kept) -->
+<script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"WebSite",
@@ -53,9 +48,8 @@
     }
   }
   </script>
-
-  <!-- JSON-LD: WebPage (new) -->
-  <script type="application/ld+json">
+<!-- JSON-LD: WebPage (new) -->
+<script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"WebPage",
@@ -70,9 +64,8 @@
     "publisher":{"@type":"Organization","name":"MyIPScan","logo":{"@type":"ImageObject","url":"https://myipscan.net/static/og-cover.png"}}
   }
   </script>
-
-  <!-- JSON-LD: Breadcrumbs -->
-  <script type="application/ld+json">
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"BreadcrumbList",
@@ -82,9 +75,8 @@
     ]
   }
   </script>
-
-  <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"FAQPage",
@@ -116,109 +108,98 @@
     ]
   }
   </script>
-</head>
+<link href="https://myipscan.net/what-is-my-ip.html" rel="canonical"/></head>
 <body>
 <header class="wrap nav">
-  <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/what-is-my-ip.html">What is my IP</a>
-    <a href="/faq/index.html">FAQ</a>
-    <a href="/privacy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
-    <span class="tools">
-      <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
-      <div class="tools-menu" role="menu" aria-label="Tools menu">
-        <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
-        <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
-        <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
-        <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
-        <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
-      </div>
-    </span>
-  </nav>
+<div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+<nav>
+<a href="/">Home</a>
+<a href="/what-is-my-ip.html">What is my IP</a>
+<a href="/faq/">FAQ</a>
+<a href="/privacy.html">Privacy</a>
+<a href="/terms.html">Terms</a>
+<span class="tools">
+<button aria-expanded="false" aria-haspopup="true" id="toolsButton">Tools</button>
+<div aria-label="Tools menu" class="tools-menu" role="menu">
+<a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+<a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+<a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+<a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+<a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+</div>
+</span>
+</nav>
 </header>
-
 <main class="wrap">
-  <div class="breadcrumbs"><a href="/">Home</a> / What is my IP</div>
-
-  <section class="hero">
-    <h1>IP Lookup (Private &amp; Fast)</h1>
-    <p class="light">
+<div class="breadcrumbs"><a href="/">Home</a> / What is my IP</div>
+<section class="hero">
+<h1>IP Lookup (Private &amp; Fast)</h1>
+<p class="light">
       See your public IP, IPv4/IPv6 version, country/city signal and ISP/ASN. This page is privacy-first:
       <strong>no cookies, no logs</strong>. Below we explain how it works, what you can (and can’t) learn from an IP,
       and how to verify browser/DNS leaks in seconds.
     </p>
-    <div class="light" style="margin-top:6px">Updated: October 15, 2025</div>
-  </section>
-
-  <section class="card">
-    <h2>Your IP &amp; why it matters</h2>
-    <p>
+<div class="light" style="margin-top:6px">Updated: October 15, 2025</div>
+</section>
+<section class="card">
+<h2>Your IP &amp; why it matters</h2>
+<p>
       Your IP address identifies your connection on the internet. Websites and services use it to return responses and apply
       security or localization rules. The <em>geolocation</em> attached to an IP is an estimate — usually country/region and a
       nearest major city — and can differ across databases or networks (mobile, VPN, CGNAT).
     </p>
-
-    <h2>How it works (quick)</h2>
-    <ol>
-      <li>Your provider assigns a <strong>public</strong> IP to your router or gateway (devices at home use private IPs).</li>
-      <li>Sites see the public IP and look it up in one or more geolocation databases for country/city and ISP/ASN.</li>
-      <li>Different networks (Wi-Fi vs mobile/VPN) can show different IPs and locations — that’s expected.</li>
-    </ol>
-
-    <h2>What you see here</h2>
-    <table class="compare" summary="Data shown on IP lookup and what it means" style="margin-top:10px">
-      <thead>
-        <tr><th>Data type</th><th>Example</th><th>Meaning</th><th>Visible to websites?</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>IPv4</td><td><code>203.0.113.7</code></td><td>Common 32-bit address format</td><td>Yes</td></tr>
-        <tr><td>IPv6</td><td><code>2001:db8::1</code></td><td>Modern 128-bit format; may co-exist with IPv4</td><td>Yes</td></tr>
-        <tr><td>Location signal</td><td>Country → City (approx.)</td><td>Estimated from provider data</td><td>Yes</td></tr>
-        <tr><td>ISP / ASN</td><td>AS12345 (Example ISP)</td><td>Identifies provider network</td><td>Yes</td></tr>
-        <tr><td>User-Agent</td><td>Chrome on Windows</td><td>Browser string for compatibility</td><td>Yes</td></tr>
-      </tbody>
-    </table>
-
-    <h2>Accuracy & privacy notes</h2>
-    <ul>
-      <li>IP geolocation is approximate. It can resolve to an ISP hub or gateway rather than your exact place.</li>
-      <li>VPN/proxy purposely shows the exit server location (by design); mobile/CGNAT can shift cities.</li>
-      <li>No personal name or street address can be derived from an IP alone.</li>
-    </ul>
-
-    <h2>Verify IPv4/IPv6 and common leaks</h2>
-    <ol>
-      <li>Open <a href="/tools/what-is-my-ip.html">What is My IP</a> to see your public address and version.</li>
-      <li>Run <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> to ensure the browser doesn’t expose local/public IPs unintentionally.</li>
-      <li>Run <a href="/tools/dns-lookup.html">DNS Lookup</a> to check which resolvers your device uses (ISP or third-party).</li>
-    </ol>
-
-    <hr>
-    <p><strong>Ready?</strong> Start with the edge-checked version here: <a href="/">Check IP</a>. Then explore the guides below.</p>
-  </section>
-
-  <section class="card" style="margin-top:16px">
-    <h2>Learn more</h2>
-    <ul class="inline">
-      <li><a href="/faq/what-is-an-ip-address.html">What is an IP address?</a> — simple intro with examples.</li>
-      <li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6</a> — differences, benefits and migration notes.</li>
-      <li><a href="/faq/ip-geolocation-accuracy.html">IP geolocation accuracy</a> — why city can be off and how to test.</li>
-    </ul>
-  </section>
+<h2>How it works (quick)</h2>
+<ol>
+<li>Your provider assigns a <strong>public</strong> IP to your router or gateway (devices at home use private IPs).</li>
+<li>Sites see the public IP and look it up in one or more geolocation databases for country/city and ISP/ASN.</li>
+<li>Different networks (Wi-Fi vs mobile/VPN) can show different IPs and locations — that’s expected.</li>
+</ol>
+<h2>What you see here</h2>
+<table class="compare" style="margin-top:10px" summary="Data shown on IP lookup and what it means">
+<thead>
+<tr><th>Data type</th><th>Example</th><th>Meaning</th><th>Visible to websites?</th></tr>
+</thead>
+<tbody>
+<tr><td>IPv4</td><td><code>203.0.113.7</code></td><td>Common 32-bit address format</td><td>Yes</td></tr>
+<tr><td>IPv6</td><td><code>2001:db8::1</code></td><td>Modern 128-bit format; may co-exist with IPv4</td><td>Yes</td></tr>
+<tr><td>Location signal</td><td>Country → City (approx.)</td><td>Estimated from provider data</td><td>Yes</td></tr>
+<tr><td>ISP / ASN</td><td>AS12345 (Example ISP)</td><td>Identifies provider network</td><td>Yes</td></tr>
+<tr><td>User-Agent</td><td>Chrome on Windows</td><td>Browser string for compatibility</td><td>Yes</td></tr>
+</tbody>
+</table>
+<h2>Accuracy &amp; privacy notes</h2>
+<ul>
+<li>IP geolocation is approximate. It can resolve to an ISP hub or gateway rather than your exact place.</li>
+<li>VPN/proxy purposely shows the exit server location (by design); mobile/CGNAT can shift cities.</li>
+<li>No personal name or street address can be derived from an IP alone.</li>
+</ul>
+<h2>Verify IPv4/IPv6 and common leaks</h2>
+<ol>
+<li>Open <a href="/tools/what-is-my-ip.html">What is My IP</a> to see your public address and version.</li>
+<li>Run <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a> to ensure the browser doesn’t expose local/public IPs unintentionally.</li>
+<li>Run <a href="/tools/dns-lookup.html">DNS Lookup</a> to check which resolvers your device uses (ISP or third-party).</li>
+</ol>
+<hr/>
+<p><strong>Ready?</strong> Start with the edge-checked version here: <a href="/">Check IP</a>. Then explore the guides below.</p>
+</section>
+<section class="card" style="margin-top:16px">
+<h2>Learn more</h2>
+<ul class="inline">
+<li><a href="/faq/what-is-an-ip-address.html">What is an IP address?</a> — simple intro with examples.</li>
+<li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6</a> — differences, benefits and migration notes.</li>
+<li><a href="/faq/ip-geolocation-accuracy.html">IP geolocation accuracy</a> — why city can be off and how to test.</li>
+</ul>
+</section>
 </main>
-
 <footer class="wrap">
-  <nav>
-    <a href="/privacy.html">Privacy</a> ·
+<nav>
+<a href="/privacy.html">Privacy</a> ·
     <a href="/terms.html">Terms</a> ·
-    <a href="/faq/index.html">FAQ</a> ·
+    <a href="/faq/">FAQ</a> ·
     <a href="/">Check IP</a>
-  </nav>
-  <div class="light">Contact: <a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a> • Privacy-first • No logs</div>
+</nav>
+<div class="light">Contact: <a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a> • Privacy-first • No logs</div>
 </footer>
-
 <!-- Stable Tools dropdown (first-try fix) -->
 <script>
 (function(){

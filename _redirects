@@ -1,0 +1,19 @@
+# Canonical: HTTPS + non-www (single hop)
+http://www.myipscan.net/*   https://myipscan.net/:splat   301
+http://myipscan.net/*       https://myipscan.net/:splat   301
+https://www.myipscan.net/*  https://myipscan.net/:splat   301
+
+# Normalize index.html
+/faq/index.html   /faq/   301
+/index.html       /       301
+
+# Repo folder traces
+/myipscan-main/*  /:splat 301
+
+# Typical duplicates
+/what-is-my-ip.html   /what-is-my-ip/   301
+/privacy.html         /privacy/         301
+/terms.html           /terms/           301
+
+# (Optional) pretty URLs for FAQ pages:
+#/faq/:name.html      /faq/:name/       301

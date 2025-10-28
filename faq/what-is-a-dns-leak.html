@@ -1,140 +1,124 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>What Is a DNS Leak and How to Prevent It</title>
+<meta content="A DNS leak happens when your device sends domain lookups to a resolver outside your intended private route — for example, to your ISP’s DNS instead of the VPN’s or…" name="description"/>
+<meta content="index,follow" name="robots"/>
 
-  <title>What Is a DNS Leak and How to Prevent It</title>
-  <meta name="description" content="Learn what a DNS leak is, how it exposes your browsing, how to test for leaks, and proven steps to prevent them on VPNs, browsers, and devices.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://myipscan.net/faq/what-is-a-dns-leak.html">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="What Is a DNS Leak and How to Prevent It">
-  <meta property="og:description" content="Understand DNS leaks, how to test them, and how to fix leaks with VPN settings, DoH/DoT, and system configuration.">
-  <meta property="og:url" content="https://myipscan.net/faq/what-is-a-dns-leak.html">
-  <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="What Is a DNS Leak and How to Prevent It">
-  <meta name="twitter:description" content="DNS leak explained: detection, causes, and prevention — with step-by-step fixes for VPNs, browsers, and OS.">
-  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
-
-  <link rel="preload" as="style" href="/styles.css">
-  <link rel="stylesheet" href="/styles.css">
-</head>
+<!-- Open Graph -->
+<meta content="article" property="og:type"/>
+<meta content="What Is a DNS Leak and How to Prevent It" property="og:title"/>
+<meta content="A DNS leak happens when your device sends domain lookups to a resolver outside your intended private route — for example, to your ISP’s DNS instead of the VPN’s or…" property="og:description"/>
+<meta content="https://myipscan.net/faq/what-is-a-dns-leak.html" property="og:url"/>
+<meta content="https://myipscan.net/static/og-cover.png" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="What Is a DNS Leak and How to Prevent It" name="twitter:title"/>
+<meta content="DNS leak explained: detection, causes, and prevention — with step-by-step fixes for VPNs, browsers, and OS." name="twitter:description"/>
+<meta content="https://myipscan.net/static/og-cover.png" name="twitter:image"/>
+<link as="style" href="/styles.css" rel="preload"/>
+<link href="/styles.css" rel="stylesheet"/>
+<link href="https://myipscan.net/faq/what-is-a-dns-leak.html" rel="canonical"/></head>
 <body>
-  <!-- Header / Nav -->
-  <header class="wrap nav">
-    <div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/what-is-my-ip.html">What is my IP</a>
-      <a href="/faq/index.html">FAQ</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <span class="tools">
-        <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
-        <div class="tools-menu" role="menu" aria-label="Tools menu">
-          <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
-          <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
-          <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
-          <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
-          <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
-        </div>
-      </span>
-    </nav>
-  </header>
-
-  <!-- Article -->
-  <main class="wrap article">
-    <!-- Breadcrumbs -->
-    <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › What Is a DNS Leak and How to Prevent It</div>
-
-    <!-- Title & date -->
-    <h1>What Is a DNS Leak and How to Prevent It</h1>
-    <time datetime="2025-10-15">Updated: October 15, 2025</time>
-
-    <!-- Lede -->
-    <p>A <strong>DNS leak</strong> happens when your device sends domain lookups to a resolver outside your intended private route — for example, to your ISP’s DNS instead of the VPN’s or your chosen encrypted resolver. This exposes the websites you visit to networks and third parties, even if your IP is hidden. Below we explain what DNS leaks are, how to test for them, and how to prevent leaks on VPNs, browsers, and operating systems.</p>
-
-    <h2>What is DNS and why leaks matter</h2>
-    <p>DNS translates human-readable names (like example.com) into IP addresses. If DNS queries bypass your VPN tunnel or encrypted resolver, observers can infer your browsing activity. Leaks reduce privacy, break region settings, and can trigger streaming or corporate restrictions.</p>
-
-    <h2>Common causes of DNS leaks</h2>
-    <ul>
-      <li><strong>OS resolver overrides:</strong> System or adapter DNS points to ISP resolvers and ignores the VPN’s DNS.</li>
-      <li><strong>Split tunneling or policy routing:</strong> Some apps bypass the VPN, sending DNS outside the tunnel.</li>
-      <li><strong>IPv6 path differences:</strong> IPv6 lookups can exit via different resolvers if not handled by the VPN.</li>
-      <li><strong>Smart DNS / captive portals:</strong> “Helpful” network services rewrite DNS to local resolvers.</li>
-      <li><strong>Browser settings or extensions:</strong> Per-app DoH with fallback to system DNS can create mixed paths.</li>
-    </ul>
-
-    <h2>How to test for DNS leaks (2 minutes)</h2>
-    <ol>
-      <li>Connect your VPN (or configure your resolver) and open <a href="/tools/what-is-my-ip.html">What is My IP</a> to confirm a changed public IP.</li>
-      <li>Run <a href="/tools/dns-lookup.html">DNS Lookup</a> and note the <strong>resolver IPs / ASNs / country</strong> reported.</li>
-      <li>Disable the VPN and repeat the test. If the resolver list is the same as without VPN, you have a leak.</li>
-      <li>If you use IPv6, ensure the test shows IPv6 resolvers consistent with your setup.</li>
-    </ol>
-
-    <h2>Fixing DNS leaks: proven methods</h2>
-    <ol>
-      <li><strong>Use VPN-provided DNS</strong>: enable the option “Use VPN DNS” or “Block outside DNS” in your app. Turn on the <strong>kill switch</strong>.</li>
-      <li><strong>Force encrypted DNS</strong>: set <strong>DNS-over-HTTPS (DoH)</strong> or <strong>DNS-over-TLS (DoT)</strong> to a trusted resolver (system-wide or browser), but keep it consistent with your VPN route.</li>
-      <li><strong>Handle IPv6</strong>: enable IPv6 in the VPN client or disable IPv6 on the adapter if your VPN doesn’t support it.</li>
-      <li><strong>Avoid split tunneling</strong> for browsers and sensitive apps, or include DNS in the tunnel explicitly.</li>
-      <li><strong>Set adapter priority</strong>: ensure the VPN virtual adapter has higher priority and pushes its DNS.</li>
-      <li><strong>Router-level DNS</strong> (optional): if you control the router, set encrypted DNS there and disable ISP overrides.</li>
-    </ol>
-
-    <h2>DoH, DoT, VPN DNS — what’s the difference?</h2>
-    <table class="compare" summary="DoH vs DoT vs VPN DNS">
-      <thead>
-        <tr><th>Option</th><th>Encrypts DNS?</th><th>Hides from ISP?</th><th>Consistent with VPN?</th><th>Best use</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>DoH (DNS-over-HTTPS)</td><td>✅ Yes</td><td>✅ Yes</td><td>⚠️ Sometimes</td><td>Browser-level privacy; per-app control</td></tr>
-        <tr><td>DoT (DNS-over-TLS)</td><td>✅ Yes</td><td>✅ Yes</td><td>⚠️ Sometimes</td><td>System-wide on mobile/routers</td></tr>
-        <tr><td>VPN DNS</td><td>✅ Via tunnel</td><td>✅ Yes</td><td>✅ Yes</td><td>Best with VPN; avoids route mismatch</td></tr>
-      </tbody>
-    </table>
-    <p class="light">Tip: Mixing per-app DoH with a VPN can still leak if the browser falls back to system DNS or routes outside the tunnel.</p>
-
-    <h2>Checklist: secure setup in 5 steps</h2>
-    <ol>
-      <li>Enable <strong>VPN DNS + kill switch</strong> in your VPN app.</li>
-      <li>Pick a <strong>single DNS strategy</strong> (VPN DNS or DoH/DoT) and stick to it across apps.</li>
-      <li>Handle <strong>IPv6</strong>: enable in VPN or disable system IPv6 temporarily.</li>
-      <li>Re-test on <a href="/tools/dns-lookup.html">DNS Lookup</a>; resolvers should match your chosen strategy.</li>
-      <li>Harden the browser (block third‑party cookies, limit extensions, consider anti‑fingerprinting).</li>
-    </ol>
-
-    <!-- Related articles -->
-    <aside class="wrap card" style="margin-top:24px">
-      <h3>Related articles</h3>
-      <ul>
-        <li><a href="/faq/how-to-hide-your-ip-address.html">How to Hide Your IP Address (Free & Paid Methods)</a></li>
-        <li><a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">What Is a VPN and How Does It Hide My IP?</a></li>
-        <li><a href="/faq/can-someone-track-me-by-my-ip-address.html">Can Someone Track Me by My IP Address?</a></li>
-        <li><a href="/faq/ip-geolocation-accuracy.html">How accurate is IP geolocation?</a></li>
-      </ul>
-    </aside>
-
-    <!-- CTA -->
-    <hr>
-    <p><strong>Test now:</strong> Check your current IP on <a href="/tools/what-is-my-ip.html">What is My IP</a>, then verify resolvers via <a href="/tools/dns-lookup.html">DNS Lookup</a> and browser IP via <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a>.</p>
-  </main>
-
-  <!-- Footer -->
-  <footer class="wrap">
-    <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
-  </footer>
-
-  <!-- JSON-LD: Article -->
-  <script type="application/ld+json">
+<!-- Header / Nav -->
+<header class="wrap nav">
+<div class="logo"><a href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+<nav>
+<a href="/">Home</a>
+<a href="/what-is-my-ip.html">What is my IP</a>
+<a href="/faq/">FAQ</a>
+<a href="/privacy.html">Privacy</a>
+<a href="/terms.html">Terms</a>
+<span class="tools">
+<button aria-expanded="false" aria-haspopup="true" id="toolsButton">Tools</button>
+<div aria-label="Tools menu" class="tools-menu" role="menu">
+<a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+<a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+<a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+<a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+<a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+</div>
+</span>
+</nav>
+</header>
+<!-- Article -->
+<main class="wrap article">
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › What Is a DNS Leak and How to Prevent It</div>
+<!-- Title & date -->
+<h1>What Is a DNS Leak and How to Prevent It</h1>
+<time datetime="2025-10-15">Updated: October 15, 2025</time>
+<!-- Lede -->
+<p>A <strong>DNS leak</strong> happens when your device sends domain lookups to a resolver outside your intended private route — for example, to your ISP’s DNS instead of the VPN’s or your chosen encrypted resolver. This exposes the websites you visit to networks and third parties, even if your IP is hidden. Below we explain what DNS leaks are, how to test for them, and how to prevent leaks on VPNs, browsers, and operating systems.</p>
+<h2>What is DNS and why leaks matter</h2>
+<p>DNS translates human-readable names (like example.com) into IP addresses. If DNS queries bypass your VPN tunnel or encrypted resolver, observers can infer your browsing activity. Leaks reduce privacy, break region settings, and can trigger streaming or corporate restrictions.</p>
+<h2>Common causes of DNS leaks</h2>
+<ul>
+<li><strong>OS resolver overrides:</strong> System or adapter DNS points to ISP resolvers and ignores the VPN’s DNS.</li>
+<li><strong>Split tunneling or policy routing:</strong> Some apps bypass the VPN, sending DNS outside the tunnel.</li>
+<li><strong>IPv6 path differences:</strong> IPv6 lookups can exit via different resolvers if not handled by the VPN.</li>
+<li><strong>Smart DNS / captive portals:</strong> “Helpful” network services rewrite DNS to local resolvers.</li>
+<li><strong>Browser settings or extensions:</strong> Per-app DoH with fallback to system DNS can create mixed paths.</li>
+</ul>
+<h2>How to test for DNS leaks (2 minutes)</h2>
+<ol>
+<li>Connect your VPN (or configure your resolver) and open <a href="/tools/what-is-my-ip.html">What is My IP</a> to confirm a changed public IP.</li>
+<li>Run <a href="/tools/dns-lookup.html">DNS Lookup</a> and note the <strong>resolver IPs / ASNs / country</strong> reported.</li>
+<li>Disable the VPN and repeat the test. If the resolver list is the same as without VPN, you have a leak.</li>
+<li>If you use IPv6, ensure the test shows IPv6 resolvers consistent with your setup.</li>
+</ol>
+<h2>Fixing DNS leaks: proven methods</h2>
+<ol>
+<li><strong>Use VPN-provided DNS</strong>: enable the option “Use VPN DNS” or “Block outside DNS” in your app. Turn on the <strong>kill switch</strong>.</li>
+<li><strong>Force encrypted DNS</strong>: set <strong>DNS-over-HTTPS (DoH)</strong> or <strong>DNS-over-TLS (DoT)</strong> to a trusted resolver (system-wide or browser), but keep it consistent with your VPN route.</li>
+<li><strong>Handle IPv6</strong>: enable IPv6 in the VPN client or disable IPv6 on the adapter if your VPN doesn’t support it.</li>
+<li><strong>Avoid split tunneling</strong> for browsers and sensitive apps, or include DNS in the tunnel explicitly.</li>
+<li><strong>Set adapter priority</strong>: ensure the VPN virtual adapter has higher priority and pushes its DNS.</li>
+<li><strong>Router-level DNS</strong> (optional): if you control the router, set encrypted DNS there and disable ISP overrides.</li>
+</ol>
+<h2>DoH, DoT, VPN DNS — what’s the difference?</h2>
+<table class="compare" summary="DoH vs DoT vs VPN DNS">
+<thead>
+<tr><th>Option</th><th>Encrypts DNS?</th><th>Hides from ISP?</th><th>Consistent with VPN?</th><th>Best use</th></tr>
+</thead>
+<tbody>
+<tr><td>DoH (DNS-over-HTTPS)</td><td>✅ Yes</td><td>✅ Yes</td><td>⚠️ Sometimes</td><td>Browser-level privacy; per-app control</td></tr>
+<tr><td>DoT (DNS-over-TLS)</td><td>✅ Yes</td><td>✅ Yes</td><td>⚠️ Sometimes</td><td>System-wide on mobile/routers</td></tr>
+<tr><td>VPN DNS</td><td>✅ Via tunnel</td><td>✅ Yes</td><td>✅ Yes</td><td>Best with VPN; avoids route mismatch</td></tr>
+</tbody>
+</table>
+<p class="light">Tip: Mixing per-app DoH with a VPN can still leak if the browser falls back to system DNS or routes outside the tunnel.</p>
+<h2>Checklist: secure setup in 5 steps</h2>
+<ol>
+<li>Enable <strong>VPN DNS + kill switch</strong> in your VPN app.</li>
+<li>Pick a <strong>single DNS strategy</strong> (VPN DNS or DoH/DoT) and stick to it across apps.</li>
+<li>Handle <strong>IPv6</strong>: enable in VPN or disable system IPv6 temporarily.</li>
+<li>Re-test on <a href="/tools/dns-lookup.html">DNS Lookup</a>; resolvers should match your chosen strategy.</li>
+<li>Harden the browser (block third‑party cookies, limit extensions, consider anti‑fingerprinting).</li>
+</ol>
+<!-- Related articles -->
+<aside class="wrap card" style="margin-top:24px">
+<h3>Related articles</h3>
+<ul>
+<li><a href="/faq/how-to-hide-your-ip-address.html">How to Hide Your IP Address (Free &amp; Paid Methods)</a></li>
+<li><a href="/faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html">What Is a VPN and How Does It Hide My IP?</a></li>
+<li><a href="/faq/can-someone-track-me-by-my-ip-address.html">Can Someone Track Me by My IP Address?</a></li>
+<li><a href="/faq/ip-geolocation-accuracy.html">How accurate is IP geolocation?</a></li>
+</ul>
+</aside>
+<!-- CTA -->
+<hr/>
+<p><strong>Test now:</strong> Check your current IP on <a href="/tools/what-is-my-ip.html">What is My IP</a>, then verify resolvers via <a href="/tools/dns-lookup.html">DNS Lookup</a> and browser IP via <a href="/tools/webrtc-leak-test.html">WebRTC Leak Test</a>.</p>
+</main>
+<!-- Footer -->
+<footer class="wrap">
+<p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
+</footer>
+<!-- JSON-LD: Article -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -148,9 +132,8 @@
     "image": "https://myipscan.net/static/og-cover.png"
   }
   </script>
-
-  <!-- JSON-LD: Breadcrumbs -->
-  <script type="application/ld+json">
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -161,9 +144,8 @@
     ]
   }
   </script>
-
-  <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -195,9 +177,8 @@
     ]
   }
   </script>
-
-  <!-- JS: Stable Tools menu -->
-  <script>
+<!-- JS: Stable Tools menu -->
+<script>
   (function(){
     var tools=document.querySelector('.tools');if(!tools)return;
     var btn=document.getElementById('toolsButton');var menu=tools.querySelector('.tools-menu');if(!btn||!menu)return;

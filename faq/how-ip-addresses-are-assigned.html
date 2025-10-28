@@ -1,204 +1,179 @@
 
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>How IP Addresses Are Assigned? 10 Key Steps (2025 Guide)</title>
+<meta content="Short answer: IP addresses are allocated top‑down. IANA manages the global pool, delegates large blocks to Regional Internet Registries (RIRs) , which allocate to…" name="description"/>
+<meta content="index,follow" name="robots"/>
 
-  <title>How IP Addresses Are Assigned? 10 Key Steps (2025 Guide)</title>
-  <meta name="description" content="How are IP addresses assigned? Learn the 10 key steps: IANA & RIRs, ISPs, DHCP, static vs dynamic, IPv4 vs IPv6, and what it means for privacy and geolocation.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://myipscan.net/faq/how-ip-addresses-are-assigned.html">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="How IP Addresses Are Assigned? 10 Key Steps (2025 Guide)">
-  <meta property="og:description" content="From IANA and RIRs to your router’s DHCP: understand how IPv4/IPv6 are allocated, what static/dynamic means, and how it affects privacy, routing, and geolocation.">
-  <meta property="og:url" content="https://myipscan.net/faq/how-ip-addresses-are-assigned.html">
-  <meta property="og:image" content="https://myipscan.net/static/og-cover.png">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How IP Addresses Are Assigned? 10 Key Steps (2025 Guide)">
-  <meta name="twitter:description" content="IANA → RIRs → ISPs → DHCP: learn the full chain for IPv4/IPv6 assignment and what it means for security, privacy, and geolocation.">
-  <meta name="twitter:image" content="https://myipscan.net/static/og-cover.png">
-
-  <link rel="preload" as="style" href="/styles.css">
-  <link rel="stylesheet" href="/styles.css">
-</head>
+<!-- Open Graph -->
+<meta content="article" property="og:type"/>
+<meta content="How IP Addresses Are Assigned? 10 Key Steps (2025 Guide)" property="og:title"/>
+<meta content="Short answer: IP addresses are allocated top‑down. IANA manages the global pool, delegates large blocks to Regional Internet Registries (RIRs) , which allocate to…" property="og:description"/>
+<meta content="https://myipscan.net/faq/how-ip-addresses-are-assigned.html" property="og:url"/>
+<meta content="https://myipscan.net/static/og-cover.png" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="How IP Addresses Are Assigned? 10 Key Steps (2025 Guide)" name="twitter:title"/>
+<meta content="IANA → RIRs → ISPs → DHCP: learn the full chain for IPv4/IPv6 assignment and what it means for security, privacy, and geolocation." name="twitter:description"/>
+<meta content="https://myipscan.net/static/og-cover.png" name="twitter:image"/>
+<link as="style" href="/styles.css" rel="preload"/>
+<link href="/styles.css" rel="stylesheet"/>
+<link href="https://myipscan.net/faq/how-ip-addresses-are-assigned.html" rel="canonical"/></head>
 <body>
-  <header class="wrap nav">
-    <div class="logo"><a href="mailto:myipscan@gmail.com" aria-label="Contact MyIPScan">myipscan@gmail.com</a></div>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/what-is-my-ip.html">What is My IP</a>
-      <a href="/faq/index.html">FAQ</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <span class="tools">
-        <button id="toolsButton" aria-expanded="false" aria-haspopup="true">Tools</button>
-        <div class="tools-menu" role="menu" aria-label="Tools menu">
-          <a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
-          <a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
-          <a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
-          <a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
-          <a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
-        </div>
-      </span>
-    </nav>
-  </header>
-
-  <main class="wrap article">
-    <div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › How IP Addresses Are Assigned? 10 Key Steps (2025 Guide)</div>
-
-    <h1>How IP Addresses Are Assigned? 10 Key Steps (2025 Guide)</h1>
-    <time datetime="2025-10-16">Updated: October 16, 2025</time>
-
-    <p><strong>Short answer:</strong> IP addresses are allocated top‑down. <em>IANA</em> manages the global pool, delegates large blocks to <em>Regional Internet Registries (RIRs)</em>, which allocate to <em>ISPs</em> and organizations. Your home router then assigns local addresses using <strong>DHCP</strong> (IPv4) or <strong>SLAAC/DHCPv6</strong> (IPv6). Whether your public IP is <em>static</em> or <em>dynamic</em> affects stability, geolocation, and how services reach you.</p>
-
-    <!-- TL;DR -->
-    <section class="card" aria-labelledby="tldr">
-      <h2 id="tldr">TL;DR — 30 seconds</h2>
-      <ul>
-        <li><strong>Top‑down chain:</strong> IANA → RIRs (ARIN, RIPE, APNIC, LACNIC, AFRINIC) → ISPs → customers.</li>
-        <li><strong>At home/work:</strong> your gateway assigns local IPv4 via DHCP and IPv6 via SLAAC/DHCPv6.</li>
-        <li><strong>Static vs dynamic:</strong> static is fixed (good for hosting, easier to track); dynamic rotates (better for privacy, may break whitelists).</li>
-        <li><strong>IPv4 scarcity vs IPv6 abundance:</strong> IPv6 uses 128‑bit addresses; design choices (prefix, privacy extensions) matter.</li>
-        <li><strong>Impact:</strong> routing, geolocation accuracy, blacklisting, and access controls depend on who owns the block and how it’s assigned.</li>
-      </ul>
-    </section>
-
-    <h2>The global hierarchy (who allocates what)</h2>
-    <p>The public internet uses a carefully governed hierarchy to keep addresses unique and routable:</p>
-    <ol>
-      <li><strong>IANA (Internet Assigned Numbers Authority):</strong> maintains the global pool of IPv4 and IPv6 address space and delegates large blocks to RIRs.</li>
-      <li><strong>RIRs (Regional Internet Registries):</strong> five non‑profits manage address space within regions: <em>ARIN</em> (North America), <em>RIPE NCC</em> (Europe/Middle East/Central Asia), <em>APNIC</em> (Asia‑Pacific), <em>LACNIC</em> (Latin America/Caribbean), <em>AFRINIC</em> (Africa).</li>
-      <li><strong>NIRs/LIRs/ISPs:</strong> in some regions, National or Local Internet Registries handle allocations to <em>ISPs</em>, enterprises, universities, and hosts.</li>
-      <li><strong>Organizations and end‑users:</strong> receive provider‑aggregatable (PA) or provider‑independent (PI) blocks for networks and services.</li>
-    </ol>
-
-    <h2>10 key steps from IANA to your device</h2>
-    <ol>
-      <li><strong>IANA assigns to RIRs:</strong> large IPv4/IPv6 blocks are allocated to each region based on need and policy.</li>
-      <li><strong>RIR policy review:</strong> members set policies (justification, conservation) that govern downstream allocations.</li>
-      <li><strong>RIR allocates to ISPs/LIRs:</strong> ISPs receive routable blocks and register them in public databases (WHOIS/RDAP).</li>
-      <li><strong>ISP plans address topology:</strong> subnets/prefixes are carved by geography, technology (FTTH, cable, mobile), and service tiers.</li>
-      <li><strong>Routing announcements:</strong> ISPs announce prefixes via BGP to make them globally reachable.</li>
-      <li><strong>Customer assignment:</strong> subscribers get public IPv4/IPv6 (dynamic or static) and local private ranges for LANs.</li>
-      <li><strong>Home gateway allocates LAN IPs:</strong> DHCP (IPv4) and SLAAC/DHCPv6 (IPv6) assign device addresses and default routes.</li>
-      <li><strong>Lease and renewal:</strong> DHCP leases expire and renew; IPv6 privacy extensions rotate interface IDs to reduce tracking.</li>
-      <li><strong>Reverse DNS & records:</strong> ISPs maintain PTR (in‑addr.arpa/ip6.arpa) and other metadata used by mail and security systems.</li>
-      <li><strong>Monitoring & updates:</strong> allocations, contact data, and route objects are maintained in RIR databases and routing registries.</li>
-    </ol>
-
-    <h2>Static vs dynamic: what changes for you</h2>
-    <table>
-      <thead><tr><th>Aspect</th><th>Static IP</th><th>Dynamic IP</th></tr></thead>
-      <tbody>
-        <tr><td>Stability</td><td>Fixed</td><td>Rotates (e.g., after lease expiry/reboot)</td></tr>
-        <tr><td>Hosting/Access</td><td>Easy to host; whitelists simple</td><td>Needs DDNS/VPN; whitelists break</td></tr>
-        <tr><td>Privacy</td><td>Easier to correlate activity</td><td>Harder to correlate across time</td></tr>
-        <tr><td>Cost</td><td>May cost extra</td><td>Default option</td></tr>
-        <tr><td>Abuse handling</td><td>Reputation follows IP</td><td>Issues may dissipate on change</td></tr>
-      </tbody>
-    </table>
-
-    <h2>IPv4 vs IPv6 assignment</h2>
-    <p><strong>IPv4</strong> (32‑bit) is scarce; ISPs often use <strong>CGNAT</strong> (Carrier‑Grade NAT) to place many customers behind one public IP while giving private RFC1918 addresses on the LAN. Port forwarding is limited or unavailable under CGNAT.</p>
-    <p><strong>IPv6</strong> (128‑bit) offers abundant addressing. ISPs typically provide a <strong>/56 or /64 prefix</strong> to homes. Devices form addresses via <strong>SLAAC</strong> with <strong>privacy extensions</strong> (temporary random interface IDs) or receive addresses via <strong>DHCPv6</strong>. You can subnet internally without NAT, which simplifies end‑to‑end connectivity (but requires proper firewalling).</p>
-
-    <h2>What determines your geolocation & reputation</h2>
-    <ul>
-      <li><strong>Who owns the block:</strong> geolocation providers map WHOIS/RDAP data, usage patterns, and signals from apps/sites.</li>
-      <li><strong>Routing and latency:</strong> where a prefix is announced and peered can affect inferred city/region.</li>
-      <li><strong>Mobile vs residential vs data center:</strong> each type has a distinct risk/abuse profile and may be treated differently by services.</li>
-      <li><strong>Reputation feeds:</strong> spam, abuse reports, and blacklists impact deliverability (email) and fraud scoring.</li>
-    </ul>
-
-    <h2>Config examples: how your LAN gets its addresses</h2>
-    <h3>IPv4 DHCP</h3>
-    <ol>
-      <li>Router runs a DHCP server (scope like <code>192.168.1.100–192.168.1.199</code>).</li>
-      <li>Device requests an address; router offers an IP, gateway, DNS, and lease time (e.g., 24 hours).</li>
-      <li>Device renews the lease before expiry to keep the same address.</li>
-    </ol>
-    <h3>IPv6 SLAAC/DHCPv6</h3>
-    <ol>
-      <li>ISP delegates a prefix (e.g., <code>2001:db8:1234::/56</code>).</li>
-      <li>Router advertises subnets (RD/RA). Devices self‑configure via SLAAC with random interface IDs (privacy extensions).</li>
-      <li>Optionally, DHCPv6 provides DNS and additional settings; static addresses can be assigned for servers.</li>
-    </ol>
-
-    <h2>Common pitfalls & how to avoid them</h2>
-    <ul>
-      <li><strong>Exposed services on public IP:</strong> don’t expose admin panels; prefer VPN; enforce MFA and strong passwords.</li>
-      <li><strong>UPnP opening ports silently:</strong> disable or audit monthly; remove unknown mappings.</li>
-      <li><strong>Misleading geolocation:</strong> contact providers to correct, or use VPN when location sensitivity matters.</li>
-      <li><strong>Mail deliverability:</strong> set correct PTR, SPF, DKIM, DMARC when running outbound mail.</li>
-      <li><strong>Static IP privacy:</strong> consider per‑service profiles, strict cookie hygiene, and DoH/DoT.</li>
-    </ul>
-
-    <h2>Checklist — 12 practical actions</h2>
-    <ol>
-      <li>Ask your ISP whether you have static or dynamic public IP; request details about IPv6 prefix size.</li>
-      <li>Enable IPv6 privacy extensions; use DHCPv6 or SLAAC appropriately.</li>
-      <li>Disable WAN admin on the router; keep firmware updated.</li>
-      <li>Turn off UPnP unless you truly need it; review port forwards quarterly.</li>
-      <li>Prefer VPN instead of exposing services to the internet.</li>
-      <li>Segment IoT on a guest/VLAN network; keep work devices separate.</li>
-      <li>Use strong unique passwords and MFA for any remote access or admin accounts.</li>
-      <li>If you run email services, configure PTR/SPF/DKIM/DMARC and monitor blacklists.</li>
-      <li>Review your geolocation in critical apps; request corrections if consistently wrong.</li>
-      <li>Understand CGNAT limitations; consider business/static plans if you need inbound ports.</li>
-      <li>Monitor logs for failed logins and unusual traffic; enable alerts where possible.</li>
-      <li>Back up router configs; keep an offline copy and test restore.</li>
-    </ol>
-
-    <h2>FAQ</h2>
-    <dl>
-      <dt>Who decides which IP I get at home?</dt>
-      <dd>Your ISP assigns your public IP (dynamic or static). Inside your home, your router assigns local addresses via DHCP (IPv4) and SLAAC/DHCPv6 (IPv6).</dd>
-
-      <dt>Why does my IP change after reboot?</dt>
-      <dd>Dynamic IPv4/IPv6 leases expire; on reboot you may receive a new address. ISPs also rotate IPs for address conservation or policy.</dd>
-
-      <dt>Can I request a static IP?</dt>
-      <dd>Many ISPs offer static or sticky IPs for a fee. Static IPs are useful for hosting/whitelists but can reduce privacy.</dd>
-
-      <dt>Do I still need NAT with IPv6?</dt>
-      <dd>No. IPv6 supports end‑to‑end addressing. Keep your firewall on and only allow inbound connections you intend to expose.</dd>
-
-      <dt>Why is geolocation for my IP wrong?</dt>
-      <dd>Providers infer location from ownership and routing signals which may be stale. Request dataset updates or use a VPN for location‑sensitive tasks.</dd>
-    </dl>
-
-    <aside class="wrap card" style="margin-top:24px">
-      <h3>Related articles</h3>
-      <ul>
-        <li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6: Key Differences</a></li>
-        <li><a href="/faq/ip-geolocation-accuracy.html">IP Geolocation Accuracy</a></li>
-        <li><a href="/faq/how-to-check-if-your-ip-is-blacklisted.html">How to Check if Your IP Is Blacklisted</a></li>
-        <li><a href="/faq/can-someone-track-me-by-my-ip-address.html">Can Someone Track Me by My IP Address?</a></li>
-      </ul>
-    </aside>
-
-    <hr>
-    <section aria-labelledby="authorbox" class="card">
-      <h2 id="authorbox">About the author & editorial process</h2>
-      <p><strong>Author:</strong> Yaroslav Sabardak — editor of MyIPScan. Focused on practical network privacy and consumer security. Articles follow a review checklist (accuracy, clarity, safety advice) and are updated when standards or vendor guidance change.</p>
-      <p><strong>Reviewed by:</strong> MyIPScan Security Editorial Team. We avoid intrusive tracking and do not log IPs for analytics. See <a href="/privacy.html">Privacy</a>.</p>
-      <p><strong>Last review:</strong> October 16, 2025</p>
-    </section>
-
-    <p><strong>Next steps:</strong> confirm your public IP, review router DHCP/DHCPv6 settings, and apply the checklist above.</p>
-  </main>
-
-  <footer class="wrap">
-    <p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
-  </footer>
-
-  <!-- JSON-LD: WebPage + Article -->
-  <script type="application/ld+json">
+<header class="wrap nav">
+<div class="logo"><a aria-label="Contact MyIPScan" href="mailto:myipscan@gmail.com">myipscan@gmail.com</a></div>
+<nav>
+<a href="/">Home</a>
+<a href="/what-is-my-ip.html">What is My IP</a>
+<a href="/faq/">FAQ</a>
+<a href="/privacy.html">Privacy</a>
+<a href="/terms.html">Terms</a>
+<span class="tools">
+<button aria-expanded="false" aria-haspopup="true" id="toolsButton">Tools</button>
+<div aria-label="Tools menu" class="tools-menu" role="menu">
+<a href="/tools/password-generator.html" role="menuitem">Password Generator</a>
+<a href="/tools/webrtc-leak-test.html" role="menuitem">WebRTC Leak Test</a>
+<a href="/tools/dns-lookup.html" role="menuitem">DNS Lookup</a>
+<a href="/tools/user-agent.html" role="menuitem">User-Agent Info</a>
+<a href="/tools/what-is-my-ip.html" role="menuitem">What is My IP</a>
+</div>
+</span>
+</nav>
+</header>
+<main class="wrap article">
+<div class="breadcrumbs">Home › <a href="/faq/">FAQ</a> › How IP Addresses Are Assigned? 10 Key Steps (2025 Guide)</div>
+<h1>How IP Addresses Are Assigned? 10 Key Steps (2025 Guide)</h1>
+<time datetime="2025-10-16">Updated: October 16, 2025</time>
+<p><strong>Short answer:</strong> IP addresses are allocated top‑down. <em>IANA</em> manages the global pool, delegates large blocks to <em>Regional Internet Registries (RIRs)</em>, which allocate to <em>ISPs</em> and organizations. Your home router then assigns local addresses using <strong>DHCP</strong> (IPv4) or <strong>SLAAC/DHCPv6</strong> (IPv6). Whether your public IP is <em>static</em> or <em>dynamic</em> affects stability, geolocation, and how services reach you.</p>
+<!-- TL;DR -->
+<section aria-labelledby="tldr" class="card">
+<h2 id="tldr">TL;DR — 30 seconds</h2>
+<ul>
+<li><strong>Top‑down chain:</strong> IANA → RIRs (ARIN, RIPE, APNIC, LACNIC, AFRINIC) → ISPs → customers.</li>
+<li><strong>At home/work:</strong> your gateway assigns local IPv4 via DHCP and IPv6 via SLAAC/DHCPv6.</li>
+<li><strong>Static vs dynamic:</strong> static is fixed (good for hosting, easier to track); dynamic rotates (better for privacy, may break whitelists).</li>
+<li><strong>IPv4 scarcity vs IPv6 abundance:</strong> IPv6 uses 128‑bit addresses; design choices (prefix, privacy extensions) matter.</li>
+<li><strong>Impact:</strong> routing, geolocation accuracy, blacklisting, and access controls depend on who owns the block and how it’s assigned.</li>
+</ul>
+</section>
+<h2>The global hierarchy (who allocates what)</h2>
+<p>The public internet uses a carefully governed hierarchy to keep addresses unique and routable:</p>
+<ol>
+<li><strong>IANA (Internet Assigned Numbers Authority):</strong> maintains the global pool of IPv4 and IPv6 address space and delegates large blocks to RIRs.</li>
+<li><strong>RIRs (Regional Internet Registries):</strong> five non‑profits manage address space within regions: <em>ARIN</em> (North America), <em>RIPE NCC</em> (Europe/Middle East/Central Asia), <em>APNIC</em> (Asia‑Pacific), <em>LACNIC</em> (Latin America/Caribbean), <em>AFRINIC</em> (Africa).</li>
+<li><strong>NIRs/LIRs/ISPs:</strong> in some regions, National or Local Internet Registries handle allocations to <em>ISPs</em>, enterprises, universities, and hosts.</li>
+<li><strong>Organizations and end‑users:</strong> receive provider‑aggregatable (PA) or provider‑independent (PI) blocks for networks and services.</li>
+</ol>
+<h2>10 key steps from IANA to your device</h2>
+<ol>
+<li><strong>IANA assigns to RIRs:</strong> large IPv4/IPv6 blocks are allocated to each region based on need and policy.</li>
+<li><strong>RIR policy review:</strong> members set policies (justification, conservation) that govern downstream allocations.</li>
+<li><strong>RIR allocates to ISPs/LIRs:</strong> ISPs receive routable blocks and register them in public databases (WHOIS/RDAP).</li>
+<li><strong>ISP plans address topology:</strong> subnets/prefixes are carved by geography, technology (FTTH, cable, mobile), and service tiers.</li>
+<li><strong>Routing announcements:</strong> ISPs announce prefixes via BGP to make them globally reachable.</li>
+<li><strong>Customer assignment:</strong> subscribers get public IPv4/IPv6 (dynamic or static) and local private ranges for LANs.</li>
+<li><strong>Home gateway allocates LAN IPs:</strong> DHCP (IPv4) and SLAAC/DHCPv6 (IPv6) assign device addresses and default routes.</li>
+<li><strong>Lease and renewal:</strong> DHCP leases expire and renew; IPv6 privacy extensions rotate interface IDs to reduce tracking.</li>
+<li><strong>Reverse DNS &amp; records:</strong> ISPs maintain PTR (in‑addr.arpa/ip6.arpa) and other metadata used by mail and security systems.</li>
+<li><strong>Monitoring &amp; updates:</strong> allocations, contact data, and route objects are maintained in RIR databases and routing registries.</li>
+</ol>
+<h2>Static vs dynamic: what changes for you</h2>
+<table>
+<thead><tr><th>Aspect</th><th>Static IP</th><th>Dynamic IP</th></tr></thead>
+<tbody>
+<tr><td>Stability</td><td>Fixed</td><td>Rotates (e.g., after lease expiry/reboot)</td></tr>
+<tr><td>Hosting/Access</td><td>Easy to host; whitelists simple</td><td>Needs DDNS/VPN; whitelists break</td></tr>
+<tr><td>Privacy</td><td>Easier to correlate activity</td><td>Harder to correlate across time</td></tr>
+<tr><td>Cost</td><td>May cost extra</td><td>Default option</td></tr>
+<tr><td>Abuse handling</td><td>Reputation follows IP</td><td>Issues may dissipate on change</td></tr>
+</tbody>
+</table>
+<h2>IPv4 vs IPv6 assignment</h2>
+<p><strong>IPv4</strong> (32‑bit) is scarce; ISPs often use <strong>CGNAT</strong> (Carrier‑Grade NAT) to place many customers behind one public IP while giving private RFC1918 addresses on the LAN. Port forwarding is limited or unavailable under CGNAT.</p>
+<p><strong>IPv6</strong> (128‑bit) offers abundant addressing. ISPs typically provide a <strong>/56 or /64 prefix</strong> to homes. Devices form addresses via <strong>SLAAC</strong> with <strong>privacy extensions</strong> (temporary random interface IDs) or receive addresses via <strong>DHCPv6</strong>. You can subnet internally without NAT, which simplifies end‑to‑end connectivity (but requires proper firewalling).</p>
+<h2>What determines your geolocation &amp; reputation</h2>
+<ul>
+<li><strong>Who owns the block:</strong> geolocation providers map WHOIS/RDAP data, usage patterns, and signals from apps/sites.</li>
+<li><strong>Routing and latency:</strong> where a prefix is announced and peered can affect inferred city/region.</li>
+<li><strong>Mobile vs residential vs data center:</strong> each type has a distinct risk/abuse profile and may be treated differently by services.</li>
+<li><strong>Reputation feeds:</strong> spam, abuse reports, and blacklists impact deliverability (email) and fraud scoring.</li>
+</ul>
+<h2>Config examples: how your LAN gets its addresses</h2>
+<h3>IPv4 DHCP</h3>
+<ol>
+<li>Router runs a DHCP server (scope like <code>192.168.1.100–192.168.1.199</code>).</li>
+<li>Device requests an address; router offers an IP, gateway, DNS, and lease time (e.g., 24 hours).</li>
+<li>Device renews the lease before expiry to keep the same address.</li>
+</ol>
+<h3>IPv6 SLAAC/DHCPv6</h3>
+<ol>
+<li>ISP delegates a prefix (e.g., <code>2001:db8:1234::/56</code>).</li>
+<li>Router advertises subnets (RD/RA). Devices self‑configure via SLAAC with random interface IDs (privacy extensions).</li>
+<li>Optionally, DHCPv6 provides DNS and additional settings; static addresses can be assigned for servers.</li>
+</ol>
+<h2>Common pitfalls &amp; how to avoid them</h2>
+<ul>
+<li><strong>Exposed services on public IP:</strong> don’t expose admin panels; prefer VPN; enforce MFA and strong passwords.</li>
+<li><strong>UPnP opening ports silently:</strong> disable or audit monthly; remove unknown mappings.</li>
+<li><strong>Misleading geolocation:</strong> contact providers to correct, or use VPN when location sensitivity matters.</li>
+<li><strong>Mail deliverability:</strong> set correct PTR, SPF, DKIM, DMARC when running outbound mail.</li>
+<li><strong>Static IP privacy:</strong> consider per‑service profiles, strict cookie hygiene, and DoH/DoT.</li>
+</ul>
+<h2>Checklist — 12 practical actions</h2>
+<ol>
+<li>Ask your ISP whether you have static or dynamic public IP; request details about IPv6 prefix size.</li>
+<li>Enable IPv6 privacy extensions; use DHCPv6 or SLAAC appropriately.</li>
+<li>Disable WAN admin on the router; keep firmware updated.</li>
+<li>Turn off UPnP unless you truly need it; review port forwards quarterly.</li>
+<li>Prefer VPN instead of exposing services to the internet.</li>
+<li>Segment IoT on a guest/VLAN network; keep work devices separate.</li>
+<li>Use strong unique passwords and MFA for any remote access or admin accounts.</li>
+<li>If you run email services, configure PTR/SPF/DKIM/DMARC and monitor blacklists.</li>
+<li>Review your geolocation in critical apps; request corrections if consistently wrong.</li>
+<li>Understand CGNAT limitations; consider business/static plans if you need inbound ports.</li>
+<li>Monitor logs for failed logins and unusual traffic; enable alerts where possible.</li>
+<li>Back up router configs; keep an offline copy and test restore.</li>
+</ol>
+<h2>FAQ</h2>
+<dl>
+<dt>Who decides which IP I get at home?</dt>
+<dd>Your ISP assigns your public IP (dynamic or static). Inside your home, your router assigns local addresses via DHCP (IPv4) and SLAAC/DHCPv6 (IPv6).</dd>
+<dt>Why does my IP change after reboot?</dt>
+<dd>Dynamic IPv4/IPv6 leases expire; on reboot you may receive a new address. ISPs also rotate IPs for address conservation or policy.</dd>
+<dt>Can I request a static IP?</dt>
+<dd>Many ISPs offer static or sticky IPs for a fee. Static IPs are useful for hosting/whitelists but can reduce privacy.</dd>
+<dt>Do I still need NAT with IPv6?</dt>
+<dd>No. IPv6 supports end‑to‑end addressing. Keep your firewall on and only allow inbound connections you intend to expose.</dd>
+<dt>Why is geolocation for my IP wrong?</dt>
+<dd>Providers infer location from ownership and routing signals which may be stale. Request dataset updates or use a VPN for location‑sensitive tasks.</dd>
+</dl>
+<aside class="wrap card" style="margin-top:24px">
+<h3>Related articles</h3>
+<ul>
+<li><a href="/faq/ipv4-vs-ipv6.html">IPv4 vs IPv6: Key Differences</a></li>
+<li><a href="/faq/ip-geolocation-accuracy.html">IP Geolocation Accuracy</a></li>
+<li><a href="/faq/how-to-check-if-your-ip-is-blacklisted.html">How to Check if Your IP Is Blacklisted</a></li>
+<li><a href="/faq/can-someone-track-me-by-my-ip-address.html">Can Someone Track Me by My IP Address?</a></li>
+</ul>
+</aside>
+<hr/>
+<section aria-labelledby="authorbox" class="card">
+<h2 id="authorbox">About the author &amp; editorial process</h2>
+<p><strong>Author:</strong> Yaroslav Sabardak — editor of MyIPScan. Focused on practical network privacy and consumer security. Articles follow a review checklist (accuracy, clarity, safety advice) and are updated when standards or vendor guidance change.</p>
+<p><strong>Reviewed by:</strong> MyIPScan Security Editorial Team. We avoid intrusive tracking and do not log IPs for analytics. See <a href="/privacy.html">Privacy</a>.</p>
+<p><strong>Last review:</strong> October 16, 2025</p>
+</section>
+<p><strong>Next steps:</strong> confirm your public IP, review router DHCP/DHCPv6 settings, and apply the checklist above.</p>
+</main>
+<footer class="wrap">
+<p class="light">© MyIPScan 2025. Privacy-first IP tools. Author: Yaroslav Sabardak</p>
+</footer>
+<!-- JSON-LD: WebPage + Article -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": ["WebPage","Article"],
@@ -213,9 +188,8 @@
     "keywords": ["IP assignment","IANA","RIR","RIPE","ARIN","APNIC","LACNIC","AFRINIC","DHCP","SLAAC","IPv4","IPv6","CGNAT","BGP"]
   }
   </script>
-
-  <!-- JSON-LD: Breadcrumbs -->
-  <script type="application/ld+json">
+<!-- JSON-LD: Breadcrumbs -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -226,9 +200,8 @@
     ]
   }
   </script>
-
-  <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -268,9 +241,8 @@
     ]
   }
   </script>
-
-  <!-- JS: Stable Tools menu -->
-  <script>
+<!-- JS: Stable Tools menu -->
+<script>
   (function(){
     var tools=document.querySelector('.tools'); if(!tools) return;
     var btn=document.getElementById('toolsButton');
