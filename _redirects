@@ -13,8 +13,10 @@ https://www.myipscan.net/*    https://myipscan.net/:splat   301
 # Canonical IP page (all варианты → /what-is-my-ip/)
 #/ip (старый URL)
 /ip                           /what-is-my-ip/               301
-/faq/how-to-hide-your-ip.html    /faq/how-to-hide-your-ip-address.html    301
 
+# FAQ fixes
+/faq/how-to-hide-your-ip.html        /faq/how-to-hide-your-ip-address.html                 301
+/faq/vpn-ip-leak.html                /faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html   301
 
 # Старые/дублирующие пути к IP-инструменту
 /what-is-my-ip.html           /what-is-my-ip/               301
