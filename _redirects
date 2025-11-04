@@ -14,6 +14,9 @@ https://www.myipscan.net/*    https://myipscan.net/:splat   301
 #/ip (старый URL)
 /ip                           /what-is-my-ip/               301
 
+# Any URL containing ?q= will redirect to the homepage
+/?q=*                     /        301
+
 # FAQ fixes
 /faq/how-to-hide-your-ip.html        /faq/how-to-hide-your-ip-address.html                 301
 /faq/vpn-ip-leak.html                /faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html   301
