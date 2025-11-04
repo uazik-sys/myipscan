@@ -10,29 +10,22 @@ https://www.myipscan.net/*    https://myipscan.net/:splat   301
 # Repo folder traces
 /myipscan-main/*              /:splat                       301
 
-# Canonical IP page (all варианты → /what-is-my-ip/)
-#/ip (старый URL)
-/ip                           /what-is-my-ip/               301
-
-# Any URL containing ?q= will redirect to the homepage
-/?q=*                     /        301
-
-# FAQ fixes
-/faq/how-to-hide-your-ip.html        /faq/how-to-hide-your-ip-address.html                 301
-/faq/vpn-ip-leak.html                /faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html   301
-/faq/what-is-a-dns-leak.html   /faq/what-is-a-dns-leak-and-how-to-prevent-it/   301
-
+# Canonical IP page (all варианты → /what-is-my-ip)
+/ip                           /what-is-my-ip               301
 
 # Старые/дублирующие пути к IP-инструменту
-/what-is-my-ip.html           /what-is-my-ip/               301
-/tools/what-is-my-ip.html     /what-is-my-ip/               301
-/tools/what-is-my-ip/         /what-is-my-ip/               301
-/myipscan-main/tools/what-is-my-ip.html  /what-is-my-ip/    301
+/what-is-my-ip.html           /what-is-my-ip               301
+/tools/what-is-my-ip.html     /what-is-my-ip               301
+/tools/what-is-my-ip/         /what-is-my-ip               301
+/myipscan-main/tools/what-is-my-ip.html  /what-is-my-ip    301
 
 # Typical duplicates for legal pages
-/privacy.html                 /privacy/                     301
-/terms.html                   /terms/                       301
+/privacy/                     /privacy.html                301
+/terms/                       /terms.html                  301
 
 # (Optional) pretty URLs for FAQ pages
-# Если решишь включить человеко-понятные URL FAQ, раскомментируй:
-# /faq/:name.html             /faq/:name/                   301
+# /faq/:name.html             /faq/:name/                  301
+
+# Legacy FAQ slugs
+/faq/vpn-ip-leak.html                  /faq/what-is-a-vpn-and-how-does-it-hide-my-ip.html      301
+/faq/how-to-hide-your-ip.html          /faq/how-to-hide-your-ip-address.html                   301
